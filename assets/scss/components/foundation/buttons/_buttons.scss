@@ -26,6 +26,27 @@
     overflow: hidden;
     text-overflow: ellipsis;
     transition: $anchor-transition;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-100%);
+        transition: all .3s;
+        z-index: -1;
+    }
+
+    &:hover::before {
+        transform: translateX(0);
+    }
 
     &.button--icon {
         svg {
@@ -100,7 +121,10 @@
             &:focus {
                 color: $buttonStyle-primary-colorHover;
                 border-color: $buttonStyle-primary-borderColorHover;
-                background-color: $buttonStyle-primary-backgroundColorHover;
+                background-color: transparent;
+                &::before {
+                    background-color: $buttonStyle-primary-backgroundColorHover;
+                }
             }
         }
 
@@ -110,7 +134,10 @@
             &:focus {
                 color: $buttonStyle-default-colorHover;
                 border-color: $buttonStyle-default-borderColorHover;
-                background-color: $buttonStyle-default-backgroundColorHover;
+                background-color: transparent;
+                &::before {
+                    background-color: $buttonStyle-default-backgroundColorHover;
+                }
             }
         }
 
@@ -119,8 +146,12 @@
             &:hover,
             &:focus {
                 color: $buttonStyle-tertiary-colorHover;
-                background-color: $buttonStyle-tertiary-backgroundColorHover;
                 border-color: $buttonStyle-tertiary-borderColorHover;
+                background-color: transparent;
+
+                &::before {
+                    background-color: $buttonStyle-tertiary-backgroundColorHover;
+                }
             }
         }
 
@@ -137,7 +168,11 @@
             &:active {
                 color: $color-textBase;
                 border-color: $buttonStyle-primary-colorActive;
-                background: $buttonStyle-primary-colorActive;
+                background: transparent;
+
+                &::before {
+                    background-color: $buttonStyle-primary-colorActive;
+                }
             }
         }
 
@@ -162,8 +197,12 @@
     &:hover,
     &:focus,
     &:active {
-        background: stencilColor('button-checkout-bgColor-hover');
         color: stencilColor('button-checkout-color-hover');
         border-color: stencilColor('button-checkout-border-color-hover');
+        background: transparent;
+
+        &::before {
+            background-color: stencilColor('button-checkout-bgColor-hover');
+        }
     }
 }
