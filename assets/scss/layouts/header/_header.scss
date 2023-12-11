@@ -335,3 +335,256 @@
         }
     }
 }
+
+.halo-middleHeader {
+    z-index: 11;
+    padding: 10px 0;
+    position: relative;
+
+    .container {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+
+        >.middleHeader-item {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0;
+
+            >.items {
+                display: block;
+                width: 100%;
+
+                &:not(.item--logo) {
+                    width: auto;
+                }
+
+                &.item--quicksearch {
+                    display: none;
+                }
+
+                &.item--wishlist {
+                    display: none;
+                }
+
+                +.items:not(.item--logo) {
+                    margin-left: 15px;
+                }
+            }
+
+            &.text-center {
+                flex: 1;
+
+                @media (max-width: 550px) {
+                    padding-left: 15px;
+                }
+
+                @media (min-width: 551px) and (max-width: 1024px) {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+
+    .navUser-action {
+        padding: 0;
+
+        .navUser-icon {
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+
+            svg {
+                width: 25px;
+                height: 25px;
+                fill: stencilColor('header-text-color');
+                margin: 0;
+            }
+        }
+
+        &.myAccountMobile {
+            display: block;
+        }
+
+        &.cartDesktop {
+            display: none;
+
+            .countPill {
+                background-color: #fff;
+
+                .home-layout-2 & {
+                    color: #fd6506;
+                }
+
+                .home-layout-3 & {
+                    color: #ffffff;
+                    background-color: #000000;
+                    font-weight: $fontWeight-normal;
+                }
+            }
+        }
+
+        &.cartMobile {
+            display: block;
+        }
+    }
+
+    .myAccount {
+        display: none;
+        color: stencilColor('header-text-color');
+        font-size: $fontSize-root - 2px;
+        font-weight: $fontWeight-bold;
+        line-height: 22px;
+        margin-bottom: 0;
+    }
+
+    .myAccount-link {
+        display: none;
+        color: stencilColor('header-text-color');
+        font-size: $fontSize-root - 2px;
+        font-weight: $fontWeight-normal;
+        line-height: 22px;
+
+        a {
+            display: inline;
+            color: stencilColor('header-text-color');
+            transition: unset;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            >.middleHeader-item {
+                >.items {
+                    +.items:not(.item--logo) {
+                        margin-left: 50px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .container {
+            >.middleHeader-item {
+                >.items {
+                    &.item--account {
+                        margin-left: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1025px) {
+        padding: 20px 0;
+
+        .container {
+            >.middleHeader-item {
+                >.items {
+                    text-align: left;
+
+                    &.item--quicksearch {
+                        display: block;
+                        flex-grow: 1;
+
+                        +.items {
+                            margin-left: 34px !important;
+                        }
+                    }
+
+                    &.item--wishlist {
+                        display: block;
+                    }
+
+                    +.items:not(.item--logo) {
+                        margin-left: 27px;
+                    }
+
+                    &.item--account {
+                        position: relative;
+                    }
+                }
+
+                &.text-left {
+                    display: none;
+                }
+
+                &.text-center {
+                    padding-right: 30px;
+                    width: 250px;
+                    flex: unset;
+                }
+
+                &.text-right {
+                    width: calc(100% - 250px);
+                }
+            }
+        }
+
+        .navUser-action {
+            .navUser-icon {
+                svg {
+                    width: 27px;
+                    height: 27px;
+                }
+            }
+
+            &.cartDesktop {
+                display: block;
+            }
+
+            &.cartMobile {
+                display: none;
+            }
+
+            &.myAccountMobile {
+                display: none;
+            }
+        }
+
+        .myAccount {
+            display: block;
+        }
+
+        .myAccount-link {
+            display: block;
+
+            a {
+                &:hover {
+                    color: $color-textLink-hover;
+                    background-image: linear-gradient(transparent 97%, $color-textLink-hover 3%);
+                    background-repeat: repeat-x;
+                    background-position-y: 0;
+                }
+
+                .home-layout-2 & {
+                    &:hover {
+                        color: $color-white;
+                        background-image: linear-gradient(transparent 97%, $color-white 3%);
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1600px) {
+        .container {
+            >.middleHeader-item {
+                &.text-center {
+                    padding-right: 50px;
+                }
+            }
+        }
+    }
+}
+
+.halo-bottomHeader {
+    position: relative;
+}
