@@ -274,3 +274,64 @@
 
     }
 }
+
+
+/* Custom Start */
+.header__top {
+    background-color: stencilColor("header_top_background");
+
+    .header-top__list {
+        padding-top: 20px;
+        padding-bottom: 18px;
+
+        @media (max-width: 1024px) {
+            justify-content: space-between;
+        }
+        .header-top__item {
+            color: stencilColor("header_top_text_color");
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 20px;
+            width: 33.333%;
+            flex: 0 0 33.333%;
+
+            @media (max-width: 1024px) {
+                width: 50%;
+                flex: 0 0 50%;
+            }
+
+            span {
+                text-align: center;
+                display: inline-block;
+
+                @media (max-width: 1024px) {
+                    font-size: 14px;
+                }
+            }
+
+            a {
+                text-transform: uppercase;  
+                color: stencilColor("header_top_text_color");
+                line-height: 20px;
+                font-weight: 700;
+                text-align: center;
+
+                .icon  {
+                    svg {
+                        fill: stencilColor("header_top_text_color");
+                    }
+                }
+
+                &:hover {
+                    color: stencilColor("header_top_text_colorHover");
+
+                    .icon  {
+                        svg {
+                            fill: stencilColor("header_top_text_colorHover");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

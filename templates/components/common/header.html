@@ -11,6 +11,28 @@
 </div>
 {{/if}}
 <header class="header" role="banner">
+    <!-- Header Top -->
+    <div class="header__top">
+        <div class="container">
+            <div class="header-top__list flex">
+                <div class="header-top__item">
+                    <span>{{theme_settings.header_top_left_text}}</span>
+                </div>
+                <div class="header-top__item text-center text-right-tablet">
+                    <span>{{theme_settings.header_top_center_text}}</span>
+                </div>
+                <div class="header-top__item text-right hide-on-tablet">
+                    <a href="tel:+{{theme_settings.header_top_right_text}}" class="no-underline">
+                        <span class="icon icon--phone">
+                            <svg><use xlink:href="#icon-phone"></use></svg>
+                        </span>
+                        {{theme_settings.header_top_right_text}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>

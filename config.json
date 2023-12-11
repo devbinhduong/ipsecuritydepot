@@ -413,7 +413,14 @@
         ]
       },
       "images": {},
-      "settings": {}
+      "settings": {
+        "header_top_background": "#000000",
+        "header_top_text_color": "#ffffff",
+        "header_top_text_colorHover": "#ed1c24",
+        "header_top_left_text": "Free shipping with delivery in 2 days or less",
+        "header_top_center_text": "20% off",
+        "header_top_right_text": "877-277-7147"
+      }
     }
   ]
 }
