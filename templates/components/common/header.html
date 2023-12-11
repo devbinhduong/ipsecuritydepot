@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="halo-middleHeader">
+    <div class="header__middle">
         <div class="container">
             <div class="middleHeader-item text-left">
                 <div class="items item--hamburger">
@@ -68,55 +68,50 @@
                         {{> components/common/quick-search}}
                     </div>
                 </div>
-                <div class="items item--account">
-                    {{#if customer}}
-                        <p class="myAccount">{{lang 'account.title'}}</p>
-                        <div class="myAccount-link">
-                            <a href="{{urls.account.index}}" data-login-form>{{customer.name}}.</a>
-                        </div>
-                    {{else}}
-                        <p class="myAccount">{{lang 'account.title'}}</p>
-                        <div class="myAccount-link">
-                            <a href="{{urls.auth.login}}" data-login-form>
-                                {{lang 'common.login'}}
-                            </a>
-                            <span>or</span>
-                            <a href="{{urls.auth.create_account}}">
-                                {{lang 'common.sign_up'}}
-                            </a>
-                        </div>
-                    {{/if}}
-                    <a class="navUser-action myAccountMobile" {{#if customer}}href="{{urls.account.index}}"{{else}}href="{{urls.auth.login}}"{{/if}} data-login-form-mobile aria-label="{{lang 'account.title'}}">
-                        <div class="navUser-icon">
-                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-user"/></svg>
-                        </div>
+                <div class="items item--contact">
+                    <a class="navUser-action" href="/contact-us/" aria-label="Contact">
+                        <span class="navUser-icon">
+                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-contact"></use></svg>
+                        </span>
+                        Contact
                     </a>
                 </div>
-                {{#if settings.show_wishlist}}
-                    <div class="items item--wishlist">
-                        <a class="navUser-action" href="{{urls.account.wishlists.all}}" aria-label="{{lang 'common.wish_lists'}}">
-                            <div class="navUser-icon">
-                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-heart"></use></svg>
-                            </div>
+                <div class="items item--account">
+                    {{#if customer}}
+                        <a class="navUser-action" href="{{urls.account.index}}" aria-label="{{customer.name}}" data-login-form>
+                            <span class="navUser-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-information"></use></svg>
+                            </span>
+                            {{customer.name}}
                         </a>
-                    </div>
-                {{/if}}
+                    {{else}}
+                        <a class="navUser-action" href="{{urls.auth.login}}" aria-label="{{lang 'account.title'}}" data-login-form>
+                            <span class="navUser-icon">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-information"></use></svg>
+                            </span>
+                            {{lang 'account.title'}}
+                        </a>
+                    {{/if}}
+                </div>
+
                 <div class="items item--cart halo-cart">
                     <a class="navUser-action cartDesktop"
                         data-cart-preview
                         data-options="align:right"
                         href="{{urls.cart}}"
                         aria-label="{{lang 'cart.nav_aria_label'}}">
-                        <div class="navUser-icon navUser-item-cartIcon">
-                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cart"></use></svg><span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
-                        </div>
+                        <span class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cart-header"></use></svg><span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                        </span>
+                        {{lang 'common.cart'}}
                     </a>
                     <div class="dropdown-cart" id="cart-preview-dropdown" aria-hidden="true"></div>
                     <a class="navUser-action cartMobile" data-cart-preview2 href="/cart.php" aria-label="{{lang 'cart.nav_aria_label'}}">
-                        <div class="navUser-icon navUser-item-cartIcon">
-                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cart"></use></svg>
+                        <span class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cart-header"></use></svg>
                             <span class="countPill cart-quantity">{{#if cart.items}}{{cart.quantity}}{{else}}0{{/if}}</span>
-                        </div>
+                        </span>
+                        {{lang 'common.cart'}}
                     </a>
                 </div>
             </div>

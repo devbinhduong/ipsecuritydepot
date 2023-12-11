@@ -21,8 +21,8 @@
         "id": "body-font",
         "options": [
           {
-            "group": "Karla",
-            "label": "Karla",
+            "group": "DM Sans",
+            "label": "DM Sans",
             "value": "Google_DM+Sans_400"
           },
           {
@@ -114,8 +114,8 @@
         "id": "headings-font",
         "options": [
           {
-            "group": "Montserrat",
-            "label": "MontserratLight",
+            "group": "DM Sans",
+            "label": "DM Sans",
             "value": "Google_DM+Sans_400"
           },
           {
