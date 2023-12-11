@@ -33,14 +33,17 @@ export default function(context) {
                 slickCarousel($(slickWrapperItem));
             })
 
+            /* Animate Scroll */
+            scrollAnimation(tScroll);
         })
 
         /* Scroll Event */
         $(window).on("scroll", (e) => {
             const $target = $(e.currentTarget);
-            const $scrollTop = $target.scrollTop();
+            const tScroll = $target.scrollTop();
 
             loadFunction();
+            scrollAnimation(tScroll);
         })
 
         /* Mouse Over Touch Start */
@@ -83,5 +86,22 @@ export default function(context) {
                 }
             ]
         });
+    }
+
+    /* Scroll Animate */
+    function scrollAnimation(tScroll) {
+        const $element = $('.custom-animation');
+
+        if ($element.length) {
+            $element.each(function(i) {
+                const $elementTop = $element.eq(i).offset().top - screen.height + 50;
+                const $elementBottom = $element.eq(i).offset().top + screen.height - 50;
+                var img = $element.eq(i).find('img');
+
+                if (tScroll < $elementBottom && tScroll > $elementTop) {
+                    $element.eq(i).addClass('animated');
+                }
+            });
+        }
     }
 } 
