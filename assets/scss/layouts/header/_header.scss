@@ -73,7 +73,7 @@
 
     @include breakpoint("medium") {
         height: auto;
-        margin: (spacing("double") + spacing("base")) auto (spacing("double") + spacing("single"));
+        margin: 0;
         padding: 0;
 
         .header.fixed & {
@@ -175,10 +175,6 @@
 .header-logo-image-container {
     position: relative;
     width: 100%;
-
-    @include breakpoint("medium") {
-        min-height: get-height(stencilString("logo_size"));
-    }
 }
 
 .header-logo-image-container::after {
@@ -458,7 +454,7 @@
     }
 
     @media (min-width: 1025px) {
-        padding: 20px 0;
+        padding: 12px 0;
 
         .container {
             >.middleHeader-item {
@@ -558,6 +554,10 @@
         }
 
         .navUser-action {
+            &::before {
+                bottom: -6px;
+            }
+            
             .navUser-icon {
                 width: 40px;
                 height: 40px;
@@ -568,6 +568,16 @@
                 svg {
                     width: 20px;
                     height: 20px;
+                }
+            }
+
+            &:hover {
+                .navUser-icon {
+                    background-color: #ed1c24;
+                }
+
+                svg {
+                    fill: #ffffff;
                 }
             }
 

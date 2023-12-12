@@ -37,7 +37,7 @@
     );
     background-size: 200% 100%;
     background-position: -100%;
-    display: inline-block;
+    display: inline-flex;
     padding: 5px 0;
     position: relative;
     -webkit-background-clip: text;
@@ -61,7 +61,7 @@
         bottom: -3px;
         left: 0;
         width: 0;
-        height: 3px;
+        height: 2px;
         transition: all 0.3s ease-in-out;
     }
 
