@@ -52,6 +52,12 @@
         justify-content:center;
     }
 
+    &-center-inline {
+        display:inline-flex !important;
+        align-items:center;
+        justify-content:center;
+    }
+
     &-between {
         display:flex;
         justify-content:space-between;
@@ -79,6 +85,11 @@
         display:flex;
         flex-direction:row-reverse;
     }
+
+    &-center-y {
+        display:flex;
+        align-items:center;
+    }
 }
 
 .uppercase {
@@ -91,6 +102,22 @@
 
 .m-0 {
     margin: 0;
+}
+
+.bg-black {
+    background-color: #000000 !important;
+}
+
+.bg-red {
+    background-color: #ed1c24 !important;
+}
+
+.color-black {
+    color: #000000 !important;
+}
+
+.color-white {
+    color: #ffffff !important;
 }
 
 .custom-heading {

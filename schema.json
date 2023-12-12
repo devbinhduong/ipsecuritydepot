@@ -524,10 +524,20 @@
         "id": "header_top_left_text",
         "label": "Header Top Left Text"
       },
+      {
+        "type": "text",
+        "id": "header_top_left_link",
+        "label": "Header Top Left Link"
+      },
       { 
         "type": "input", 
         "id": "header_top_center_text",
         "label": "Header Top Center Text"
+      },
+      {
+        "type": "text",
+        "id": "header_top_center_link",
+        "label": "Header Top Center Link"
       },
       { 
         "type": "input", 

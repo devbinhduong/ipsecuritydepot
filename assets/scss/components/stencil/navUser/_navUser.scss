@@ -320,14 +320,13 @@
     background-color: stencilColor("navUser-indicator-backgroundColor");
     border-radius: 50%;
     color: color("whites", "bright");
-    display: none;
-    font-size: fontSize("tiny");
-    font-weight: fontWeight("bold");
-    height: 20px; // 1
-    line-height: 20px; // 1
-    margin-left: spacing("eighth");
+    font-size: $fontSize-root - 2px;
+    font-weight: fontWeight("medium");
+    height: 40px; // 1
+    line-height: 40px; // 1
+    margin-left: 10px;
     text-align: center;
-    width: 20px; // 1
+    width: 40px; // 1
 }
 
 .countPill--positive {

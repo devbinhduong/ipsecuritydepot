@@ -213,7 +213,7 @@
     "navUser-color-hover": "#757575",
     "navUser-dropdown-backgroundColor": "#ffffff",
     "navUser-dropdown-borderColor": "#cccccc",
-    "navUser-indicator-backgroundColor": "#333333",
+    "navUser-indicator-backgroundColor": "#000000",
     "navPages-color": "#333333",
     "navPages-color-hover": "#757575",
     "navPages-subMenu-backgroundColor": "#e5e5e5",
@@ -418,8 +418,11 @@
         "header_top_text_color": "#ffffff",
         "header_top_text_colorHover": "#ed1c24",
         "header_top_left_text": "Free shipping with delivery in 2 days or less",
+        "header_top_left_link": "#",
         "header_top_center_text": "20% off",
-        "header_top_right_text": "877-277-7147"
+        "header_top_center_link": "#",
+        "header_top_right_text": "877-277-7147",
+        "navUser-indicator-backgroundColor": "#000000"
       }
     }
   ]
