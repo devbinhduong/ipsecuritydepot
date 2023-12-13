@@ -50,9 +50,11 @@
     padding: 0;
 
     > ul.navPages-list {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @media (min-width: 1025px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     ul {

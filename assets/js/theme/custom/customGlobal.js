@@ -3,6 +3,7 @@ import { defaultModal } from '../global/modal';
 import { load } from 'webfontloader';
 import event from '../global/jquery-migrate/event';
 import { forEach } from 'lodash';
+import haloMegaMenuEditor from './haloMegaMenuEditor';
 
 export default function(context) {
     const $context = context,
@@ -15,7 +16,8 @@ export default function(context) {
     function loadFunction() {
         if(checkJS_load) {
             checkJS_load = false;
-
+            if (context.themeSettings.haloMegamenu) haloMegaMenuEditor(context);
+            
             /* Add Funcion Here */
         }
     }
