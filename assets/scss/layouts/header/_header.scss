@@ -371,6 +371,10 @@
                     margin-left: 15px;
                 }
 
+                &.halo-cart {
+                    position: relative;
+                }
+
                 &.item--searchMobile {
                     @media (max-width: 1024px) {
                         .icon {
@@ -677,8 +681,4 @@
             }
         }
     }
-}
-
-.halo-bottomHeader {
-    position: relative;
 }

@@ -35,6 +35,10 @@ export default function(context) {
 
             /* Animate Scroll */
             scrollAnimation(tScroll);
+            searchMobileClick();
+            searchFormMobile();
+            sidebarMobile();
+            clickHaloBackground();
         })
 
         /* Scroll Event */
@@ -52,7 +56,9 @@ export default function(context) {
         });
 
         /* Resize */
-        $(window).on('resize', (e) => {});
+        $(window).on('resize', (e) => {
+            searchFormMobile();
+        });
     }
     eventLoad();
 
@@ -103,5 +109,76 @@ export default function(context) {
                 }
             });
         }
+    }
+
+    function clickHaloBackground(){
+        $('.halo-background').on('click', event => {
+            event.preventDefault();
+
+            if ($('body').hasClass('has-activeNavPages')) {
+                $('.mobileMenu-toggle').trigger('click');
+            }
+
+            $('[data-search="quickSearch"]').removeClass('is-open');
+            $('body').removeClass('openSidebar openSearchMobile openBeforeYouLeave');
+            $('.page-sidebar-mobile').removeClass('is-open');
+            $('.page-sidebar').removeClass('is-open');
+        });
+    }
+
+    function sidebarMobile(){
+        $('.page-sidebar-mobile').on('click', event => {
+            if($(event.currentTarget).hasClass('is-open')){
+                $(event.currentTarget).removeClass('is-open');
+                $('.page-sidebar').removeClass('is-open');
+                $('body').removeClass('openSidebar');
+            } else{
+                $(event.currentTarget).addClass('is-open');
+                $('.page-sidebar').addClass('is-open');
+                $('body').addClass('openSidebar');
+            }
+        });
+
+        $('.page-sidebar .page-sidebar-close').on('click', event => {
+            event.preventDefault();
+            $('.page-sidebar-mobile').removeClass('is-open');
+            $('.page-sidebar').removeClass('is-open');
+            $('body').removeClass('openSidebar');
+        });
+    }
+
+    function searchFormMobile() {
+        if ($(window).width() <= 1024) {
+            if ($('.item--quicksearch #quickSearch').length) {
+                $('#quickSearch').appendTo('#halo-search-mobile .halo-sidebar-wrapper');
+            }
+        } else {
+            if (!$('.item--quicksearch #quickSearch').length) {
+                $('#halo-search-mobile #quickSearch').appendTo('.item--quicksearch');
+            }
+        }
+    }
+
+    function searchMobileClick(){
+        const $search = $('[data-search="quickSearch"]');
+
+        $search.on('click', event => {
+            event.preventDefault();
+
+            if(!$search.hasClass('is-open')){
+                $search.addClass('is-open');
+                $('body').addClass('openSearchMobile');
+            } else{
+                $search.removeClass('is-open');
+                $('body').removeClass('openSearchMobile');
+            }
+        });
+
+        $('#halo-search-mobile .halo-sidebar-close').on('click', event => {
+            event.preventDefault();
+            
+            $search.removeClass('is-open');
+            $('body').removeClass('openSearchMobile');
+        });
     }
 } 
