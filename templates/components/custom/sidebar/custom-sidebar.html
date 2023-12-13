@@ -1,3 +1,14 @@
+<!-- Menu Mobile Sidebar -->
+<div class="halo-sidebar halo-menu-mobile halo-sidebar-left{{#if theme_settings.haloMegamenu}} halo-menu-megamenu{{/if}}" id="halo-menu-mobile">
+    <a href="#" class="halo-sidebar-close" aria-label="Close Menu Sidebar">
+        <svg class="icon" aria-hidden="true"><use xlink:href="#icon-close"></use></svg>
+    </a>
+    <div class="halo-sidebar-wrapper navPages-container" data-menu>
+        {{> components/common/navigation-mobile }}
+    </div>
+</div>
+
+<!-- Search Sidebar -->
 <div class="halo-sidebar halo-search-mobile halo-sidebar-left" id="halo-search-mobile">
     <a href="#" class="halo-sidebar-close" aria-label="Close Search Sidebar">
         <svg class="icon" aria-hidden="true"><use xlink:href="#icon-close"></use></svg>
@@ -5,6 +16,7 @@
     <div class="halo-sidebar-wrapper"></div>
 </div>
 
+<!-- Cart Sidebar -->
 <div class="halo-sidebar halo-cart-sidebar halo-sidebar-right" id="halo-cart-sidebar">
     <a href="#" class="halo-sidebar-close" aria-label="Close Cart Sidebar">
         <svg class="icon" aria-hidden="true"><use xlink:href="#icon-close"></use></svg>

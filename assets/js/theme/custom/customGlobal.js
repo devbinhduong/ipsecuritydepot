@@ -35,10 +35,11 @@ export default function(context) {
 
             /* Animate Scroll */
             scrollAnimation(tScroll);
+            clickHaloBackground();
+            menuMobile();
             searchMobileClick();
             searchFormMobile();
             sidebarMobile();
-            clickHaloBackground();
         })
 
         /* Scroll Event */
@@ -58,6 +59,7 @@ export default function(context) {
         /* Resize */
         $(window).on('resize', (e) => {
             searchFormMobile();
+            changeMenuItems();
         });
     }
     eventLoad();
@@ -126,6 +128,24 @@ export default function(context) {
         });
     }
 
+    function menuMobile(){
+        $('.halo-menu-mobile .halo-sidebar-close').on('click', event => {
+            event.preventDefault();
+
+            if ($('body').hasClass('has-activeNavPages')) {
+                $('.mobileMenu-toggle').trigger('click');
+            }
+        });
+
+        if ($(window).width() <= 1024) {
+            $('.mobileMenu-toggle').on('click', event => {
+                if($('.halo-bottomHeader .navPages-list:not(.navPages-list--user)').length){
+                    $('.halo-bottomHeader .navPages-list:not(.navPages-list--user)').children().prependTo('#halo-menu-mobile .navPages-list:not(.navPages-list--user)');
+                }
+            });
+        }
+    }
+
     function sidebarMobile(){
         $('.page-sidebar-mobile').on('click', event => {
             if($(event.currentTarget).hasClass('is-open')){
@@ -180,5 +200,19 @@ export default function(context) {
             $search.removeClass('is-open');
             $('body').removeClass('openSearchMobile');
         });
+    }
+
+    /* Append Menu Items when responsive */
+    function changeMenuItems() {
+        if ($(window).width() > 1024) {
+            $('#halo-menu-mobile').css({'top': $("header .halo-middleHeader").outerHeight() + 1, 'height': $(window).height() - $("header .halo-middleHeader").outerHeight()});
+            if(!$('.header').hasClass('is-sticky')){
+                if($('#halo-menu-mobile .navPages-list:not(.navPages-list--user)').length){
+                    $('#halo-menu-mobile .navPages-list:not(.navPages-list--user)').children().prependTo('.halo-bottomHeader .navPages-list:not(.navPages-list--user)');
+                }
+            }
+        } else {
+            $('#halo-menu-mobile').css({'top': 0, 'height': '100%'});
+        }
     }
 } 

@@ -97,6 +97,14 @@ export class MobileMenuToggle {
         this.$header.addClass('is-open');
         this.$scrollView.scrollTop(0);
 
+        if ($(window).width() > 1024) {
+            var height = this.$header.outerHeight();
+
+            $('#halo-menu-mobile').css({'top': height, 'height': $(window).height() - height });
+        } else {
+            $('#halo-menu-mobile').css('top', 0);
+        }
+        
         this.resetSubMenus();
     }
 

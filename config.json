@@ -218,7 +218,7 @@
     "navPages-color-hover": "#757575",
     "navPages-subMenu-backgroundColor": "#e5e5e5",
     "navPages-subMenu-separatorColor": "#cccccc",
-    "dropdown--quickSearch-backgroundColor": "#f3f3f3",
+    "dropdown--quickSearch-backgroundColor": "#",
     "dropdown--wishList-backgroundColor": "#ffffff",
     "blockquote-cite-font-color": "#999999",
     "container-border-global-color-base": "#e5e5e5",
