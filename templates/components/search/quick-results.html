@@ -1,5 +1,4 @@
 {{#if product_results.products}}
-    {{> components/common/modal/modal-close-btn additional_attr='data-drop-down-close'}}
     <ul class="productGrid" data-list-name="Quick Search Results">
         {{#each product_results.products}}
         <li class="product">
@@ -15,6 +14,11 @@
         </li>
         {{/each}}
     </ul>
+    
+    <button class="quickResults-close" type="button" title="Close">
+        <span class="aria-description--hidden">Close</span>
+        <span aria-hidden="true">×</span>
+    </button>
 {{else}}
     <p class="quickSearchMessage">
         {{{lang 'search.results.quick_count' count=pagination.product_results.total search_query=(sanitize forms.search.query) }}}

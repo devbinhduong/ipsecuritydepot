@@ -327,6 +327,19 @@
     margin-left: 10px;
     text-align: center;
     width: 40px; // 1
+
+    @media (max-width: 1024px) {
+        position: absolute;
+        top: -9px;
+        right: -9px;
+        display: inline-block;
+        vertical-align: middle;
+        height: 22px;
+        width: 22px;
+        line-height: 22px;
+        border-radius: 50%;
+        text-align: center;
+    }
 }
 
 .countPill--positive {

@@ -38,7 +38,7 @@
     </div>
 
     <div class="header__middle">
-        <div class="container">
+        <div class="container static">
             <div class="middleHeader-item text-left">
                 <div class="items item--hamburger">
                     <a class="mobileMenu-toggle" href="#" data-mobile-menu-toggle="menu">
@@ -48,7 +48,7 @@
                 <div class="items item--searchMobile">
                     <a class="navUser-action" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false" aria-label="{{lang 'search.quick_search.button_search'}}">
                         <div class="navUser-icon">
-                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-search"></use></svg>
+                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-header-search"></use></svg>
                         </div>
                     </a>
                 </div>
@@ -72,7 +72,7 @@
                         {{> components/common/quick-search}}
                     </div>
                 </div>
-                <div class="items item--contact">
+                <div class="items item--contact hide-on-tablet">
                     <a class="navUser-action flex-center-y hover-link" href="/contact-us/" aria-label="Contact">
                         <span class="navUser-icon flex-center-inline">
                             <svg class="icon" aria-hidden="true"><use xlink:href="#icon-contact"></use></svg>
@@ -109,7 +109,7 @@
                         </span>
                         {{lang 'common.cart'}}
                     </a>
-                    <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                    <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity hide-on-tablet">{{cart.quantity}}</span>
                     <div class="dropdown-cart" id="cart-preview-dropdown" aria-hidden="true"></div>
                     <a class="navUser-action cartMobile" data-cart-preview2 href="/cart.php" aria-label="{{lang 'cart.nav_aria_label'}}">
                         <span class="navUser-icon navUser-item-cartIcon">
