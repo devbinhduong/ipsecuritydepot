@@ -16,9 +16,14 @@ export default function(context) {
     function loadFunction() {
         if(checkJS_load) {
             checkJS_load = false;
-            if (context.themeSettings.haloMegamenu) haloMegaMenuEditor(context);
+            if (context.themeSettings.themevale_megamenu) haloMegaMenuEditor(context);
             
             /* Add Funcion Here */
+            clickHaloBackground();
+            menuMobile();
+            searchMobileClick();
+            searchFormMobile();
+            sidebarMobile();
         }
     }
 
@@ -37,21 +42,16 @@ export default function(context) {
 
             /* Animate Scroll */
             scrollAnimation(tScroll);
-            clickHaloBackground();
-            menuMobile();
-            searchMobileClick();
-            searchFormMobile();
-            sidebarMobile();
         })
 
         /* Scroll Event */
-        $(window).on("scroll", (e) => {
+        $(window).on("scroll", debounce((e) => {
             const $target = $(e.currentTarget);
             const tScroll = $target.scrollTop();
 
             loadFunction();
             scrollAnimation(tScroll);
-        })
+        }, 200))
 
         /* Mouse Over Touch Start */
         $(document).on('keydown mousemove touchstart', (e) => {
@@ -59,12 +59,30 @@ export default function(context) {
         });
 
         /* Resize */
-        $(window).on('resize', (e) => {
+        $(window).on('resize', debounce((e) => {
             searchFormMobile();
             changeMenuItems();
-        });
+            menuMobile();
+        }));
     }
     eventLoad();
+
+    /* Debounce Function */
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = $context,
+                args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait || 500);
+            if (callNow) func.apply(context, args);
+        };
+    }
 
     /* Slick Function */
     function slickCarousel(wrap) {

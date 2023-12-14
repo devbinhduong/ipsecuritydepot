@@ -4,316 +4,370 @@ export default class haloMegaMenu{
     constructor() {}
 
     menuItem(num) {
-        return {
-            setMegaMenu(param) {
-                // Defaut params
-                param = $.extend({
-                    style: '',
-                    dropAlign: 'fullWidth',
+        if ($('.themevale_allCategories-dropdown').length) {
+            return {
+                themevaleMegaMenu(param) {
+                    // Defaut params
+                    param = $.extend({
+                    dropAlign: 'left',
                     dropWidth: '493px',
+                    dropType: 'imageLeft',
                     cateColumns: 1,
+                    bottomMegamenu: 'none',
                     disabled: false,
                     bottomCates: '',
-                    products:'',
-                    productId: '',
-                    label: '',
-                    content: '',
                     imagesTop: '',
-                    imagesCustom: ''
-                }, param);
+                    label: '',
+                    }, param);
 
-                $('.navPages-list:not(.navPages-list--user) > li:nth-child(' + num + ')').each(function(idx, el) {
-                    if (param.disabled === false) {
-                        const subMegaMenu = $(el).find('> .navPage-subMenu');
+                    $('.navPages > ul.navPages-list:not(.navPages-list--user) > li:not(.navPages-item-hidden):nth-of-type(' + num + ')').each(function(idx, el) {
+                        if (param.disabled === false) {
+                            const subMegaMenu = $(el).children('.navPage-subMenu');
+                            const navPages_action = $(el).children('.navPages-action').children('.text');
 
-                        if(param.style === 'style 1') {
-                            if(!$(el).hasClass('has-megamenu')){
-                                $(el).addClass('has-megamenu style-1 fullWidth');
+                            $(el).addClass('hasMegamenu');
+                            subMegaMenu.removeClass('subMenu').addClass('navPage-subMegaMenu');
 
-                                if(!subMegaMenu.find('.cateArea').length){
-                                    subMegaMenu.find('> .navPage-subMenu-list').wrap('<div class="cateArea columns-'+param.cateColumns+'"></div>');
-
-                                    subMegaMenu.find('.cateArea').prepend(param.content);
-                                }
-
-                                if(!subMegaMenu.find('.imageArea').length){
-                                    if (param.images.length && (param.images !== '')) {
-                                        subMegaMenu.append('<div class="imageArea"><div class="megamenu-right-item">'+param.images+'</div></div>');
-                                    }
-                                    
-                                    if (param.products.length && (param.products !== '')) {
-                                        subMegaMenu.find('.imageArea').prepend('<div class="megamenu-left-item megamenu-product-list">'+param.products+'</div>');
-                                    }
-                                }
-
-                                subMegaMenu.find('.imageArea').css({
-                                    'width': '100%',
-                                    'max-width': param.imageAreaWidth
-                                });
-
-                                subMegaMenu.find('.cateArea').css({
-                                    'width': '100%',
-                                    'max-width': param.cateAreaWidth
-                                });
-
-                                if (param.productId.length && (param.productId !== '')) {
-                                    var productIDS = param.productId,
-                                        featuredProductCarousel = subMegaMenu.find('.megamenu-product-list');
-
-                                    const $options = {
-                                        template: 'halothemes/products/halo-megamenu-tmp'
-                                    };
-
-                                    if (productIDS !== '') {
-                                        var listIDs = JSON.parse("[" + productIDS + "]");
-
-                                        if (featuredProductCarousel.length) {
-                                            featuredProductCarousel.find('.megamenu-slider').addClass('is-loading');
-
-                                            var n = 0;
-
-                                            for (var i = 0; i < listIDs.length; i++) {
-                                                var productId = listIDs[i];
-
-                                                utils.api.product.getById(productId, $options, (err, response) => {
-                                                    var hasProd = $(response).find('.card').data('product-id');
-
-                                                    if(hasProd != undefined && hasProd !== null && hasProd !== ''){
-                                                        if(featuredProductCarousel.find('.megamenu-slider').hasClass('slick-initialized')) {
-                                                            featuredProductCarousel.find('.megamenu-slider').slick('unslick');
-                                                            featuredProductCarousel.find('.megamenu-slider').append(response);
-                                                        } else {
-                                                            featuredProductCarousel.find('.megamenu-slider').append(response);
-                                                        }
-
-                                                        productSlider(featuredProductCarousel);
-                                                    }
-                                                });
-                                            }
-
-                                            featuredProductCarousel.find('.megamenu-slider').removeClass('is-loading');
-                                        }
-                                    }
-
-                                    function productSlider(element){
-                                        element.each(function(idx, el) {
-                                            if($('.megamenu-slider', el).length > 0){
-                                                if($('.megamenu-slider .item', el).length > 0){
-                                                    $('.megamenu-slider', el).slick({
-                                                        infinite: false,
-                                                        dots: true,
-                                                        arrows: false,
-                                                        slidesToShow: 1,
-                                                        slidesToScroll: 1,
-                                                        slidesPerRow: 1,
-                                                        rows: 2,
-                                                        nextArrow: "<svg class='slick-next slick-arrow' aria-label='Next Product'><use xlink:href=#icon-arrow-right></use></svg>", 
-                                                        prevArrow: "<svg class='slick-prev slick-arrow' aria-label='Previous Product'><use xlink:href=#icon-arrow-left></use></svg>"
-                                                    });
-                                                }
-                                            }
-                                        });
-                                    } 
-                                }
+                            // label: New, Sale, Hot
+                            if (param.label === 'new') {
+                                navPages_action.append('<span class="navPages-label new-label">New</span>');
+                            } else if (param.label === 'sale') {
+                                navPages_action.append('<span class="navPages-label sale-label">Sale</span>');
+                            } else if (param.label === 'hot') {
+                                navPages_action.append('<span class="navPages-label hot-label">Hot</span>');
                             }
-                        }
 
-                        if(param.style === 'style 2') {
-                            if(!$(el).hasClass('has-megamenu')){
-                                $(el).addClass('has-megamenu style-2 fullWidth');
+                            // dropdown Alignment
+                            if (param.dropAlign === 'fullWidth') {
+                                $(el).addClass('fullWidth');
+                            } else if (param.dropAlign === 'center') {
+                                $(el).addClass('alignCenter');
+                            } else if (param.dropAlign === 'right') {
+                                $(el).addClass('alignRight');
+                            } else if (param.dropAlign == 'left-edge') {
+                                $(el).addClass('alignLeftEdge');
+                            }  else {
+                                $(el).addClass('alignLeft');
+                            }
 
-                                if(!subMegaMenu.find('.cateArea').length){
-                                    subMegaMenu.find('> .navPage-subMenu-list').wrap('<div class="cateArea columns-'+param.cateColumns+'"></div>');
+                            // dropdown Type
+                            if (param.dropType === 'imageLeft') {
+                                subMegaMenu.addClass('imageLeft');
+                                subMegaMenu.wrapInner('<div class="cateArea colRight"></div>');
+                                subMegaMenu.append('<div class="imageArea colLeft">' + param.images + '</div>');
+                            } else if (param.dropType === 'imageRight') {
+                                subMegaMenu.addClass('imageRight');
+                                subMegaMenu.wrapInner('<div class="cateArea colLeft"></div>');
+                                subMegaMenu.append('<div class="imageArea colRight">' + param.images + '</div>');
+                            } else if (param.dropType === 'noImage') {
+                                subMegaMenu.addClass('noImage').wrapInner('<div class="cateArea"></div>');
+                            } else if (param.dropType === 'imageTop') {
+                                subMegaMenu.addClass('imageTop').wrapInner('<div class="cateArea"></div>');
+                            }
 
-                                    subMegaMenu.find('.cateArea').prepend(param.content);
-                                }
 
-                                if(!subMegaMenu.find('.imageArea').length){
-                                    subMegaMenu.append('<div class="imageArea"><div class="megamenu-right-item">'+param.images+'</div></div>');
-                                    
-                                    if (param.products.length && (param.products !== '')) {
-                                        subMegaMenu.find('.imageArea').prepend('<div class="megamenu-left-item megamenu-product-list">'+param.products+'</div>');
-                                    }
-                                }
-
-                                subMegaMenu.find('.imageArea').css({
-                                    'width': '100%',
-                                    'max-width': param.imageAreaWidth
+                            // dropdown Width
+                            if ((param.dropAlign === 'fullWidth')) {
+                                subMegaMenu.wrapInner('<div class="container"></div>');
+                                subMegaMenu.css({
+                                    'width': '100%'
                                 });
-
-                                subMegaMenu.find('.cateArea').css({
-                                    'width': '100%',
-                                    'max-width': param.cateAreaWidth
+                            } else {
+                                subMegaMenu.css({
+                                    'width': param.dropWidth
                                 });
                             }
-                        }
 
-                        if(param.style === 'style 3') {
-                            if(!$(el).hasClass('has-megamenu')){
-                                $(el).addClass('has-megamenu style-3 fullWidth');
-
-                                if(!subMegaMenu.find('.cateArea').length){
-                                    subMegaMenu.find('> .navPage-subMenu-list').wrap('<div class="container"><div class="cateArea columns-'+param.cateColumns+'"></div></div>');
-
-                                    subMegaMenu.find('.cateArea').prepend(param.content);
-                                }
-
-                                if (param.imagesTop.length && (param.imagesTop !== '')) {
-                                    function megamenuImageTop($_image_array) {
-                                        var j = 2;
-
-                                        for (var i = 0, len = $_image_array.length; i < len; i++) {
-                                            j = j + 1;
-                                            subMegaMenu.find('.cateArea > ul > li:nth-child(' + j + ') > .navPages-action').after($_image_array[i]);
-                                        }
-                                    }
-
-                                    megamenuImageTop(param.imagesTop);
-                                }
-
-                                if (param.bottomCates.length && (param.bottomCates !== '')) {
-                                    subMegaMenu.append(param.bottomCates);
-
-                                    if (param.countDown.length && (param.countDown !== '')) {
-                                        subMegaMenu.find('.megamenu-custom-list .container').append('<span class="megamenu-countDown"></span>');
-                                        subMegaMenu.find('.megamenu-countDown').attr({
-                                            'data-menu-countdown': param.countDown
-                                        });
-
-                                        productCountDown($('.megamenu-countDown'));
-                                    }
-
-                                    function productCountDown(element){
-                                        var countDown = element.data('menu-countdown'),
-                                            countDownDate = new Date(countDown).getTime(),
-                                            seft = element;
-
-                                        var countdownfunction = setInterval(function() {
-                                            var now = new Date().getTime(),
-                                            distance = countDownDate - now;
-
-                                            if (distance < 0) {
-                                                clearInterval(countdownfunction);
-                                                seft.html('');
-                                            } else {
-                                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                        
-                                                var strCountDown = " End ins: <span class='num'>"+days+"<span>D : </span></span><span class='num'>"+hours+"<span>H : </span></span><span class='num'>"+minutes+"<span>M : </span></span><span class='num'>"+seconds+"<span>S</span></span>";
-
-                                                seft.html(strCountDown);
-                                            }
-                                        }, 1000);
-                                    } 
-                                }
-                            }
-                        }
-
-                        if(param.style === 'style 4') {
-                            if(!$(el).hasClass('has-megamenu')){
-                                $(el).addClass('has-megamenu style-4 fullWidth');
+                            // cateColumns
+                            if (param.cateColumns === 2) {
+                                subMegaMenu.find('.cateArea').addClass('columns-2');
+                            } else if (param.cateColumns === 3) {
+                                subMegaMenu.find('.cateArea').addClass('columns-3');
+                            } else if (param.cateColumns === 4) {
+                                subMegaMenu.find('.cateArea').addClass('columns-4');
+                            } else if (param.cateColumns === 5) {
+                                subMegaMenu.find('.cateArea').addClass('columns-5');
+                            } else if (param.cateColumns === 6) {
+                                subMegaMenu.find('.cateArea').addClass('columns-6');
                             }
 
-                            if(!subMegaMenu.find('.centerArea').length){
-                                subMegaMenu.find('> .navPage-subMenu-list').wrap('<div class="centerArea itemArea columns-'+param.cateColumns+'"></div>');
+                            // imageAreaWidth
+                            subMegaMenu.find('.imageArea').css({
+                                'width': '100%',
+                                'max-width': param.imageAreaWidth
+                            });
+
+                            // cateAreaWidth
+                            subMegaMenu.find('.cateArea').css({
+                                'width': '100%',
+                                'max-width': param.cateAreaWidth
+                            });
+
+                            if (param.bottomCates.length && (param.bottomCates !== '')) {
+                                subMegaMenu.find('.cateArea').addClass('has-bottom-cates');
+                                subMegaMenu.find('.cateArea > ul').append('<div class="bottomCate" style="max-width: ' + param.cateAreaWidth + '">' + param.bottomCates + '</div>');
                             }
 
-                            if(!subMegaMenu.find('.leftArea').length){
-                                subMegaMenu.prepend('<div class="leftArea itemArea">'+param.imagesCustom+'</div>');
-                            }
-
-                            if(!subMegaMenu.find('.rightArea').length){
-                                subMegaMenu.append('<div class="rightArea itemArea"><div class="megamenu-right-item">'+param.images+'</div></div>');
-                                
-                                if (param.products.length && (param.products !== '')) {
-                                    subMegaMenu.find('.rightArea').prepend('<div class="megamenu-left-item megamenu-product-list">'+param.products+'</div>');
-                                }
-                            }
-
-                            if (param.productId.length && (param.productId !== '')) {
-                                var productIDS = param.productId,
-                                    featuredProductCarousel = subMegaMenu.find('.megamenu-product-list');
-
-                                const $options = {
-                                    template: 'halothemes/products/halo-megamenu-tmp-2'
-                                };
-
-                                if (productIDS !== '') {
-                                    var listIDs = JSON.parse("[" + productIDS + "]");
-
-                                    if (featuredProductCarousel.length) {
-                                        featuredProductCarousel.find('.megamenu-slider2').addClass('is-loading');
-
-                                        var n = 0;
-
-                                        for (var i = 0; i < listIDs.length; i++) {
-                                            var productId = listIDs[i];
-
-                                            utils.api.product.getById(productId, $options, (err, response) => {
-                                                var hasProd = $(response).find('.card').data('product-id');
-
-                                                if(hasProd != undefined && hasProd !== null && hasProd !== ''){
-                                                    if(featuredProductCarousel.find('.megamenu-slider2').hasClass('slick-initialized')) {
-                                                        featuredProductCarousel.find('.megamenu-slider2').slick('unslick');
-                                                        featuredProductCarousel.find('.megamenu-slider2').append(response);
-                                                    } else {
-                                                        featuredProductCarousel.find('.megamenu-slider2').append(response);
-                                                    }
-
-                                                    productSlider(featuredProductCarousel);
-                                                }
-                                            });
-                                        }
-
-                                        featuredProductCarousel.find('.megamenu-slider2').removeClass('is-loading');
+                            if (param.imagesTop.length && (param.imagesTop !== '')) {
+                                function megamenuImageTop($_image_array) {
+                                    var j = 1;
+                                    for (var i = 0, len = $_image_array.length; i < len; i++) {
+                                        j = j + 1;
+                                        subMegaMenu.find('.cateArea > ul > li:nth-child(' + j + ') > .navPages-action').after($_image_array[i]);
                                     }
                                 }
+                                megamenuImageTop(param.imagesTop);
+                            }
 
-                                function productSlider(element){
-                                    element.each(function(idx, el) {
-                                        if($('.megamenu-slider2', el).length > 0){
-                                            if($('.megamenu-slider2 .item', el).length > 0){
-                                                $('.megamenu-slider2', el).slick({
-                                                    infinite: false,
-                                                    dots: false,
-                                                    arrows: true,
-                                                    slidesToShow: 1,
-                                                    slidesToScroll: 1,
-                                                    nextArrow: "<svg class='slick-next slick-arrow' aria-label='Next Product'><use xlink:href=#slick-arrow-next></use></svg>", 
-                                                    prevArrow: "<svg class='slick-prev slick-arrow' aria-label='Previous Product'><use xlink:href=#slick-arrow-prev></use></svg>"
-                                                });
-                                            }
-                                        }
-                                    });
-                                } 
+                            if (param.bottomMegamenu.length && (param.bottomMegamenu !== 'none')) {
+                                subMegaMenu.append('<div class="bottomMegamenu">' + param.bottomMegamenu + '</div>');
+                            }
+                        } else {
+                            const navPages_action = $(el).children('.navPages-action').children('.text');
+
+                            // label: New, Sale, Hot
+                            if (param.label === 'new') {
+                                navPages_action.append('<span class="navPages-label new-label">New</span>');
+                            } else if (param.label === 'sale') {
+                                navPages_action.append('<span class="navPages-label sale-label">Sale</span>');
+                            } else if (param.label === 'hot') {
+                                navPages_action.append('<span class="navPages-label hot-label">Hot</span>');
                             }
                         }
+                    });
+                    $('.themevale_allCategories-dropdown > ul.navPages-list:not(.navPages-list--user) > li:nth-child(' + num + ')').each(function(idx, el) {
+                        if (param.disabled === false) {
+                            const subMegaMenu = $(el).children('.navPage-subMenu');
+                            const navPages_action = $(el).children('.navPages-action').children('.text');
 
-                        const navPagesAction = $(el).children('.navPages-action').children('.text');
+                            $(el).addClass('hasMegamenu');
+                            subMegaMenu.removeClass('subMenu').addClass('navPage-subMegaMenu');
 
-                        if (param.label === 'new') {
-                            navPagesAction.append('<span class="navPages-label new-label">New</span>');
-                        } else if (param.label === 'sale') {
-                            navPagesAction.append('<span class="navPages-label sale-label">Sale</span>');
-                        } else if (param.label === 'hot') {
-                            navPagesAction.append('<span class="navPages-label hot-label">Hot</span>');
+                            // dropdown Alignment
+                            if (param.dropAlign === 'fullWidth') {
+                                $(el).addClass('fullWidth');
+                            } else if (param.dropAlign === 'center') {
+                                $(el).addClass('alignCenter');
+                            } else if (param.dropAlign === 'right') {
+                                $(el).addClass('alignRight');
+                            } else if (param.dropAlign == 'left-edge') {
+                                $(el).addClass('alignLeftEdge');
+                            }  else {
+                                $(el).addClass('alignLeft');
+                            }
+
+                            // dropdown Type
+                            if (param.dropType === 'imageLeft') {
+                                subMegaMenu.addClass('imageLeft');
+                                subMegaMenu.wrapInner('<div class="cateArea colRight"></div>');
+                                subMegaMenu.append('<div class="imageArea colLeft">' + param.images + '</div>');
+                            } else if (param.dropType === 'imageRight') {
+                                subMegaMenu.addClass('imageRight');
+                                subMegaMenu.wrapInner('<div class="cateArea colLeft"></div>');
+                                subMegaMenu.append('<div class="imageArea colRight">' + param.images + '</div>');
+                            } else if (param.dropType === 'noImage') {
+                                subMegaMenu.addClass('noImage').wrapInner('<div class="cateArea"></div>');
+                            } else if (param.dropType === 'imageTop') {
+                                subMegaMenu.addClass('imageTop').wrapInner('<div class="cateArea"></div>');
+                            }
+
+
+                            // dropdown Width
+                            if ((param.dropAlign === 'fullWidth')) {
+                                subMegaMenu.wrapInner('<div class="container"></div>');
+                                subMegaMenu.css({
+                                    'width': '100%'
+                                });
+                            } else {
+                                subMegaMenu.css({
+                                    'width': param.dropWidth
+                                });
+                            }
+
+                            // cateColumns
+                            if (param.cateColumns === 2) {
+                                subMegaMenu.find('.cateArea').addClass('columns-2');
+                            } else if (param.cateColumns === 3) {
+                                subMegaMenu.find('.cateArea').addClass('columns-3');
+                            } else if (param.cateColumns === 4) {
+                                subMegaMenu.find('.cateArea').addClass('columns-4');
+                            } else if (param.cateColumns === 5) {
+                                subMegaMenu.find('.cateArea').addClass('columns-5');
+                            } else if (param.cateColumns === 6) {
+                                subMegaMenu.find('.cateArea').addClass('columns-6');
+                            }
+
+                            // imageAreaWidth
+                            subMegaMenu.find('.imageArea').css({
+                                'width': '100%',
+                                'max-width': param.imageAreaWidth
+                            });
+
+                            // cateAreaWidth
+                            subMegaMenu.find('.cateArea').css({
+                                'width': '100%',
+                                'max-width': param.cateAreaWidth
+                            });
+
+                            if (param.bottomCates.length && (param.bottomCates !== '')) {
+                                subMegaMenu.find('.cateArea').addClass('has-bottom-cates');
+                                subMegaMenu.find('.cateArea > ul').append('<div class="bottomCate" style="max-width: ' + param.cateAreaWidth + '">' + param.bottomCates + '</div>');
+                            }
+
+                            if (param.imagesTop.length && (param.imagesTop !== '')) {
+                                function megamenuImageTop($_image_array) {
+                                    var j = 1;
+                                    for (var i = 0, len = $_image_array.length; i < len; i++) {
+                                        j = j + 1;
+                                        subMegaMenu.find('.cateArea > ul > li:nth-child(' + j + ') > .navPages-action').after($_image_array[i]);
+                                    }
+                                }
+                                megamenuImageTop(param.imagesTop);
+                            }
+
+                            if (param.bottomMegamenu.length && (param.bottomMegamenu !== 'none')) {
+                                subMegaMenu.append('<div class="bottomMegamenu">' + param.bottomMegamenu + '</div>');
+                            }
+                        } else {
+                            const navPages_action = $(el).children('.navPages-action').children('.text');
                         }
-                    } else{
-                        const navPagesAction = $(el).children('.navPages-action').children('.text');
+                    });
+                    return this;
+                }
+            }
+        } else {
+            return {
+                themevaleMegaMenu(param) {
+                    // Defaut params
+                    param = $.extend({
+                    dropAlign: 'left',
+                    dropWidth: '493px',
+                    dropType: 'imageLeft',
+                    cateColumns: 1,
+                    bottomMegamenu: 'none',
+                    disabled: false,
+                    bottomCates: '',
+                    imagesTop: '',
+                    label: '',
+                    }, param);
 
-                        if (param.label === 'new') {
-                            navPagesAction.append('<span class="navPages-label new-label">New</span>');
-                        } else if (param.label === 'sale') {
-                            navPagesAction.append('<span class="navPages-label sale-label">Sale</span>');
-                        } else if (param.label === 'hot') {
-                            navPagesAction.append('<span class="navPages-label hot-label">Hot</span>');
+                    $('.navPages > ul.navPages-list:not(.navPages-list--user) > li:nth-child(' + num + ')').each(function(idx, el) {
+                        if (param.disabled === false) {
+                            const subMegaMenu = $(el).children('.navPage-subMenu');
+                            const navPages_action = $(el).children('.navPages-action').children('.text');
+
+                            $(el).addClass('hasMegamenu');
+                            subMegaMenu.removeClass('subMenu').addClass('navPage-subMegaMenu');
+
+                            // label: New, Sale, Hot
+                            if (param.label === 'new') {
+                                navPages_action.append('<span class="navPages-label new-label">New</span>');
+                            } else if (param.label === 'sale') {
+                                navPages_action.append('<span class="navPages-label sale-label">Sale</span>');
+                            } else if (param.label === 'hot') {
+                                navPages_action.append('<span class="navPages-label hot-label">Hot</span>');
+                            }
+
+                            // dropdown Alignment
+                            if (param.dropAlign === 'fullWidth') {
+                                $(el).addClass('fullWidth');
+                            } else if (param.dropAlign === 'center') {
+                                $(el).addClass('alignCenter');
+                            } else if (param.dropAlign === 'right') {
+                                $(el).addClass('alignRight');
+                            } else if (param.dropAlign == 'left-edge') {
+                                $(el).addClass('alignLeftEdge');
+                            }  else {
+                                $(el).addClass('alignLeft');
+                            }
+
+                            // dropdown Type
+                            if (param.dropType === 'imageLeft') {
+                                subMegaMenu.addClass('imageLeft');
+                                subMegaMenu.wrapInner('<div class="cateArea colRight"></div>');
+                                subMegaMenu.append('<div class="imageArea colLeft">' + param.images + '</div>');
+                            } else if (param.dropType === 'imageRight') {
+                                subMegaMenu.addClass('imageRight');
+                                subMegaMenu.wrapInner('<div class="cateArea colLeft"></div>');
+                                subMegaMenu.append('<div class="imageArea colRight">' + param.images + '</div>');
+                            } else if (param.dropType === 'noImage') {
+                                subMegaMenu.addClass('noImage').wrapInner('<div class="cateArea"></div>');
+                            } else if (param.dropType === 'imageTop') {
+                                subMegaMenu.addClass('imageTop').wrapInner('<div class="cateArea"></div>');
+                            }
+
+
+                            // dropdown Width
+                            if ((param.dropAlign === 'fullWidth')) {
+                                subMegaMenu.wrapInner('<div class="container"></div>');
+                                subMegaMenu.css({
+                                    'width': '100%'
+                                });
+                            } else {
+                                subMegaMenu.css({
+                                    'width': param.dropWidth
+                                });
+                            }
+
+                            // cateColumns
+                            if (param.cateColumns === 2) {
+                                subMegaMenu.find('.cateArea').addClass('columns-2');
+                            } else if (param.cateColumns === 3) {
+                                subMegaMenu.find('.cateArea').addClass('columns-3');
+                            } else if (param.cateColumns === 4) {
+                                subMegaMenu.find('.cateArea').addClass('columns-4');
+                            } else if (param.cateColumns === 5) {
+                                subMegaMenu.find('.cateArea').addClass('columns-5');
+                            } else if (param.cateColumns === 6) {
+                                subMegaMenu.find('.cateArea').addClass('columns-6');
+                            }
+
+                            // imageAreaWidth
+                            subMegaMenu.find('.imageArea').css({
+                                'width': '100%',
+                                'max-width': param.imageAreaWidth
+                            });
+
+                            // cateAreaWidth
+                            subMegaMenu.find('.cateArea').css({
+                                'width': '100%',
+                                'max-width': param.cateAreaWidth
+                            });
+
+                            if (param.bottomCates.length && (param.bottomCates !== '')) {
+                                subMegaMenu.find('.cateArea').addClass('has-bottom-cates');
+                                subMegaMenu.find('.cateArea > ul').append('<div class="bottomCate" style="max-width: ' + param.cateAreaWidth + '">' + param.bottomCates + '</div>');
+                            }
+
+                            if (param.imagesTop.length && (param.imagesTop !== '')) {
+                                function megamenuImageTop($_image_array) {
+                                    var j = 1;
+                                    for (var i = 0, len = $_image_array.length; i < len; i++) {
+                                        j = j + 1;
+                                        subMegaMenu.find('.cateArea > ul > li:nth-child(' + j + ') > .navPages-action').after($_image_array[i]);
+                                    }
+                                }
+                                megamenuImageTop(param.imagesTop);
+                            }
+
+                            if (param.bottomMegamenu.length && (param.bottomMegamenu !== 'none')) {
+                                subMegaMenu.append('<div class="bottomMegamenu">' + param.bottomMegamenu + '</div>');
+                            }
+                        } else {
+                            const navPages_action = $(el).children('.navPages-action').children('.text');
+
+                            // label: New, Sale, Hot
+                            if (param.label === 'new') {
+                                navPages_action.append('<span class="navPages-label new-label">New</span>');
+                            } else if (param.label === 'sale') {
+                                navPages_action.append('<span class="navPages-label sale-label">Sale</span>');
+                            } else if (param.label === 'hot') {
+                                navPages_action.append('<span class="navPages-label hot-label">Hot</span>');
+                            }
                         }
-                    }
-                });
-
-                return this;
+                    });
+                    return this;
+                }
             }
         }
     }

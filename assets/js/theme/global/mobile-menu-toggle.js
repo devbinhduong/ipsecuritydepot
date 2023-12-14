@@ -1,6 +1,6 @@
+import $ from 'jquery';
 import _ from 'lodash';
 import mediaQueryListFactory from '../common/media-query-list';
-import { CartPreviewEvents } from './cart-preview';
 
 const PLUGIN_KEY = {
     CAMEL: 'mobileMenuToggle',
@@ -31,7 +31,7 @@ export class MobileMenuToggle {
     } = {}) {
         this.$body = $('body');
         this.$menu = $(menuSelector);
-        this.$navList = $('.navPages-list.navPages-list-depth-max');
+        this.$navList = $('.navPages-list');
         this.$header = $(headerSelector);
         this.$scrollView = $(scrollViewSelector, this.$menu);
         this.$subMenus = this.$navList.find('.navPages-action');
@@ -40,7 +40,6 @@ export class MobileMenuToggle {
 
         // Auto-bind
         this.onToggleClick = this.onToggleClick.bind(this);
-        this.onCartPreviewOpen = this.onCartPreviewOpen.bind(this);
         this.onMediumMediaQueryMatch = this.onMediumMediaQueryMatch.bind(this);
         this.onSubMenuClick = this.onSubMenuClick.bind(this);
 
@@ -60,8 +59,28 @@ export class MobileMenuToggle {
 
     bindEvents() {
         this.$toggle.on('click', this.onToggleClick);
-        this.$header.on(CartPreviewEvents.open, this.onCartPreviewOpen);
         this.$subMenus.on('click', this.onSubMenuClick);
+
+        // close menu mobile
+        $('#menu-mobile .themevale_close').on('click', function(){
+            $('.mobileMenu-toggle').trigger('click');
+            $('body').removeClass('has-activeNavPages');
+            $('.mobileMenu-toggle')
+                .removeClass('is-open')
+                .attr('aria-expanded', false);
+            // $('body').removeClass('has-activeNavPages');
+        });
+
+        $('.themevale_background').on('click', function() {
+            if ($('body').hasClass('has-activeNavPages')) {
+                $('.mobileMenu-toggle').trigger('click');
+                $('body').removeClass('has-activeNavPages');
+                $('.mobileMenu-toggle')
+                    .removeClass('is-open')
+                    .attr('aria-expanded', false);
+                // $('body').removeClass('has-activeNavPages');
+            }
+        });
 
         if (this.mediumMediaQueryList && this.mediumMediaQueryList.addListener) {
             this.mediumMediaQueryList.addListener(this.onMediumMediaQueryMatch);
@@ -70,7 +89,6 @@ export class MobileMenuToggle {
 
     unbindEvents() {
         this.$toggle.off('click', this.onToggleClick);
-        this.$header.off(CartPreviewEvents.open, this.onCartPreviewOpen);
 
         if (this.mediumMediaQueryList && this.mediumMediaQueryList.addListener) {
             this.mediumMediaQueryList.removeListener(this.onMediumMediaQueryMatch);
@@ -92,19 +110,13 @@ export class MobileMenuToggle {
             .addClass('is-open')
             .attr('aria-expanded', true);
 
-        this.$menu.addClass('is-open');
+        this.$menu
+            .addClass('is-open')
+            .attr('aria-hidden', false);
 
         this.$header.addClass('is-open');
         this.$scrollView.scrollTop(0);
 
-        if ($(window).width() > 1024) {
-            var height = this.$header.outerHeight();
-
-            $('#halo-menu-mobile').css({'top': height, 'height': $(window).height() - height });
-        } else {
-            $('#halo-menu-mobile').css('top', 0);
-        }
-        
         this.resetSubMenus();
     }
 
@@ -115,7 +127,9 @@ export class MobileMenuToggle {
             .removeClass('is-open')
             .attr('aria-expanded', false);
 
-        this.$menu.removeClass('is-open');
+        this.$menu
+            .removeClass('is-open')
+            .attr('aria-hidden', true);
 
         this.$header.removeClass('is-open');
 
@@ -125,14 +139,7 @@ export class MobileMenuToggle {
     // Private
     onToggleClick(event) {
         event.preventDefault();
-
         this.toggle();
-    }
-
-    onCartPreviewOpen() {
-        if (this.isOpen) {
-            this.hide();
-        }
     }
 
     onMediumMediaQueryMatch(media) {
@@ -144,27 +151,37 @@ export class MobileMenuToggle {
     }
 
     onSubMenuClick(event) {
-        const $closestAction = $(event.target).closest('.navPages-action');
-        const $parentSiblings = $closestAction.parent().siblings();
-        const $parentAction = $closestAction.closest('.navPage-subMenu-horizontal').siblings('.navPages-action');
+        const $closestAction = $(event.target).parent();
+        const $parentSiblings = $closestAction.siblings();
 
-        if (this.$subMenus.hasClass('is-open')) {
-            this.$navList.addClass('subMenu-is-open');
-        } else {
-            this.$navList.removeClass('subMenu-is-open');
-        }
+        if (!$closestAction.hasClass('navPage-subMenu-title')) {
+            if (!$closestAction.hasClass('navPages-action-end')) {
+                $closestAction.toggleClass('is-open');
+            }
 
-        if ($(event.target).hasClass('is-open')) {
-            $parentSiblings.addClass('is-hidden');
-            $parentAction.addClass('is-hidden');
+            if ($closestAction.hasClass('is-open')) {
+                $parentSiblings.addClass('is-hidden');
+            }
+
         } else {
-            $parentSiblings.removeClass('is-hidden');
-            $parentAction.removeClass('is-hidden');
+            const $closestAction2 = $(event.target).closest('.navPage-subMenu');
+            const $parentSiblings2 = $closestAction2.parent();
+            const $parentAction2 = $parentSiblings2.siblings();
+
+            if (this.$subMenus.hasClass('is-open')) {
+                this.$navList.addClass('subMenu-is-open');
+            } else {
+                this.$navList.removeClass('subMenu-is-open');
+            }
+
+            $parentSiblings2.removeClass('is-open');
+            $parentAction2.removeClass('is-hidden');
         }
     }
 
     resetSubMenus() {
         this.$navList.find('.is-hidden').removeClass('is-hidden');
+        this.$navList.find('.is-open').removeClass('is-open');
         this.$navList.removeClass('subMenu-is-open');
     }
 }

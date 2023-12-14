@@ -389,6 +389,12 @@
                         height: 25px;
                     }
                 }
+
+                > .navUser-action {
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
             }
 
             &.text-center {
@@ -507,7 +513,7 @@
                         flex-grow: 1;
 
                         +.items {
-                            margin-left: 34px !important;
+                            margin-left: 43px !important;
                         }
 
                         #quickSearch {
