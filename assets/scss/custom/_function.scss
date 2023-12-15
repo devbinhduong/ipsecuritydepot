@@ -104,6 +104,7 @@
         &:last-child {
             margin-right: 0;
         }
+        
         &:hover {
             > .navPages-action {
                 color: stencilColor('navPages-color-hover');
@@ -320,6 +321,16 @@
             }
         };
 
+        .has-subMenu {
+            .navPages-action-moreIcon {
+                @media (min-width: 1025px) {
+                    transform: rotate(-90deg);
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+
     }
     .navPage-subMenu-action {
         width: 100%;
@@ -355,6 +366,15 @@
 // -----------------------------------------------------------------------------
 
 #menu {
+    .navPages-list {
+        > .has-dropdown {
+            > a > .navPages-action-moreIcon {
+                @media (min-width: 1025px) {
+                    display: none;
+                }
+            }
+        }
+    }
     .navPage-subMegaMenu {
         left: 0;
         padding: 15px 0 0 0;
