@@ -5,6 +5,9 @@
                 {{> components/common/navigation-list-alternate}}
             </li>
         {{/each}}
+        <li class="navPages-item">
+            <a class="navPages-action" href="/brands"><span class="text">Brands</span></a>
+        </li>
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
                  <li class="navPages-item navPages-item-page{{#if children}} has-dropdown{{/if}}">

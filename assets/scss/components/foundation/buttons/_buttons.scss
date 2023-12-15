@@ -40,12 +40,13 @@
         width: 100%;
         height: 100%;
         transform: translateX(-100%);
-        transition: all .3s;
+        transition: all .4s;
         z-index: -1;
     }
 
     &:hover::before {
         transform: translateX(0);
+        background-color: $buttonStyle-primary-backgroundColorHover;
     }
 
     &.button--icon {

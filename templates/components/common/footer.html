@@ -22,65 +22,68 @@
             </article>
         {{/if}}
         <section class="footer-info">
-            <article class="footer-info-col footer-info-col--small custom-animation" data-step-animate="1" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each pages}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
-                </ul>
-            </article>
-
-            <article class="footer-info-col footer-info-col--small custom-animation" data-step-animate="2" data-section-type="footer-categories">
+            <!-- Column 1 -->
+            <article class="footer-info-col footer-info-col--1 custom-animation" data-step-animate="1" data-section-type="footer-categories">
                 <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
                 <ul class="footer-info-list">
                     {{#each categories}}
                         <li>
-                            <a href="{{url}}">{{name}}</a>
+                            <a class="hover-link hover-link--footer" href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
                 </ul>
             </article>
 
-            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
-            <article class="footer-info-col footer-info-col--small custom-animation" data-step-animate="3" data-section-type="footer-brands">
-                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
+            <!-- Colum 2 -->
+            <article class="footer-info-col footer-info-col--2 custom-animation" data-step-animate="2" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
                 <ul class="footer-info-list">
-                    {{#each shop_by_brand}}
+                    {{#each pages}}
                         <li>
-                            <a href="{{url}}">{{name}}</a>
+                            <a class="hover-link hover-link--footer" href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
-                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                    <li>
+                        <a class="hover-link hover-link--footer" href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    </li>
                 </ul>
             </article>
-            {{/and}}
 
-            {{#if settings.address}}
-            <article class="footer-info-col footer-info-col--small custom-animation" data-step-animate="4" data-section-type="storeInfo">
+             <!-- Colum 3 -->
+             <article class="footer-info-col footer-info-col--3 custom-animation" data-step-animate="3" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
-                <address>{{nl2br settings.address}}</address>
-                {{#if settings.phone_number}}
-                    <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
-                {{/if}}
+                <ul class="footer-info-list">
+                    <li><a class="hover-link hover-link--footer" href="/return-policy/">Return Policy</a></li>
+                    <li><a class="hover-link hover-link--footer" href="/privacy-policy/">Privacy Policy</a></li>
+                    <li><a class="hover-link hover-link--footer" href="/terms-and-conditions/">Terms and Conditions</a></li>
+                    {{#if settings.phone_number}}
+                        <li>
+                            <a class="hover-link hover-link--footer" href="tel:+{{settings.phone_number}}">
+                                <span class="icon icon--phone">
+                                    <svg><use xlink:href="#icon-phone"></use></svg>
+                                </span>
+                                {{settings.phone_number}}
+                            </a>
+                        </li>
+                    {{/if}}
+                </ul>
             </article>
-            {{/if}}
 
-            <article class="footer-info-col" data-section-type="newsletterSubscription">
+            <article class="footer-info-col footer-info-col--subscription custom-animation" data-step-animate="4" data-section-type="newsletterSubscription">
                 {{#if settings.show_newsletter_box}}
                     {{> components/common/subscription-form}}
                 {{/if}}
-                {{> components/common/payment-icons}}
+                {{#if theme_settings.show_social-links}}
+                    <div class="footer-info-col--social">
+                        <p class="footer-social-title">Follow us on:</p>
+                        {{> components/common/social-links}}
+                    </div>
+                {{/if}}
             </article>
         </section>
         {{#if theme_settings.show_powered_by}}
             <div class="footer-copyright">
-                <p class="powered-by">{{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
+                <p class="powered-by">{{lang 'footer.powered_by'}} <a class="hover-link hover-link--footer" href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
             </div>
         {{/if}}
         {{#if theme_settings.show_copyright_footer}}

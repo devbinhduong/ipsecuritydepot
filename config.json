@@ -70,7 +70,6 @@
     "searchpage_products_per_page": 12,
     "show_product_quick_view": true,
     "show_powered_by": true,
-    "shop_by_brand_show_footer": true,
     "show_copyright_footer": true,
     "show_accept_amex": false,
     "show_accept_discover": false,
@@ -211,7 +210,8 @@
     "storeName-color": "#333333",
     "body-bg": "#ffffff",
     "header-backgroundColor": "#ffffff",
-    "footer-backgroundColor": "#ffffff",
+    "footer-backgroundColor": "#000000",
+    "footer-heading-fontColor": "#ED1C24",
     "navUser-color": "#333333",
     "navUser-color-hover": "#757575",
     "navUser-dropdown-backgroundColor": "#ffffff",
@@ -430,7 +430,12 @@
         "themevale_megamenu": true,
         "hide_content_navigation": true,
         "navPages-color": "#000000",
-        "navPages-color-hover": "#ED1C24"
+        "navPages-color-hover": "#ED1C24",
+        "footer-heading-fontColor": "#ED1C24",
+        "footer-backgroundColor": "#000000",
+        "footer-text-color": "#ffffff",
+        "show_social-links": true,
+        "footer-text-colorHover": "#ed1c24"
       }
     }
   ]

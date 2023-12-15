@@ -16,9 +16,9 @@
 .footer {
     background-color: $footer-background;
     border-top: container("border");
-    padding: spacing("double") 0;
     position: relative;
     transform: translateZ(0); // 3
+    padding: 107px 0 60px;
 }
 
 .footer-title-sr-only {
@@ -31,70 +31,177 @@
 }
 
 .footer-info {
-    @include grid-row($behavior: nest);
-    font-size: 0; // 1
+    font-size: 0;
+    display: flex;
+
+    @media (max-width: 1440px) {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    @media (max-width: 1024px) {
+        flex-wrap: wrap;
+    }
 }
 
 .footer-info-col {
-    @include grid-column(12);
-    color: stencilColor("color-textSecondary");
-    display: inline-block;
-    float: none;
-    font-size: fontSize("base"); // 2
-    margin-bottom: spacing("double");
-    overflow-wrap: break-word;
-    text-align: center;
-    vertical-align: top;
-    // TODO: specifically use vendor only for IE11 since overflow-wrap is not supported here
-    -ms-word-break: break-all;
-    @include breakpoint("small") {
-        text-align: left;
-        width: width("6/12");
-    }
-
-    @include breakpoint("medium") {
-        width: width("4/12");
-    }
-
-    > :first-child {
-        margin-top: 0;
-    }
-
-    > :last-child {
-        margin-bottom: 0;
-    }
-}
-
-.footer-info-col--small {
-    @include breakpoint("medium") {
-        width: width("2/12");
-    }
-}
-
-.footer-info-col--social {
     width: 100%;
-}
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: stencilColor("footer-text-color");
+    letter-spacing: 0;
 
-.footer-info-col--left {
-    @include breakpoint("small") {
-        padding: 0;
+    @media (max-width: 1600px) {
+        padding-left: 12px;
+        padding-right: 12px;
+        max-width: 100% !important;
+    }
+
+    &--1 {
+        max-width: 226px;
+
+        @media (max-width: 1600px) {
+            width: 20%;
+        }
+        @media (max-width: 1024px) {
+            width: 33.333%;
+        }
+
+        @media (max-width: 767px) {
+            width: 50%;
+        }
+
+        @media (max-width: 551px) {
+            width: 100%;
+        }
+    }
+    &--2 {
+        max-width: 136px;
+        margin-left: 100px;
+        @media (max-width: 1600px) {
+            margin-left: 0;
+            width: 20%;
+        }
+
+        @media (max-width: 1024px) {
+            width: 33.333%;
+        }
+        
+        @media (max-width: 767px) {
+            width: 50%;
+        }
+        @media (max-width: 551px) {
+            width: 100%;
+        }
+
+    }
+    &--3 {
+        max-width: 197px;
+        margin-left: 100px;
+        margin-right: 147px;
+        @media (max-width: 1600px) {
+            margin: 0;
+            width: 20%;
+        }
+
+        @media (max-width: 1024px) {
+            width: 33.333%;
+        }
+
+        @media (max-width: 767px) {
+            width: 50%;
+        }
+        @media (max-width: 551px) {
+            width: 100%;
+        }
+    }
+
+    &--subscription {
+        @media (max-width: 1600px) {
+            width: 40%;
+        }
+
+        @media (max-width: 1024px) {
+            width: 33.333%;
+        }
+
+        @media (max-width: 767px) {
+            width: 50%;
+        }
+        @media (max-width: 551px) {
+            width: 100%;
+        }
+    }
+
+    .form {
+        margin-top: 24px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+
+        .form-fieldset {
+            .form-field {
+                margin-bottom: 0;
+                position: relative;
+
+                .form-prefixPostfix {
+                    width: calc(100% - 170px);
+                    .form-input {
+                        height: 80px;
+                        color: #000000;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        width: 100%;
+                        border: none;
+                        border-radius: 8px;
+
+                        &::placeholder {
+                            color: inherit;
+                        }
+
+                        &::-moz-placeholder{opacity:1}
+                    }
+                    
+                    .button {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 9px;
+                        height: unset;
+                        background-color: #000000;
+                        border: #000000;
+                        width: fit-content;
+                        margin-top: 0;
+                        
+                        &:hover {
+                            background-color: #ED1C24;
+                        }
+                    }
+                }
+            }   
+        }
+    }
+
+    .footer-social-title {
+        text-transform: none;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 26px;
+        margin-bottom: 20px;
+    }
+    .socialLinks {
+        line-height: 100%;
+        .socialLinks-item {
+            line-height: 100%;
+        }
     }
 }
 
-.footer-info-col--right {
-    @include breakpoint("small") {
-        left: 50%;
-        position: inherit;
-        width: 50%;
-    }
-
-    @include breakpoint("medium") {
-        left: 0;
-        padding: 0;
-        text-align: right;
-        width: 100%;
-    }
-}
 
 
 // Content
@@ -102,20 +209,30 @@
 
 .footer-info-heading {
     color: $footer-heading-fontColor;
-    font-size: fontSize("base");
+    font-size: calc(fontSize("base") + 4px);
     text-transform: inherit;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    margin: 0;
 }
 
 .footer-info-list {
     list-style: none;
     margin-left: 0;
 
+    > li {
+        margin-top: 20px;
+    }
+
     a {
-        color: stencilColor("color-textSecondary");
+        color: stencilColor("footer-text-color");
         text-decoration: none;
 
         &:hover {
-            color: stencilColor("color-textSecondary--hover");
+            color: stencilColor("footer-text-colorHover");
         }
     }
 }

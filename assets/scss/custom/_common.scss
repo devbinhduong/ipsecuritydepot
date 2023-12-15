@@ -53,6 +53,16 @@
         );
     }
 
+    &--footer {
+        background-image: linear-gradient(
+            to right,
+            stencilColor("footer-text-colorHover"),
+            stencilColor("footer-text-colorHover") 50%,
+            stencilColor("footer-text-color") 50%
+        );
+    
+    }
+
     &:before{
         content: '';
         background: #ed1c24;
