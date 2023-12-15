@@ -26,11 +26,11 @@
                     </a>
                 </div>
                 <div class="header-top__item text-right hide-on-tablet">
-                    <a href="tel:+{{theme_settings.header_top_right_text}}" class="no-underline hover-link hover-link--headerTop">
+                    <a href="tel:+{{settings.phone_number}}" class="no-underline hover-link hover-link--headerTop">
                         <span class="icon icon--phone">
                             <svg><use xlink:href="#icon-phone"></use></svg>
                         </span>
-                        {{theme_settings.header_top_right_text}}
+                        {{settings.phone_number}}
                     </a>
                 </div>
             </div>
@@ -72,14 +72,17 @@
                         {{> components/common/quick-search}}
                     </div>
                 </div>
-                <div class="items item--contact hide-on-tablet">
-                    <a class="navUser-action flex-center-y hover-link" href="/contact-us/" aria-label="Contact">
-                        <span class="navUser-icon flex-center-inline">
-                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-contact"></use></svg>
-                        </span>
-                        Contact
-                    </a>
-                </div>
+                {{#if theme_settings.header_contact_text}}
+                    <div class="items item--contact hide-on-tablet">
+                        <a class="navUser-action flex-center-y hover-link" href="{{theme_settings.header_contact_link}}" aria-label="{{theme_settings.header_contact_text}}">
+                            <span class="navUser-icon flex-center-inline">
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-contact"></use></svg>
+                            </span>
+                            {{theme_settings.header_contact_text}}
+                        </a>
+                    </div>
+                {{/if}}
+
                 <div class="items item--account">
                     {{#if customer}}
                         <a class="navUser-action flex-center-y hover-link" href="{{urls.account.index}}" aria-label="{{customer.name}}" data-login-form>

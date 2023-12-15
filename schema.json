@@ -535,16 +535,6 @@
         "label": "Header Top Center Text"
       },
       {
-        "type": "text",
-        "id": "header_top_center_link",
-        "label": "Header Top Center Link"
-      },
-      { 
-        "type": "input", 
-        "id": "header_top_right_text",
-        "label": "Header Top Right Text"
-      },
-      {
         "type": "heading",
         "content": "Header"
       },

@@ -50,14 +50,6 @@
         overflow: visible;
         position: relative;
     }
-
-    &.is-open {
-        height: 100%;
-
-        @include breakpoint("medium") {
-            height: auto;
-        }
-    }
 }
 
 .header-logo {

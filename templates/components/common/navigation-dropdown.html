@@ -1,5 +1,14 @@
 <div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
     <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item-child navPage-subMenu-title">
+            <p class="navPage-subMenu-action navPages-action">
+                <span class="navPages-action-moreIcon" aria-hidden="true">
+                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-chevron-down" /></svg>
+                    <span>back</span>
+                </span>
+                <a class="text" href="{{url}}">{{name}}</a>
+            </p>
+        </li>
         <li class="navPage-subMenu-item-parent">
             <a class="navPage-subMenu-action navPages-action navPages-action-depth-max" href="{{url}}">{{lang 'category.view_all.name' category=name}}</a>
         </li>

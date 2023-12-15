@@ -283,9 +283,7 @@
     }
 
     .navPage-subMenu-item-parent {
-        @media (min-width: 1025px) {
-            display: none;
-        }
+        display: none;
     } 
     .navPage-subMenu-item-child {
         position: relative;
@@ -321,19 +319,7 @@
                 content: none;
             }
         };
-        .navPages-action-moreIcon {
-            top: 0;
-            bottom: 0;
-            margin: 0;
-            right: 20px;
-            width: 20px;
-            height: 40px;
-            display: block;
-            line-height: 40px;
-            position: absolute;
-            text-align: center;
-            transform: rotate(-90deg);
-        }
+
     }
     .navPage-subMenu-action {
         width: 100%;
@@ -361,18 +347,6 @@
                 width: 100%;
             }
         }
-    }
-}
-
-.navPages-action-moreIcon {
-    font-size: 0;
-    display: none;
-    transform: none;
-    margin-left: spacing("quarter");
-    transition: all 0.3s ease;
-    svg {
-        @include square(9px);
-        pointer-events: none;
     }
 }
 
@@ -630,6 +604,8 @@
             margin-top: 30px;
         }
     }
+    
+
     .navPages-item {
         width: 100%;
         margin-right: 0;
@@ -637,13 +613,23 @@
         vertical-align: top;
         display: inline-block;
         border-bottom: 1px solid #ebebeb;
+
         > .navPages-action {
             font-size: 13px;
             font-weight: 600;
             letter-spacing: .05em;
             text-transform: uppercase;
+            line-height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
             .text {
                 white-space: nowrap;
+
+                .icon--contact {
+                    fill: transparent;
+                }
             }
         }
         &.is-open {
@@ -671,6 +657,8 @@
             padding: 12px 20px;
             color: inherit;
             display: inline-block;
+            line-height: normal;
+            padding-left: 0;
             &:before {
                 content: none;
             }
@@ -689,30 +677,7 @@
             top: -1px;
         }
     }
-    .navPages-action-moreIcon {
-        width: 44px;
-        height: 44px;
-        font-size: 0;
-        right: auto;
-        float: right;
-        line-height: 44px;
-        font-weight: 400;
-        text-align: center;
-        display: inline-block;
-        position: relative;
-        transform: none;
-        pointer-events: none;
-        svg {
-            pointer-events: none;
-            display: inline-block;
-            vertical-align: middle;
-            @include square(10px);
-            transition: all 0.5s ease;
-            transform: rotate(-90deg);
-            fill: stencilColor('navPages-color-2');
-            stroke: stencilColor('navPages-color-2');
-        }
-    }
+
     .navPage-subMenu {
         top: 0;
         right: 100%;
@@ -732,7 +697,7 @@
         box-shadow: none;
         position: absolute;
         .navPage-subMenu-action {
-            display: block;
+            display: flex;
             text-transform: uppercase;
         }
         .navPage-subMenu {
@@ -763,21 +728,24 @@
         text-align: center;
         .navPages-action {
             background-color: #f8f8f8;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             display: block;
             letter-spacing: .05em;
             text-transform: uppercase !important;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: normal;
+            span {
+                font-size: 12px;
+            }
+
             a {
                 pointer-events: none;
+                text-decoration: none;
+                padding-right: 0;
             }
-        }
-        .navPages-action-moreIcon {
-            right: auto;
-            left: 0;
-            float: none;
-            position: absolute;
-            transform: rotate(-180deg);
         }
     }
     .navPages-list--user {
@@ -793,8 +761,8 @@
                 letter-spacing: 0;
                 text-transform: capitalize;
                 > .text {
-                    padding-top: 9px;
-                    padding-bottom: 9px;
+                    padding: 0;
+                    line-height: 44px;
                     .icon, span {
                         display: inline-block;
                         vertical-align: middle;
