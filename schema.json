@@ -875,67 +875,19 @@
       },
       {
         "type": "checkbox",
-        "label": "Show Powered By BigCommerce",
-        "force_reload": true,
-        "id": "show_powered_by"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Current Year And",
+        "label": "Show Copy Right Footer",
         "force_reload": true,
         "id": "show_copyright_footer"
       },
       {
         "type": "heading",
-        "content": "Payment Icons"
+        "content": "Social Links"
       },
       {
-        "type": "checkbox",
-        "label": "Show American Express",
-        "force_reload": true,
-        "id": "show_accept_amex"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Discover",
-        "force_reload": true,
-        "id": "show_accept_discover"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Mastercard",
-        "force_reload": true,
-        "id": "show_accept_mastercard"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show PayPal",
-        "force_reload": true,
-        "id": "show_accept_paypal"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Visa",
-        "force_reload": true,
-        "id": "show_accept_visa"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Amazon Pay",
-        "force_reload": true,
-        "id": "show_accept_amazonpay"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Google Pay",
-        "force_reload": true,
-        "id": "show_accept_googlepay"
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Klarna",
-        "force_reload": true,
-        "id": "show_accept_klarna"
+        "type": "text",
+        "label": "Snapchat Link",
+        "id": "social_icon_snapchat_link",
+        "force_reload": true
       }
     ]
   },

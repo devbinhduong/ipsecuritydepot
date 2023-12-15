@@ -15,5 +15,13 @@
                 </a>
             </li>
         {{/each}}
+
+        {{#if theme_settings.social_icon_snapchat_link '!=' ''}}
+            <li class="socialLinks-item snapchat">
+                <a class="icon icon--snapchat" href="{{theme_settings.social_icon_snapchat_link}}" target="_blank" rel="noopener" aria-label="Open Snapchat Social Media in a new tab">
+                    <svg aria-hidden="true"><use xlink:href="#icon-snapchat-ghost" /></svg>
+                </a>
+            </li>
+        {{/if}}
     </ul>
 {{/if}}

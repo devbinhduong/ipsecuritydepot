@@ -21,10 +21,13 @@
                     {{> components/common/social-links}}
             </article>
         {{/if}}
-        <section class="footer-info">
+        <section class="footer-info footerMobile">
             <!-- Column 1 -->
-            <article class="footer-info-col footer-info-col--1 custom-animation" data-step-animate="1" data-section-type="footer-categories">
-                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
+            <article class="footer-info-col footer-info-col--1 custom-animation footer-dropdownmobile" data-step-animate="1" data-section-type="footer-categories">
+                <h3 class="footer-info-heading">
+                    <span>{{lang 'footer.categories'}}</span>
+                    <svg class="icon-dropdown" aria-label="Show/Hide Shop Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                </h3>
                 <ul class="footer-info-list">
                     {{#each categories}}
                         <li>
@@ -35,8 +38,11 @@
             </article>
 
             <!-- Colum 2 -->
-            <article class="footer-info-col footer-info-col--2 custom-animation" data-step-animate="2" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
+            <article class="footer-info-col footer-info-col--2 custom-animation footer-dropdownmobile" data-step-animate="2" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">
+                    <span>{{lang 'footer.navigate'}}</span>
+                    <svg class="icon-dropdown" aria-label="Show/Hide Shop Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                </h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
                         <li>
@@ -50,8 +56,11 @@
             </article>
 
              <!-- Colum 3 -->
-             <article class="footer-info-col footer-info-col--3 custom-animation" data-step-animate="3" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
+             <article class="footer-info-col footer-info-col--3 custom-animation footer-dropdownmobile" data-step-animate="3" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">
+                    <span>{{lang 'footer.info'}}</span>
+                    <svg class="icon-dropdown" aria-label="Show/Hide Shop Dropdown"><use xlink:href="#icon-chevron-down"></use></svg>
+                </h3>
                 <ul class="footer-info-list">
                     <li><a class="hover-link hover-link--footer" href="/return-policy/">Return Policy</a></li>
                     <li><a class="hover-link hover-link--footer" href="/privacy-policy/">Privacy Policy</a></li>
@@ -81,14 +90,9 @@
                 {{/if}}
             </article>
         </section>
-        {{#if theme_settings.show_powered_by}}
-            <div class="footer-copyright">
-                <p class="powered-by">{{lang 'footer.powered_by'}} <a class="hover-link hover-link--footer" href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
-            </div>
-        {{/if}}
         {{#if theme_settings.show_copyright_footer}}
             <div class="footer-copyright">
-                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+                <p class="powered-by">Copyright &copy; {{moment format="YYYY"}}. All Right Reserved</p>
             </div>
         {{/if}}
     </div>
