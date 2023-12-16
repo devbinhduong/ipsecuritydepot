@@ -1,13 +1,15 @@
 <section class="heroCarousel"
-    data-slick='{
-        "arrows": {{arrows}},
-        "mobileFirst": true,
-        "slidesToShow": 1,
-        "slidesToScroll": 1,
-        "autoplay": true,
-        "autoplaySpeed": {{carousel.swap_frequency}},
-        "slide": "[data-hero-slide]"
-    }'
+    {{#if carousel.slides.length '>' 1}}
+        data-slick='{
+            "arrows": {{arrows}},
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "autoplay": true,
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "slide": "[data-hero-slide]"
+        }'
+    {{/if}}
 >
     {{#each carousel.slides}}
     {{#if button_text}}

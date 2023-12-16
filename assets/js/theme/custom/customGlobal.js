@@ -17,8 +17,7 @@ export default function(context) {
         if(checkJS_load) {
             checkJS_load = false;
             if (context.themeSettings.themevale_megamenu) haloMegaMenuEditor(context);
-            
-            /* Add Funcion Here */
+            back_to_top();
             
         }
     }
@@ -259,6 +258,23 @@ export default function(context) {
         $(document).on('click', '.footerMobile .footer-dropdownmobile .footer-info-heading', function() {
             $(this).parent().toggleClass('open-dropdown');
             $(this).parent().find('.footer-info-list').slideToggle();
+        });
+    }
+
+    /* Back To Top */
+    function back_to_top() {
+        var offset = $(window).height()/2;
+        const backToTop = $('#back-to-top');
+
+        $(window).scroll(function() {
+            ($(this).scrollTop() > offset) ? backToTop.addClass('is-visible') : backToTop.removeClass('is-visible');
+        });
+
+        backToTop.on('click', function(event) {
+            event.preventDefault();
+            $('body,html').animate({
+                scrollTop: 0
+            }, 1000);
         });
     }
 } 

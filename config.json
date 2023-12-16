@@ -435,7 +435,14 @@
         "footer-text-color": "#ffffff",
         "show_social-links": true,
         "footer-text-colorHover": "#ed1c24",
-        "social_icon_snapchat_link": "#"
+        "social_icon_snapchat_link": "#",
+        "themevale_BackTop": true,
+        "back-to-top-bg": "#ED1C24",
+        "back-to-top-border": "#ED1C24",
+        "back-to-top-color": "#ffffff",
+        "back-to-top-bgHover": "#ED1C24",
+        "back-to-top-borderHover": "#ED1C24",
+        "back-to-top-colorHover": "#ffffff"
       }
     }
   ]
