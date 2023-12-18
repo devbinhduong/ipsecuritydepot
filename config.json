@@ -1,5 +1,5 @@
 {
-  "name": "Cornerstone Mega Menu Old Style",
+  "name": "Cornerstone 18122023",
   "version": "6.12.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -447,7 +447,14 @@
         "homepage_show_carousel_1_mobile-image": "",
         "homepage_show_carousel_2_mobile-image": "",
         "homepage_show_carousel_3_mobile-image": "",
-        "homepage_show_carousel_4_mobile-image": ""
+        "homepage_show_carousel_4_mobile-image": "",
+        "carousel-arrow-bgColor--hover": "#000000",
+        "carousel-dot-color": "#000000",
+        "carousel-dot-color-active": "#000000",
+        "carousel-dot-bgColor": "#000000",
+        "carousel-arrow-color": "#000000",
+        "carousel-arrow-color--hover": "#ffffff",
+        "carousel-arrow-bgColor": "#ffffff"
       }
     }
   ]

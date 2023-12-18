@@ -89,9 +89,9 @@ export default function(context) {
 
     /* Slick Function */
     function slickCarousel(wrap) {
-        const showDesktop = wrap.data('slick-show-desktop'),
-            showTablet = wrap.data('slick-show-tablet'),
-            showMobile = wrap.data('slick-show-mobile'),
+        const showDesktop = wrap.data('slick-show-desktop') ? wrap.data('slick-show-desktop') : 5,
+            showTablet = wrap.data('slick-show-tablet') ? wrap.data('slick-show-tablet') : 3,
+            showMobile = wrap.data('slick-show-mobile') ? wrap.data('slick-show-mobile') : 2,
             showDotbars = wrap.data('dots-bar');
 
         wrap.slick({
@@ -99,7 +99,7 @@ export default function(context) {
             arrows: true,
             infinite: false,
             mobileFirst: true,
-            slidesToShow: showMobile,
+            slidesToShow: 1,
             slidesToScroll: 1,
 
             responsive: [
@@ -113,6 +113,12 @@ export default function(context) {
                     breakpoint: 767,
                     settings: {
                         slidesToShow: showTablet
+                    }
+                },
+                {
+                    breakpoint: 400,
+                    settings: {
+                        slidesToShow: showMobile
                     }
                 }
             ]
