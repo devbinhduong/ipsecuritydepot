@@ -22,8 +22,8 @@
         --grid-gap: 12px;
     }
 
-    &.gap-24 {  
-        --grid-gap: 24px;
+    &.gap-20 {  
+        --grid-gap: 20px;
     }
 }
 
@@ -125,6 +125,11 @@
         &.l-5 {
             flex: 0 0 20%;
             max-width: 20%;
+        }
+
+        &.l-7 {
+            flex: 0 0 14.285714%;
+            max-width: 14.285714%;
         }
     }
 }
