@@ -74,6 +74,10 @@
             border-color: $buttonStyle-default-borderColorActive;
             background-color: $buttonStyle-default-backgroundColorActive;
         }
+
+        &.no-border {
+            border: none;
+        }
     }
 
     &.button--tertiary {
