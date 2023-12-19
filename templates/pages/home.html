@@ -37,14 +37,31 @@ blog:
     {{/if}}
     {{{region name="home_below_new_products"}}}
 
-    {{> components/custom/home/home-banner-text-1 }}
+    {{> components/custom/home/home-banner-text
+        image=theme_settings.home_banner_text_image_1
+        link=theme_settings.home_banner_text_link_1
+        heading=theme_settings.home_banner_text_heading_1
+        desc=theme_settings.home_banner_text_desc_1
+        action=theme_settings.home_banner_text_action_1
+        rightContent=true
+    }}
 
     {{#if products.featured}}
         {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
     {{/if}}
     {{{region name="home_below_featured_products"}}}
 
+    {{> components/custom/home/home-banner-text
+        image=theme_settings.home_banner_text_image_2
+        link=theme_settings.home_banner_text_link_2
+        heading=theme_settings.home_banner_text_heading_2
+        desc=theme_settings.home_banner_text_desc_2
+        action=theme_settings.home_banner_text_action_2
+    }}
 
+    {{> components/custom/home/home-testimonial }}
+
+    {{> components/custom/home/home-recently-posts post=blog.recent_posts}}
 </div>
 {{/partial}}
 {{> layout/base}}

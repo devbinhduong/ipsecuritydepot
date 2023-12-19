@@ -1,0 +1,47 @@
+{{#if theme_settings.home-recently-posts}}
+	<div class="custom-section home-recently-posts">
+		<div class="container">
+			{{#if theme_settings.home-recently-posts-title}}
+				<div class="recentlyPost__heading">
+		            <h2 class="title custom-heading text-center">{{theme_settings.home-recently-posts-title}}</h2>
+		        </div>
+		    {{/if}}
+	        <div class="recentlyPost__content section-slick" data-slick-show-desktop="3" data-slick-show-tablet="2" data-slick-show-mobile="1.5">
+        		{{#each post}}
+	        		<div class="recentlyPost__list-slider">
+	        			<div class="recentlyPost__list">
+			        		<div class="recentlyPost__item">
+					            <div class="item-image">
+					                <a class="image-with-overlay" href="{{url}}">
+					                    {{> components/common/responsive-img
+						                    image=thumbnail
+						                    class=""
+						                    fallback_size=../theme_settings.recent_blog_size
+						                    lazyload=../theme_settings.lazyload_mode
+						                    default_image=../theme_settings.default_image_product
+						                }}
+					                </a>
+					            </div>
+						        <div class="item-content">
+						            <h3 class="title">
+                                        {{#if ../theme_settings.halo_card_title '==' 'ellipsis'}}
+                                            <a class="no-underline" href="{{url}}" style="-webkit-box-orient: vertical;">{{title}}</a>
+							            {{else}}
+							                <a class=no-underline href="{{url}}">{{title}}</a>
+							            {{/if}}
+						            </h3>
+						            <div class="summary">
+						                {{{summary}}}&hellip;
+						            </div>
+						            <a class="button button--secondary" href="{{url}}">{{lang 'blog.read_more'}}</a>
+						        </div>
+						    </div>
+						</div>
+					</div>
+				{{/each}}
+	        </div>
+	        
+		</div>
+	</div>
+	{{{region name="home_below_recent_posts"}}}
+{{/if}}

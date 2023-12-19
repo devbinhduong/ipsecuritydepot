@@ -55,7 +55,6 @@
 
 /* Home Section Categories */
 .section-homeCategories {
-    margin-bottom: 100px;
     .homeCategories__title {
         color: #000000;
         font-size: 46px;
@@ -209,31 +208,56 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                min-height: 520px;
+                @include max-tablet {
+                    min-height: auto;
+                }
             }
         }
 
         &__content {
             position: absolute;
-            right: 75px;
             top: 50%;
+            left: 75px;
             transform: translateY(-50%);
             padding: 60px;
             background-color: #ffffff;
             border-radius: 14px;
             max-width: 740px;
+            width: 100%;
+
+            &.right {
+                right: 75px;
+                left: unset;
+
+                .content__text {
+                    max-width: 520px;
+                }
+
+                .content__title {
+                    max-width: 100%;   
+                }
+            }
 
             @include smax-xl {
-                right: 0;
-                left: 0;
                 margin: 0 auto;
                 padding: 30px;
-                max-width: calc(100% - 60px);
+                max-width: 50%;
             }
 
             @include max-tablet {
                 padding: 20px 0;
                 position: unset;
                 transform: unset;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                flex-direction:column;
+                max-width: calc(100% - 60px);
+            }
+
+            @include max-mobile {
+                max-width: calc(100% - 24px);
             }
 
             .content__title {
@@ -246,6 +270,10 @@
                 margin-top: 0;
                 margin-bottom: 10px;
 
+                @include smin-xl {
+                    max-width: 330px;
+                }
+                
                 @include max-tablet {
                     font-size: 28px;
                     line-height: 1.2;
@@ -260,20 +288,202 @@
                 font-weight: 400;
                 line-height: 30px; 
                 text-transform: capitalize;
-                max-width: 520px;
                 margin-bottom: 30px;
+                @include smin-xl {
+                    max-width: 340px;
+                }
 
                 @include max-tablet {
                     line-height: 1.2;
                     text-align: center;
                     max-width: 100%;
+                    margin-bottom: 20px;
                 }
             }
 
             .content__action {
+                @include max-tablet {
+                    min-width: 200px;
+                }
+
                 @include smax-xs {
                     text-align: center;
                     display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/* Section Home Testimonial */
+.section-home-testimonial {
+    background: #FDE5E6;
+    padding: 30px 15px;
+
+    .testimonial {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        &__list {
+            .slick-list {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 681px;
+            }
+
+            .slick-arrow {
+                background-color: transparent;
+                width: 60px;
+                height: 60px;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    background-color: #000000;
+                }
+                
+                &.slick-prev {
+                    left: 75px;
+                    
+                    @include max-tablet {
+                        left: 0;
+                    }
+                }
+
+                &.slick-next {
+                    right: 75px;
+                    @include max-tablet {
+                        right: 0;
+                    }
+                }
+            }
+        }
+
+        &__avata {
+            margin-bottom: 7px;
+            display: flex;
+            justify-content: center;
+
+            img {
+                max-width: 46px;
+            }
+        }
+
+        &__text {
+            color: #000000;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 45px; 
+            text-transform: capitalize;
+
+            @include max-tablet {
+                font-size: 20px;
+                line-height: 1.2;
+            }
+
+            p {
+                margin-bottom: 22px;
+            }
+        }
+
+        &__author {
+            > span {
+                display: block;
+                color: #000000;
+                font-size: 10px;
+                font-style: normal;
+                line-height: 20px;
+                text-transform: uppercase;
+            }
+        }
+
+        &__name {
+            font-weight: 700;
+        }
+
+        &__date {
+            font-weight: 400;
+        }
+    }
+}
+
+/* Recently Posts */
+.home-recently-posts {
+    .recentlyPost__heading {
+
+    }
+
+    .recentlyPost__content {
+        .slick-list {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .recentlyPost__list-slider {
+            padding-left: 15px;
+            padding-right: 15px;
+
+
+            .recentlyPost__list {
+                border-radius: 8px;
+                background: #FFF;
+                padding: 10px 10px 30px;
+
+                .recentlyPost__item {
+                    .image-with-overlay {
+                        height: 270px;
+                        display: block;
+                        
+                        img {
+                            height: 100%;
+                            border-radius: 8px;
+                        }
+                    }
+
+                    .item-content {
+                        padding: 30px;
+
+                        @include max-tablet {
+                            padding: 20px;
+                        }
+
+                        @include max-mobile {
+                            padding: 20px 0;
+                        }
+
+                        .title {
+                            margin-top: 2px;
+                            margin-bottom: 16px;
+
+                            a {
+                                color: #000;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 30px;
+                                text-transform: capitalize;
+                            }
+                        }
+
+                        .summary {
+                            color: #000;
+                            font-family: DM Sans;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 152%; 
+                            text-transform: capitalize;
+                            margin-bottom: 30px;
+                        }
+
+                        .button {
+                            width: 100%;
+                        }
+                    }
                 }
             }
         }

@@ -124,13 +124,27 @@
     position: static;
 }
 
+.custom-section {
+    margin-bottom: 120px;
+
+    @include max-tablet {
+        margin-bottom: 60px;
+    }
+
+    @include max-mobile {
+        margin-bottom: 30px;
+    }
+}
 .custom-heading {
-    font-weight: 900;
-    line-height: 54.28px;
-    font-size: 45px;
-    letter-spacing: 0;
+    color: #000;
+    font-family: DM Sans;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
     text-transform: uppercase;
-    color: #3a8dde;
+    margin-top: 0;
+    margin-bottom: 60px;
 
 
     &.custom-heading--white {
