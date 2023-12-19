@@ -533,7 +533,8 @@
         "home_testimonial_date_1": "10 jun 2023",
         "home-recently-posts": true,
         "home-recently-posts-title": "Featured Articles",
-        "recent_blog_size": "390x270"
+        "recent_blog_size": "390x270",
+        "homepage_new_products_column_count": 3
       }
     }
   ]
