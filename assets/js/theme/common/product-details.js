@@ -437,6 +437,11 @@ export default class ProductDetails extends ProductDetailsBase {
 
             // Open preview modal and update content
             if (this.previewModal) {
+                /* Custom cart Preview Mini */
+                if (this.context.themeSettings.halo_add_to_cart_popup === 'mini') {
+                    this.previewModal.$modal.removeClass().addClass('modal modal--preview modal--previewMini');
+                }
+
                 this.previewModal.open();
 
                 if (window.ApplePaySession) {

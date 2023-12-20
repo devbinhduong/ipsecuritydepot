@@ -13,6 +13,8 @@ import cartPreview from './global/cart-preview';
 import privacyCookieNotification from './global/cookieNotification';
 import carousel from './common/carousel';
 import svgInjector from './global/svg-injector';
+import ajaxAddToCart from './custom/ajaxAddToCart';
+import quickShop from './custom/quickShop';
 import customGlobal from './custom/customGlobal';
 
 export default class Global extends PageManager {
@@ -28,6 +30,8 @@ export default class Global extends PageManager {
         mobileMenuToggle();
         privacyCookieNotification();
         svgInjector();
+        ajaxAddToCart(this.context);
+        quickShop(this.context);
         customGlobal(this.context);
     }
 }

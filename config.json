@@ -539,7 +539,9 @@
         "halo_quick_shop": true,
         "card-title-color": "#000000",
         "card-title-color-hover": "#ED1C24",
-        "productgallery_size": "390x270"
+        "productgallery_size": "390x270",
+        "halo_add_to_cart_popup": "mini",
+        "card-figcaption-button-color-hover": "#ED1C24"
       }
     }
   ]
