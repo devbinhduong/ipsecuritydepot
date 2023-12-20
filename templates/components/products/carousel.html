@@ -4,21 +4,22 @@
         "infinite": false,
         "mobileFirst": true,
         "slidesToShow": 2,
-        "slidesToScroll": 2,
+        "slidesToScroll": 1,
         "slide": "[data-product-slide]",
         "responsive": [
             {
                 "breakpoint": 800,
                 "settings": {
                     "slidesToShow": {{ columns }},
-                    "slidesToScroll": {{ columns }}
+                    "slidesToScroll": 1,
+                    "dots": false
                 }
             },
             {
                 "breakpoint": 550,
                 "settings": {
                     "slidesToShow": 3,
-                    "slidesToScroll": 3
+                    "slidesToScroll": 1
                 }
             }
         ]

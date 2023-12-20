@@ -535,7 +535,11 @@
         "home-recently-posts-title": "Featured Articles",
         "recent_blog_size": "390x270",
         "homepage_featured_products_column_count": 3,
-        "homepage_new_products_column_count": 3
+        "homepage_new_products_column_count": 3,
+        "halo_quick_shop": true,
+        "card-title-color": "#000000",
+        "card-title-color-hover": "#ED1C24",
+        "productgallery_size": "390x270"
       }
     }
   ]

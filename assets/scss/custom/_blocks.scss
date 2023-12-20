@@ -148,56 +148,67 @@
 }
 
 /* Home Solution Banners */
-.homeSolution {
-    &__title {
-        color: #000000;
-        font-size: 60px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 60px; 
-        margin-bottom: 50px;
-        margin-top: 15px;
+.section-home-solution {
+    &.custom-section {
+        margin-bottom: 90px;
 
         @include max-tablet {
-            font-size: 28px;
-            line-height: 1.2;
+            margin-bottom: 30px;
         }
-    }
 
-    &__item {
-        position: relative;
-        margin-bottom: 30px;
-
-        > img {
-            border-radius: 10px;
-        }
-    }
-
-    &__action {
-        text-decoration: none;
-        color: #000;
-        text-align: center;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 20px;
-        text-transform: uppercase;
-        background-color: #ffffff;
-        border-radius: 4px;
-        display: block;
-        width: calc(100% - 60px);
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 20px 40px;
-
-        @include max-tablet {
-            font-size: 16px;
-            padding: 15px 30px;
+        .homeSolution {
+            &__title {
+                color: #000000;
+                font-size: 60px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 60px; 
+                margin-bottom: 50px;
+                margin-top: 15px;
+        
+                @include max-tablet {
+                    font-size: 28px;
+                    line-height: 1.2;
+                }
+            }
+        
+            &__item {
+                position: relative;
+                margin-bottom: 30px;
+        
+                > img {
+                    border-radius: 10px;
+                }
+            }
+        
+            &__action {
+                text-decoration: none;
+                color: #000;
+                text-align: center;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 20px;
+                text-transform: uppercase;
+                background-color: #ffffff;
+                border-radius: 4px;
+                display: block;
+                width: calc(100% - 60px);
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 20px 40px;
+        
+                @include max-tablet {
+                    font-size: 16px;
+                    padding: 15px 30px;
+                }
+            }
         }
     }
 }
+
 
 /* Section Banner Text */
 .section-banner-text {
@@ -492,4 +503,8 @@
             }
         }
     }
+}
+
+.home-new-product-block {
+
 }
