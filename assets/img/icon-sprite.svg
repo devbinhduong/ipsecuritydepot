@@ -280,4 +280,8 @@
     <symbol id="icon-back-to-top" viewBox="0 0 20 20">
         <path d="M10.625 16.6668C10.625 17.012 10.3452 17.2918 10 17.2918C9.65484 17.2918 9.37502 17.012 9.37502 16.6668L9.37502 8.9585H5.00002C4.74723 8.9585 4.51933 8.80622 4.42259 8.57267C4.32586 8.33913 4.37933 8.0703 4.55808 7.89155L9.55808 2.89155C9.67529 2.77434 9.83426 2.7085 10 2.7085C10.1658 2.7085 10.3248 2.77434 10.442 2.89155L15.442 7.89155C15.6207 8.0703 15.6742 8.33913 15.5774 8.57267C15.4807 8.80622 15.2528 8.9585 15 8.9585H10.625L10.625 16.6668Z" fill="white"/>
     </symbol>
+    
+    <svg viewBox="0 0 15 15" id="icon-qty-minus"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 7.5C2.25 7.22386 2.47386 7 2.75 7H12.25C12.5261 7 12.75 7.22386 12.75 7.5C12.75 7.77614 12.5261 8 12.25 8H2.75C2.47386 8 2.25 7.77614 2.25 7.5Z" fill="#000000"></path> </g></svg>
+
+    <svg viewBox="0 0 24 24" id="icon-qty-plus"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
 </svg>

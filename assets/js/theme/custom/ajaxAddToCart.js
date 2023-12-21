@@ -29,7 +29,9 @@ export default function (context) {
         const formData = new FormData();
         formData.append('product_id', productId);
 
-        let qty = 1;
+        /* Default Quantity When Addding */
+        let parentAction = $(event.target).closest('.card-action-wrapper');
+        let qty = $('.card-form-incrementTotal', parentAction).val();
 
         $(event.target).parents('form').find('[name^="qty"]').each((id, el) => {
             qty = parseInt($(el).val(), 10);

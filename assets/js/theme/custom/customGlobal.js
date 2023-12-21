@@ -44,6 +44,7 @@ export default function(context) {
             sidebarMobile();
             footer_mobile();
             toggle_footer();
+            productCardQtyChange();
         })
 
         /* Scroll Event */
@@ -282,5 +283,48 @@ export default function(context) {
                 scrollTop: 0
             }, 1000);
         });
+    }
+
+    /* Product Card Quantity Change */
+    function productCardQtyChange() {
+        const cardActionList = document.querySelectorAll(".card .card-action-wrapper");
+        
+        if(!cardActionList) return;
+
+        for(let cardActionItem of cardActionList) {
+            let decButton = cardActionItem.querySelector('[data-action="dec"]'),
+                incButton = cardActionItem.querySelector('[data-action="inc"]'),
+                quantityInput = cardActionItem.querySelector('.card-form-incrementTotal');
+            
+            quantityInput.addEventListener('change', handleInputChange);
+            incButton.addEventListener("click", handleButtonClick);
+            decButton.addEventListener("click", handleButtonClick);
+
+            // handle button clicks
+            function handleButtonClick(event) {
+                let currentValue = parseInt(quantityInput.value);
+                let minValue = parseInt(quantityInput.dataset.quantityMin) ? parseInt(quantityInput.dataset.quantityMin) : 1;
+                let maxValue = parseInt(quantityInput.dataset.quantityMax) ? parseInt(quantityInput.dataset.quantityMax) : 99999;
+
+                if (event.currentTarget.dataset.action === 'dec') {
+                    quantityInput.value = Math.max(currentValue - 1, minValue);
+                } else if (event.currentTarget.dataset.action === 'inc') {
+                    quantityInput.value = Math.min(currentValue + 1, maxValue);
+                }
+            }
+
+            // handle input change
+            function handleInputChange(event) {
+                let currentValue = parseInt(quantityInput.value);
+                let minValue = parseInt(quantityInput.dataset.quantityMin) ? parseInt(quantityInput.dataset.quantityMin) : 1;
+                let maxValue = parseInt(quantityInput.dataset.quantityMax) ? parseInt(quantityInput.dataset.quantityMax) : 99999;
+
+                if (isNaN(currentValue)) {
+                    quantityInput.value = minValue;
+                } else {
+                    quantityInput.value = Math.min(Math.max(currentValue, minValue), maxValue);
+                }
+            }
+        }
     }
 } 
