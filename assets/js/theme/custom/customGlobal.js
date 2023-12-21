@@ -304,7 +304,7 @@ export default function(context) {
             function handleButtonClick(event) {
                 let currentValue = parseInt(quantityInput.value);
                 let minValue = parseInt(quantityInput.dataset.quantityMin) ? parseInt(quantityInput.dataset.quantityMin) : 1;
-                let maxValue = parseInt(quantityInput.dataset.quantityMax) ? parseInt(quantityInput.dataset.quantityMax) : 99999;
+                let maxValue = parseInt(quantityInput.dataset.quantityMax) ? parseInt(quantityInput.dataset.quantityMax) : 1000000;
 
                 if (event.currentTarget.dataset.action === 'dec') {
                     quantityInput.value = Math.max(currentValue - 1, minValue);
@@ -317,7 +317,7 @@ export default function(context) {
             function handleInputChange(event) {
                 let currentValue = parseInt(quantityInput.value);
                 let minValue = parseInt(quantityInput.dataset.quantityMin) ? parseInt(quantityInput.dataset.quantityMin) : 1;
-                let maxValue = parseInt(quantityInput.dataset.quantityMax) ? parseInt(quantityInput.dataset.quantityMax) : 99999;
+                let maxValue = parseInt(quantityInput.dataset.quantityMax) ? parseInt(quantityInput.dataset.quantityMax) : 1000000;
 
                 if (isNaN(currentValue)) {
                     quantityInput.value = minValue;

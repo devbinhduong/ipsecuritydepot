@@ -25,6 +25,16 @@
         {{/if}}"
     {{/if}}>
     <figure class="card-figure">
+        <!-- Rating -->
+        <div class="product-card-rating">
+            {{> components/custom/products/chart-review product=product rating=product.rating reviews=product.reviews urls=urls}}
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+
+            {{#if num_reviews}}
+                <span class="number-review">({{num_reviews}})</span>
+            {{/if}}
+        </div>
+
         {{#if theme_settings.halo_label_product}}
             <div class="halo-product-badge">
                 {{#if theme_settings.show_new_badges}}
@@ -161,21 +171,6 @@
             {{/or}}
         </div>
         {{> components/products/bulk-discount-rates}}
-
-        {{#if theme_settings.haloAddOptionForProduct}}
-            {{#unless add_to_cart_url}}
-                {{#or (if pre_order) (if has_options) }}
-                    <div class="card-option card-option-{{id}}">
-                        <div class="form-field" data-product-attribute="swatch"></div>
-                    </div>
-                {{/or}}
-                {{#and (if out_of_stock_message) (if has_options) }}
-                    <div class="card-option card-option-{{id}}">
-                        <div class="form-field" data-product-attribute="swatch"></div>
-                    </div>
-                {{/and}}
-            {{/unless}}
-        {{/if}}
 
         {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
             {{#if show_cart_action}}
