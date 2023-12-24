@@ -26,14 +26,14 @@
     {{/if}}>
     <figure class="card-figure">
         <!-- Rating -->
-        <div class="product-card-rating">
-            {{#if num_reviews}}
+        {{#if num_reviews}}
+            <div class="product-card-rating">
                 <span class="icon icon--rating-start">
                     <svg><use xlink:href="#icon-rating-start"></use></svg>
                 </span>
                 <span class="number-review">{{rating}}.0</span>
-            {{/if}}
-        </div>
+            </div>
+        {{/if}}
 
         {{#if theme_settings.halo_label_product}}
             <div class="halo-product-badge">

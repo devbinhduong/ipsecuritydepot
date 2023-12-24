@@ -166,6 +166,7 @@
     "button--disabled-color": "#ffffff",
     "button--disabled-backgroundColor": "#cccccc",
     "button--disabled-borderColor": "transparent",
+    "card-figcaption-button-colorHover":"#ffffff",
     "icon-color": "#757575",
     "icon-color-hover": "#999999",
     "button--icon-svg-color": "#757575",
@@ -541,7 +542,11 @@
         "card-title-color-hover": "#ED1C24",
         "productgallery_size": "390x270",
         "halo_add_to_cart_popup": "mini",
+        "card-figcaption-button-background": "#ffffff",
+        "card-figcaption-button-color": "#000000",
         "card-figcaption-button-color-hover": "#ED1C24",
+        "card-figcaption-button-border": "#000000",
+        "card-figcaption-button-colorHover":"#ffffff",
         "dropdown--quickSearch-backgroundColor": "#ffffff"
       }
     }
