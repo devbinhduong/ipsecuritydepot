@@ -289,23 +289,12 @@
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    color: $card-figcaption-button-color;
-    background-color: stencilColor("card-figcaption-button-background");
-    border: 1px solid stencilColor("card-figcaption-button-border");
     text-transform: capitalize;
     font-style: normal;
     font-weight: 500;
     text-transform: uppercase;
     height: 44px;
     padding: 12px 36px;
-
-
-    &:hover,
-    &:active {
-        color: stencilColor("card-figcaption-button-colorHover");
-        background-color: stencilColor("card-figcaption-button-backgroundHover");
-        border-color: stencilColor("card-figcaption-button-borderHover");
-    }
 }
 
 .card-body {
@@ -947,6 +936,18 @@
                 background-color: #ffffff;
                 border-radius: 4px;
                 border: none;
+
+                svg {
+                    fill: #000000;
+                    stroke: #000000;
+                }
+
+                &:hover {
+                    svg {
+                        fill: #ffffff;
+                        stroke: #ffffff;
+                    }
+                }
             }
 
             .card-form-incrementTotal {

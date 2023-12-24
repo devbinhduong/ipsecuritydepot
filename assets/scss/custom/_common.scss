@@ -12,12 +12,13 @@
     transform: translatey(100px);
     opacity: 0;
 
-    &[data-step-animate="1"] {}
+    &[data-step-animate="1"] {
+    }
 
     @for $i from 0 through 100 {
         &[data-step-animate="#{$i}"] {
-            transition-delay: .1s + $i*0.05;
-            transition-duration: .5s + $i*0.1;
+            transition-delay: 0.1s + $i * 0.05;
+            transition-duration: 0.5s + $i * 0.1;
         }
     }
 }
@@ -29,12 +30,7 @@
 
 /* Hover Link Effect */
 .hover-link {
-    background-image: linear-gradient(
-        to right,
-        #ed1c24,
-        #ed1c24 50%,
-        #000000 50%
-    );
+    background-image: linear-gradient(to right, #ed1c24, #ed1c24 50%, #000000 50%);
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-flex;
@@ -60,11 +56,10 @@
             stencilColor("footer-text-colorHover") 50%,
             stencilColor("footer-text-color") 50%
         );
-    
     }
 
-    &:before{
-        content: '';
+    &:before {
+        content: "";
         background: #ed1c24;
         display: block;
         position: absolute;
@@ -96,7 +91,7 @@
     display: none;
     visibility: hidden;
     transition: $anchor-transition;
-    background-color: rgba(59, 59, 59, .7);
+    background-color: rgba(59, 59, 59, 0.7);
 }
 
 .openSearchMobile {
@@ -148,7 +143,6 @@
 }
 
 /* Back To Top */
-
 #back-to-top {
     bottom: 30%;
     right: 15px;
@@ -162,9 +156,9 @@
     border-radius: 0;
     line-height: 1;
     transition: all 0.3s ease;
-    color: stencilColor('back-to-top-color');
-    background-color: stencilColor('back-to-top-bg');
-    border: 1px solid stencilColor('back-to-top-border');
+    color: stencilColor("back-to-top-color");
+    background-color: stencilColor("back-to-top-bg");
+    border: 1px solid stencilColor("back-to-top-border");
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -175,7 +169,7 @@
         height: 100%;
     }
     .icon {
-        fill: stencilColor('back-to-top-color');
+        fill: stencilColor("back-to-top-color");
         width: 20px;
         height: 20px;
         display: block;
@@ -184,20 +178,62 @@
         display: block;
     }
     &:hover {
-        color: stencilColor('back-to-top-colorHover');
-        background-color: stencilColor('back-to-top-bgHover');
-        border: 1px solid stencilColor('back-to-top-borderHover');
+        color: stencilColor("back-to-top-colorHover");
+        background-color: stencilColor("back-to-top-bgHover");
+        border: 1px solid stencilColor("back-to-top-borderHover");
         .icon {
-            fill: stencilColor('back-to-top-colorHover');
+            fill: stencilColor("back-to-top-colorHover");
         }
     }
-    @include breakpoint('large') {
+    @include breakpoint("large") {
         right: 75px;
         bottom: 140px;
         .icon {
             width: 20px;
             height: 20px;
         }
+    }
+
+    &:hover {
+        .icon {
+            animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        }
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    
+    100% {
+        transform: translateX(-20px);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    
+    100% {
+        transform: translateX(20px);
+        opacity: 1;
     }
 }
 
@@ -225,6 +261,12 @@
         @media (min-width: 1025px) {
             left: -15px;
         }
+
+        &:hover {
+            &::before {
+                animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            }
+        }
     }
 
     &.slick-next {
@@ -232,6 +274,12 @@
 
         @media (min-width: 1025px) {
             right: -15px;
+        }
+
+        &:hover {
+            &::before {
+                animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            }
         }
     }
 

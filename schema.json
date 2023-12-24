@@ -1713,16 +1713,6 @@
         "id": "card-title-color-hover"
       },
       {
-        "type": "color",
-        "label": "Button Text Color",
-        "id": "card-figcaption-button-color"
-      },
-      {
-        "type": "color",
-        "label": "Button Background",
-        "id": "card-figcaption-button-background"
-      },
-      {
         "type": "heading",
         "content": "ProductCardsQuickSearch"
       },

@@ -121,16 +121,16 @@
                     <div class="card-figcaption-bottom">
                         {{#if has_options}}
                             {{#if theme_settings.halo_quick_shop}}
-                                <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">{{lang 'products.quick_shop'}}</a>
+                                <a href="javascript:void(0)" data-event-type="product-click" class="button button--secondary button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">{{lang 'products.quick_shop'}}</a>
                             {{else}}
-                                <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                                <a href="{{url}}" data-event-type="product-click" class="button button--secondary button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
                             {{/if}}
                         {{/if}}
-                        {{#if pre_order}}
-                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        {{#if pre_order}} button--secondary
+                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--secondary button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
                         {{/if}}
                         {{#if add_to_cart_url }}
-                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{lang 'products.add_to_cart'}}</a>
+                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--secondary button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{lang 'products.add_to_cart'}}</a>
                             <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
                         {{/if}}
                         {{#if out_of_stock_message }}
@@ -177,20 +177,20 @@
                 <div class="card-figcaption-bottom">
                     {{#if has_options}}
                         {{#if theme_settings.halo_quick_shop}}
-                            <a href="javascript:void(0)" data-event-type="product-click" class="button button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">{{lang 'products.quick_shop'}}</a>
+                            <a href="javascript:void(0)" data-event-type="product-click" class="button button--secondary button--small card-figcaption-button button--quickShop" data-product-id="{{id}}">{{lang 'products.quick_shop'}}</a>
                         {{else}}
-                            <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                            <a href="{{url}}" data-event-type="product-click" class="button button--secondary button--small card-figcaption-button" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
                         {{/if}}
                     {{/if}}
                     {{#if pre_order}}
-                        <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
+                        <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--secondary button--small card-figcaption-button">{{lang 'products.pre_order'}}</a>
                     {{/if}}
                     {{#if add_to_cart_url }}
                     <!-- Start Custom Quantity Card -->
                         <div class="card-action-wrapper flex-between-center">
                             <div class="form-field form-field--increments">
                                     <div class="form-increment" data-quantity-change>
-                                        <button class="button button--icon" data-action="dec">
+                                        <button class="button button--secondary button--icon" data-action="dec">
                                             <span class="is-srOnly">{{lang 'products.quantity_decrease' name=product.title}}</span>
                                             <i class="icon" aria-hidden="true">
                                                 <svg>
@@ -199,15 +199,15 @@
                                             </i>
                                         </button>
                                         <input class="form-input form-input--incrementTotal card-form-incrementTotal"
-                                               name="qty[]"
-                                               type="tel"
-                                               value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
-                                               data-quantity-min="{{product.min_purchase_quantity}}"
-                                               data-quantity-max="{{product.max_purchase_quantity}}"
-                                               min="1"
-                                               pattern="[0-9]*"
-                                               aria-live="polite">
-                                        <button class="button button--icon" data-action="inc">
+                                            name="qty[]"
+                                            type="tel"
+                                            value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                                            data-quantity-min="{{product.min_purchase_quantity}}"
+                                            data-quantity-max="{{product.max_purchase_quantity}}"
+                                            min="1"
+                                            pattern="[0-9]*"
+                                            aria-live="polite">
+                                        <button class="button button--secondary button--icon" data-action="inc">
                                             <span class="is-srOnly">{{lang 'products.quantity_increase' name=product.title}}</span>
                                             <i class="icon" aria-hidden="true">
                                                 <svg>
@@ -217,7 +217,7 @@
                                         </button>
                                     </div>
                             </div>
-                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{lang 'products.add_to_cart'}}</a>
+                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--secondary button--small card-figcaption-button halo-add-to-cart" data-product-id="{{id}}" data-wait-message="{{lang 'products.adding_to_cart'}}">{{lang 'products.add_to_cart'}}</a>
                         </div>
                         <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
                     {{/if}}

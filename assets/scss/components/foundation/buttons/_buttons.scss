@@ -34,20 +34,19 @@
 
     &::before {
         content: "";
+        display: block;
         position: absolute;
-        left: 0;
         top: 0;
-        width: 100%;
+        left: 0;
         height: 100%;
-        transform: translateX(-100%);
-        transition: all .4s;
+        width: 200%;
+        transform-origin: -10% 100%;
+        transform: rotate(-90deg) translate3d(-25%, 0, 0);
+        transition: all .25s;
         z-index: -1;
+        border-radius: 4px;
     }
 
-    &:hover::before {
-        transform: translateX(0);
-        background-color: $buttonStyle-primary-backgroundColorHover;
-    }
 
     &.button--icon {
         svg {
@@ -56,7 +55,18 @@
     }
 
     &.button--primary {
-        border-radius: 4px;
+        span {
+            color: $buttonStyle-primary-color;
+        }
+
+        svg {
+            fill: $buttonStyle-primary-color;
+        }
+
+        &:before {
+            background-color: $buttonStyle-primary-backgroundColorHover;
+        }
+
         &:active {
             color: $buttonStyle-primary-colorActive;
             border-color: $buttonStyle-primary-borderColorActive;
@@ -64,10 +74,23 @@
         }
     }
 
+
     &.button--secondary {
         color: $buttonStyle-default-color;
         background-color: $buttonStyle-default-backgroundColor;
         border-color: $buttonStyle-default-borderColor;
+
+        span {
+            color: $buttonStyle-default-color;
+        }
+
+        svg {
+            fill: $buttonStyle-default-color;
+        }
+
+        &:before {
+            background-color: $buttonStyle-default-backgroundColorHover;
+        }
 
         &:active {
             color: $buttonStyle-default-colorActive;
@@ -80,22 +103,73 @@
         }
     }
 
+
     &.button--tertiary {
         color: $buttonStyle-tertiary-color;
         background-color: $buttonStyle-tertiary-backgroundColor;
         border-color: $buttonStyle-tertiary-borderColor;
 
-        &:active {
-            color: $buttonStyle-tertiary-colorHover;
+        span {
+            color: $buttonStyle-tertiary-color;
+        }
+
+        svg {
+            fill: $buttonStyle-tertiary-color;
+        }
+
+        &:before {
             background-color: $buttonStyle-tertiary-backgroundColorHover;
-            border-color: $buttonStyle-tertiary-borderColorHover;
+        }
+
+        &:active {
+            color: $buttonStyle-tertiary-colorActive;
+            background-color: $buttonStyle-tertiary-backgroundColorActive;
+            border-color: $buttonStyle-tertiary-borderColorActive;
         }
     }
 
     &.button--transparent {
-        background: transparent;
-        border-color: $buttonStyle-primary-color;
-        color: $buttonStyle-primary-color;
+        span {
+            color: $buttonStyle-primary-color;
+        }
+
+        svg {
+            fill: $buttonStyle-primary-color;
+        }
+
+        &:before {
+            background-color: $buttonStyle-primary-backgroundColorHover;
+        }
+
+        &:active {
+            color: $buttonStyle-primary-colorActive;
+            border-color: $buttonStyle-primary-borderColorActive;
+            background-color: $buttonStyle-primary-backgroundColorActive;
+        }
+
+        @include smin-m {
+            color: #ffffff;
+            border-color: #ffffff;
+            background-color: transparent;
+
+            span {
+                color: #ffffff;
+            }
+
+            svg {
+                fill: #ffffff;
+            }
+
+            &:before {
+                background-color: #ffffff;
+            }
+
+            &:active {
+                color: #323232;
+                background-color: #ffffff;
+                border-color: #ffffff;
+            }
+        }
     }
 
     &.disable,
@@ -126,9 +200,18 @@
             &:focus {
                 color: $buttonStyle-primary-colorHover;
                 border-color: $buttonStyle-primary-borderColorHover;
-                background-color: transparent;
-                &::before {
-                    background-color: $buttonStyle-primary-backgroundColorHover;
+                background-color: $buttonStyle-primary-backgroundColor;
+
+                span {
+                    color: $buttonStyle-primary-colorHover;
+                }
+
+                svg {
+                    fill: $buttonStyle-primary-colorHover;
+                }
+
+                &:before {
+                    transform: rotate(0) translate3d(-25%, 0, 0);
                 }
             }
         }
@@ -139,9 +222,18 @@
             &:focus {
                 color: $buttonStyle-default-colorHover;
                 border-color: $buttonStyle-default-borderColorHover;
-                background-color: transparent;
-                &::before {
-                    background-color: $buttonStyle-default-backgroundColorHover;
+                background-color: $buttonStyle-default-backgroundColor;
+
+                span {
+                    color: $buttonStyle-default-colorHover;
+                }
+
+                svg {
+                    fill: $buttonStyle-default-colorHover;
+                }
+
+                &:before {
+                    transform: rotate(0) translate3d(-25%, 0, 0);
                 }
             }
         }
@@ -152,31 +244,40 @@
             &:focus {
                 color: $buttonStyle-tertiary-colorHover;
                 border-color: $buttonStyle-tertiary-borderColorHover;
-                background-color: transparent;
+                background-color: $buttonStyle-tertiary-backgroundColor;
 
-                &::before {
-                    background-color: $buttonStyle-tertiary-backgroundColorHover;
+                span {
+                    color: $buttonStyle-tertiary-colorHover;
+                }
+
+                svg {
+                    fill: $buttonStyle-tertiary-colorHover;
+                }
+
+                &:before {
+                    transform: rotate(0) translate3d(-25%, 0, 0);
                 }
             }
         }
 
         &.button--transparent {
-            transition: all .7s cubic-bezier(0.19, 1, 0.22, 1);
 
             &:hover,
             &:focus {
-                color: $color-textBase;
-                border-color: $buttonStyle-primary-colorHover;
-                background: $buttonStyle-primary-colorHover;
-            }
+                color: #323232;
+                border-color: #ffffff;
+                background-color: transparent;
 
-            &:active {
-                color: $color-textBase;
-                border-color: $buttonStyle-primary-colorActive;
-                background: transparent;
+                span {
+                    color: #323232;
+                }
 
-                &::before {
-                    background-color: $buttonStyle-primary-colorActive;
+                svg {
+                    fill: #323232;
+                }
+
+                &:before {
+                    transform: rotate(0) translate3d(-25%, 0, 0);
                 }
             }
         }

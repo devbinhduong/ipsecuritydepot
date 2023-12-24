@@ -166,7 +166,6 @@
     "button--disabled-color": "#ffffff",
     "button--disabled-backgroundColor": "#cccccc",
     "button--disabled-borderColor": "transparent",
-    "card-figcaption-button-colorHover":"#ffffff",
     "icon-color": "#757575",
     "icon-color-hover": "#999999",
     "button--icon-svg-color": "#757575",
@@ -354,6 +353,7 @@
     "paymentbanners-proddetailspage-color": "white",
     "paymentbanners-proddetailspage-ratio": "8x1",
     "paymentbuttons-container": "medium",
+    "card-figcaption-button-backgroundHover":"#000000",
     "supported_card_type_icons": [
       "american_express",
       "diners_club",
@@ -546,7 +546,7 @@
         "card-figcaption-button-color": "#000000",
         "card-figcaption-button-color-hover": "#ED1C24",
         "card-figcaption-button-border": "#000000",
-        "card-figcaption-button-colorHover":"#ffffff",
+        "card-figcaption-button-backgroundHover":"#000000",
         "dropdown--quickSearch-backgroundColor": "#ffffff"
       }
     }
