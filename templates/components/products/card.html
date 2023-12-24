@@ -27,11 +27,11 @@
     <figure class="card-figure">
         <!-- Rating -->
         <div class="product-card-rating">
-            {{> components/custom/products/chart-review product=product rating=product.rating reviews=product.reviews urls=urls}}
-            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
-
             {{#if num_reviews}}
-                <span class="number-review">({{num_reviews}})</span>
+                <span class="icon icon--rating-start">
+                    <svg><use xlink:href="#icon-rating-start"></use></svg>
+                </span>
+                <span class="number-review">{{rating}}.0</span>
             {{/if}}
         </div>
 
