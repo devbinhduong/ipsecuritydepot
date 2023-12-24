@@ -15,6 +15,7 @@ import carousel from './common/carousel';
 import svgInjector from './global/svg-injector';
 import ajaxAddToCart from './custom/ajaxAddToCart';
 import quickShop from './custom/quickShop';
+import haloLoginPopup from './custom/haloLoginPopup';
 import customGlobal from './custom/customGlobal';
 
 export default class Global extends PageManager {
@@ -33,5 +34,10 @@ export default class Global extends PageManager {
         ajaxAddToCart(this.context);
         quickShop(this.context);
         customGlobal(this.context);
+        
+        if (!$('body').hasClass('page-type-login')) {
+            haloLoginPopup();
+        }
+        
     }
 }

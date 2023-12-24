@@ -220,7 +220,7 @@
     "navPages-color-hover": "#757575",
     "navPages-subMenu-backgroundColor": "#ffffff",
     "navPages-subMenu-separatorColor": "#cccccc",
-    "dropdown--quickSearch-backgroundColor": "#",
+    "dropdown--quickSearch-backgroundColor": "#ffffff",
     "dropdown--wishList-backgroundColor": "#ffffff",
     "blockquote-cite-font-color": "#999999",
     "container-border-global-color-base": "#e5e5e5",
@@ -541,7 +541,8 @@
         "card-title-color-hover": "#ED1C24",
         "productgallery_size": "390x270",
         "halo_add_to_cart_popup": "mini",
-        "card-figcaption-button-color-hover": "#ED1C24"
+        "card-figcaption-button-color-hover": "#ED1C24",
+        "dropdown--quickSearch-backgroundColor": "#ffffff"
       }
     }
   ]

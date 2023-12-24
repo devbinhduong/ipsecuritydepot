@@ -45,6 +45,8 @@ export default function(context) {
             footer_mobile();
             toggle_footer();
             productCardQtyChange();
+            authPopup();
+            authSidebar();
         })
 
         /* Scroll Event */
@@ -209,6 +211,64 @@ export default function(context) {
         }
     }
 
+    function authPopup() {
+        $('[data-login-form]').on('click', event => {
+            event.preventDefault();
+            if (!$('body').hasClass('page-type-login')) {
+                const $target = $(event.currentTarget);
+                $target.siblings('.halo-auth-popup').toggleClass('is-open');
+            } else{
+                $('html, body').animate({
+                    scrollTop: $('.login').offset().top,
+                }, 700);
+            }
+        });
+
+        $(document).on('click', event => {
+            if ($('.halo-auth-popup').hasClass('is-open')) {
+                if (($(event.target).closest('.halo-auth-popup').length === 0) && ($(event.target).closest('[data-login-form]').length === 0)){
+                    $('.halo-auth-popup').removeClass('is-open');
+                }
+            }
+        });
+    }
+
+
+    function authSidebar() {
+        $('[data-login-form-mobile]').on('click', event => {
+            event.preventDefault();
+            if (!$('body').hasClass('page-type-login')) {
+                if($('.halo-auth-sidebar').hasClass('is-open')){
+                    $('.halo-auth-sidebar').removeClass('is-open');
+                    $('body').removeClass('openAuthSidebar');
+                } else{
+                    $('.halo-auth-sidebar').addClass('is-open');
+                    $('body').addClass('openAuthSidebar');
+                }
+            } else{
+                $('html, body').animate({
+                    scrollTop: $('.login').offset().top,
+                }, 700);
+            }
+        });
+
+        $('.halo-auth-sidebar .halo-sidebar-close').on('click', event =>{
+            event.preventDefault();
+
+            $('.halo-auth-sidebar').removeClass('is-open');
+            $('body').removeClass('openAuthSidebar');
+        });
+
+        $(document).on('click', event => {
+            if ($('.halo-auth-sidebar').hasClass('is-open')) {
+                if (($(event.target).closest('.halo-auth-sidebar').length === 0) && ($(event.target).closest('[data-login-form-mobile]').length === 0)){
+                    $('.halo-auth-sidebar').removeClass('is-open');
+                    $('body').removeClass('openAuthSidebar');
+                }
+            }
+        });
+    }
+
     function searchMobileClick(){
         const $search = $('[data-search="quickSearch"]');
 
@@ -231,6 +291,8 @@ export default function(context) {
             $('body').removeClass('openSearchMobile');
         });
     }
+
+    
 
     /* Append Menu Items when responsive */
     function changeMenuItems() {

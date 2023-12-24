@@ -91,14 +91,25 @@
                             </span>
                             {{customer.name}}
                         </a>
+
+                        {{> components/custom/halo-account-popup data="account-pc"}}
                     {{else}}
-                        <a class="navUser-action flex-center-y hover-link" href="{{urls.auth.login}}" aria-label="{{lang 'account.title'}}" data-login-form>
+                        <a class="navUser-action flex-center-y hover-link hide-on-tablet" href="{{urls.auth.login}}" aria-label="{{lang 'account.title'}}" data-login-form>
                             <span class="navUser-icon flex-center-inline">
                                 <svg class="icon" aria-hidden="true"><use xlink:href="#icon-information"></use></svg>
                             </span>
                             {{lang 'account.title'}}
                         </a>
+
+                        {{> components/custom/halo-login-popup data="login-pc" email_id="login_email" password_id="login_pass"}}
                     {{/if}}
+
+                    <!-- Mobile -->
+                    <a class="navUser-action myAccountMobile hide-on-desktop" {{#if customer}}href="{{urls.account.index}}"{{else}}href="{{urls.auth.login}}"{{/if}} data-login-form-mobile aria-label="{{lang 'account.title'}}">
+                        <span class="navUser-icon flex-center-inline">
+                            <svg class="icon" aria-hidden="true"><use xlink:href="#icon-information"></use></svg>
+                        </span>
+                    </a>
                 </div>
 
                 <div class="items item--cart halo-cart flex-center-inline">
