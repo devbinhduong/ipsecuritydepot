@@ -3,12 +3,12 @@
     data-slick='{
         "infinite": false,
         "mobileFirst": true,
-        "slidesToShow": 2,
+        "slidesToShow": 1,
         "slidesToScroll": 1,
         "slide": "[data-product-slide]",
         "responsive": [
             {
-                "breakpoint": 800,
+                "breakpoint": 1024,
                 "settings": {
                     "slidesToShow": {{ columns }},
                     "slidesToScroll": 1,
@@ -16,9 +16,17 @@
                 }
             },
             {
-                "breakpoint": 550,
+                "breakpoint": 800,
                 "settings": {
                     "slidesToShow": 3,
+                    "slidesToScroll": 1,
+                    "dots": false
+                }
+            },
+            {
+                "breakpoint": 550,
+                "settings": {
+                    "slidesToShow": 2,
                     "slidesToScroll": 1
                 }
             }

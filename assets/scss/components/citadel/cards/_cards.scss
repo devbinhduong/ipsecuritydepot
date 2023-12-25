@@ -17,7 +17,7 @@
 }
 
 .card {
-    margin-bottom: 35px;
+    margin-bottom: 16px;
     position: relative;
     border-radius: 8px;
     background: #ffffff;
@@ -78,12 +78,12 @@
 
     .product-card-rating {
         position: absolute;
-        top: 20px;
-        left: 20px;
+        top: 28px;
+        left: 28px;
         display: inline-flex;
         gap: 4px;
         border-radius: 60px;
-        padding: 10px 20px; 
+        padding: 8px 20px; 
         background: #ffffff;
         .icon {
             width: 20px;
@@ -226,7 +226,11 @@
 
 .card-title {
     font-size: $card-title-fontSize;
-    margin: 0 0 4px 0;
+    margin: 0 0 13px 0;
+
+    @include smax-xl {
+        font-size: 16px;
+    }
 
     >a {
         color: $card-title-color;
@@ -236,6 +240,10 @@
         line-height: 30px;
         font-family: $body-font-family;
         letter-spacing: 0;
+
+        @include smax-xl {
+            line-height: 1.2;
+        }
 
         span {
             background-image: linear-gradient(currentColor, currentColor);
@@ -346,13 +354,26 @@
 /* Card Has quantity */
 .card-figcaption-bottom {
     .card-action-wrapper {
+        @include smax-xl {
+            flex-direction: column;
+            align-items: flex-start;
+        }
         .form-field--increments {
-            margin-bottom: 0;
+            margin-bottom: 20px;
+            @include smin-xl {
+                margin-bottom: 0;
+            }
         }
 
         .halo-add-to-cart {
             margin-top: 0;
-            margin-right: -20px;
+            @include smin-xl {
+                margin-right: -20px;
+            }
+
+            @include smax-xl {
+                width: 100%;
+            }
         }
     }
 }
@@ -398,6 +419,12 @@
         font-weight: 500;
         line-height: 20px;
         text-transform: uppercase;
+        margin-bottom: 10px;
+
+        @include smax-xl {
+            font-size: 12px;
+            line-height: 1.2;
+        }
     }
 
     [data-test-info-type="productRating"] {
@@ -405,13 +432,17 @@
     }
 
     [data-test-info-type="price"] {
-        margin-bottom: 15px;
+        margin-bottom: 22px;
         color: #000000;
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
         line-height: 20px;
         text-transform: uppercase;
+
+        @include smax-xl {
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -467,9 +498,14 @@
     display: inline-block;
 
     .price {
-        font-size: stencilNumber("fontSize-root");
+        font-size: 20px;
         line-height: 20px;
         font-weight: 700;
+
+        @include smax-xl {
+            font-size: 14px;
+            line-height: 1.2;
+        }
     }
 
     .non-sale-price-label,
@@ -937,6 +973,12 @@
                 border-radius: 4px;
                 border: none;
 
+                @include smax-xl {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
                 svg {
                     fill: #000000;
                     stroke: #000000;
@@ -959,7 +1001,13 @@
                 line-height: 20px;
                 text-transform: uppercase;
                 flex: 1;
+
+                @include smax-xl {
+                    font-size: 14px;
+                    line-height: 1.2;
+                }
             }
         }
     }
 }
+

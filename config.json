@@ -547,7 +547,9 @@
         "card-figcaption-button-color-hover": "#ED1C24",
         "card-figcaption-button-border": "#000000",
         "card-figcaption-button-backgroundHover":"#000000",
-        "dropdown--quickSearch-backgroundColor": "#ffffff"
+        "dropdown--quickSearch-backgroundColor": "#ffffff",
+        "homepage_featured_products_count": 6,
+        "navPages-subMenu-separatorColor": "#ebebeb"
       }
     }
   ]

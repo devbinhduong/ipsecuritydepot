@@ -18,7 +18,9 @@ export default function(context) {
             checkJS_load = false;
             if (context.themeSettings.themevale_megamenu) haloMegaMenuEditor(context);
             back_to_top();
-            
+            setTimeout(()=> {
+                handleDropdownMenu();
+            }, 1000)
         }
     }
 
@@ -69,6 +71,7 @@ export default function(context) {
             changeMenuItems();
             menuMobile();
             footer_mobile();
+            handleDropdownMenu();
         }));
     }
     eventLoad();
@@ -364,6 +367,7 @@ export default function(context) {
 
             // handle button clicks
             function handleButtonClick(event) {
+                console.log("click")
                 let currentValue = parseInt(quantityInput.value);
                 let minValue = parseInt(quantityInput.dataset.quantityMin) ? parseInt(quantityInput.dataset.quantityMin) : 1;
                 let maxValue = parseInt(quantityInput.dataset.quantityMax) ? parseInt(quantityInput.dataset.quantityMax) : 1000000;
@@ -385,6 +389,21 @@ export default function(context) {
                     quantityInput.value = minValue;
                 } else {
                     quantityInput.value = Math.min(Math.max(currentValue, minValue), maxValue);
+                }
+            }
+        }
+    }
+
+    /* Handle when dropdown menu overflow the viewport */
+    function handleDropdownMenu() {
+        /* Handle For Level 3 Dropdown */
+        const dropdownList = document.querySelectorAll(".navPages-item.has-dropdown:not(.hasMegamenu) .navPage-subMenu-item-child .navPage-subMenu-horizontal");
+        for (let dropdown of dropdownList) {
+            if(dropdown) {
+                const dropdownOffset = dropdown.getBoundingClientRect();
+                const isDropdownOverflow = dropdownOffset.right > window.innerWidth;
+                if (isDropdownOverflow) {
+                    dropdown.style.marginLeft = '-100%';
                 }
             }
         }

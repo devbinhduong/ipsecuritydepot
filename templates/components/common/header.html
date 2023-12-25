@@ -15,17 +15,17 @@
     <div class="header__top">
         <div class="container">
             <div class="header-top__list flex">
-                <div class="header-top__item">
+                <div class="header-top__item custom-animation" data-step-animate="1">
                     <a href="{{theme_settings.header_top_left_link}}" class="no-underline hover-link hover-link--headerTop">
                         {{theme_settings.header_top_left_text}}
                     </a>
                 </div>
-                <div class="header-top__item text-center text-right-tablet">
+                <div class="header-top__item text-center text-right-tablet custom-animation" data-step-animate="2">
                     <a href="{{theme_settings.header_top_center_link}}" class="no-underline hover-link hover-link--headerTop">
                         {{theme_settings.header_top_center_text}}
                     </a>
                 </div>
-                <div class="header-top__item text-right hide-on-tablet">
+                <div class="header-top__item text-right hide-on-tablet custom-animation" data-step-animate="3">
                     <a href="tel:+{{settings.phone_number}}" class="no-underline hover-link hover-link--headerTop">
                         <span class="icon icon--phone">
                             <svg><use xlink:href="#icon-phone"></use></svg>
@@ -67,13 +67,13 @@
                 </div>
             </div>
             <div class="middleHeader-item text-right">
-                <div class="items item--quicksearch halo-search">
+                <div class="items item--quicksearch halo-search" data-step-animate="2">
                     <div id="quickSearch" data-prevent-quick-search-close>
                         {{> components/common/quick-search}}
                     </div>
                 </div>
                 {{#if theme_settings.header_contact_text}}
-                    <div class="items item--contact hide-on-tablet">
+                    <div class="items item--contact hide-on-tablet custom-animation" data-step-animate="3">
                         <a class="navUser-action flex-center-y hover-link" href="{{theme_settings.header_contact_link}}" aria-label="{{theme_settings.header_contact_text}}">
                             <span class="navUser-icon flex-center-inline">
                                 <svg class="icon" aria-hidden="true"><use xlink:href="#icon-contact"></use></svg>
@@ -83,7 +83,7 @@
                     </div>
                 {{/if}}
 
-                <div class="items item--account">
+                <div class="items item--account custom-animation" data-step-animate="4">
                     {{#if customer}}
                         <a class="navUser-action flex-center-y hover-link" href="{{urls.account.index}}" aria-label="{{customer.name}}" data-login-form>
                             <span class="navUser-icon flex-center-inline">
@@ -112,7 +112,7 @@
                     </a>
                 </div>
 
-                <div class="items item--cart halo-cart flex-center-inline">
+                <div class="items item--cart halo-cart flex-center-inline custom-animation" data-step-animate="5">
                     <a class="navUser-action cartDesktop flex-center-y hover-link"
                         data-cart-preview
                         data-options="align:right"

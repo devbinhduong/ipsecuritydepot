@@ -11,24 +11,27 @@
 // -----------------------------------------------------------------------------
 
 .productGrid {
+    margin-left: 0;
+    &:not(.productGrid--custom) {
 
-    @include u-listBullets("none");
-    @include grid-row($behavior: "nest");
-    font-size: 0; // 1
-    margin-bottom: spacing("single");
-
-    .product {
-        @include grid-column(6, $float: none);
-        display: inline-block;
-        font-size: fontSize("base"); // 1
-        vertical-align: top;
-
-        @include breakpoint("small") {
-            width: grid-calc(4, $total-columns);
-        }
-
-        @include breakpoint("medium") {
-            width: grid-calc(3, $total-columns);
+        @include u-listBullets("none");
+        @include grid-row($behavior: "nest");
+        font-size: 0; // 1
+        margin-bottom: spacing("single");
+    
+        .product {
+            @include grid-column(6, $float: none);
+            display: inline-block;
+            font-size: fontSize("base"); // 1
+            vertical-align: top;
+    
+            @include breakpoint("small") {
+                width: grid-calc(4, $total-columns);
+            }
+    
+            @include breakpoint("medium") {
+                width: grid-calc(3, $total-columns);
+            }
         }
     }
 }

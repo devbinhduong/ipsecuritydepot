@@ -269,8 +269,8 @@
     background-color: stencilColor("header_top_background");
 
     .header-top__list {
-        padding-top: 20px;
-        padding-bottom: 18px;
+        padding-top: 15px;
+        padding-bottom: 13px;
 
         @media (max-width: 1024px) {
             justify-content: space-between;
@@ -491,7 +491,7 @@
             }
         }
     }
-
+    
     @media (min-width: 1025px) {
         padding: 12px 0;
 
@@ -569,7 +569,7 @@
                     }
 
                     +.items:not(.item--logo) {
-                        margin-left: 27px;
+                        margin-left: 17px;
                     }
 
                     &.item--account {
@@ -582,7 +582,7 @@
                 }
 
                 &.text-center {
-                    padding-right: 30px;
+                    padding-right: 37px;
                     width: 280px;
                     flex: unset;
                 }
@@ -659,12 +659,16 @@
         }
     }
 
-    @media (min-width: 1600px) {
+    @media (min-width: 1400px) {
         .container {
             >.middleHeader-item {
-                &.item--quicksearch {
+                .item--quicksearch {
                     #quickSearch {
                         max-width: 410px;
+
+                        .form-input {
+                            width: 410px;
+                        }
                     }
                 }
 
@@ -678,5 +682,12 @@
                 }
             }
         }
+    }
+}
+
+.halo-bottomHeader {
+    @include min-tablet {
+        padding-top: 6px;
+        padding-bottom: 17px;
     }
 }

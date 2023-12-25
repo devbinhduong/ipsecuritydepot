@@ -149,11 +149,39 @@
         }
     }
 
-    &.heroCarousel-2 {
-        @include smin-m {
-            min-width: auto;
-            width: calc(100% - 270px);
-            margin-left: 270px;
+    &:not(.heroCarousel--mobile) {
+        @include smax-xs {
+            .heroCarousel-content {
+                background-color: #ffffff;
+                text-align: center;
+                .heroCarousel-title {
+                    font-size: 20px;
+                    line-height: 1.4;
+                    font-weight: 700;
+                }
+
+                .heroCarousel-description {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+    &.heroCarousel--mobile {
+        @include smax-xs {
+            .heroCarousel-content-wrapper  {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background-color: rgba(255,255,255,.88);
+                width: 90%;
+            }
+            .heroCarousel-content {
+                padding: 20px;
+                text-align: center;
+            }
         }
     }
 }
@@ -284,7 +312,7 @@
     display: inline-block;
     vertical-align: top;
     width: 100%;
-    font-size: $fontSize-hero - 28px;
+    font-size: $fontSize-hero - 32px;
     font-weight: $fontWeight-bold;
     color: $carousel-title-mb-color;
     letter-spacing: 0;
@@ -293,6 +321,7 @@
 
     @include smin-xs {
         color: $carousel-title-color;
+        font-size: $fontSize-hero - 28px;
     }
 
     @include smin-m {
@@ -324,6 +353,10 @@
 
 .heroCarousel-action {
     margin: 10px 0 0 0;
+    @include smax-xs {
+        min-width: 220px;
+        font-size: 14px;
+    }
 
     .button {
         min-width: 146px;
