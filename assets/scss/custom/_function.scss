@@ -108,9 +108,11 @@
         &:hover {
             > .navPages-action {
                 color: stencilColor('navPages-color-hover');
-                svg {
-                    fill: stencilColor('navPages-color-hover');
-                    stroke: stencilColor('navPages-color-hover');
+                @include min-tablet {
+                    svg {
+                        fill: stencilColor('navPages-color-hover');
+                        stroke: stencilColor('navPages-color-hover');
+                    }
                 }
                 .text:before {
                     width: 100%;
@@ -803,9 +805,6 @@
             .button {
                 width: 100%;
             }
-        }
-        .socialLinks {
-            padding: 15px 0 10px 20px;
         }
     }
 }

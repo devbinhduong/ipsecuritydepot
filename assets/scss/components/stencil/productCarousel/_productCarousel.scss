@@ -56,9 +56,21 @@
     .slick-arrow {
         top: -129px;
         transform: unset;
-        
+
+        @include max-tablet {
+            top: -95px;
+        }
+
+        @include max-mobile {
+            top: -75px;
+        }
+
         &.slick-prev {
             left: calc(100% - 125px);
+
+            @include max-tablet {
+                left: calc(100% - 105px);
+            }
         }
     }
 }

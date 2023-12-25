@@ -347,15 +347,6 @@
         svg{
             width: 19px;
             height: 19px;
-            fill: stencilColor('navPages-color-hover')!important;
-
-            .home-layout-2 & {
-                fill: #000 !important;
-            }
-        }
-
-        + .socialLinks-item{
-            margin-left: 15px!important;
         }
     }
 

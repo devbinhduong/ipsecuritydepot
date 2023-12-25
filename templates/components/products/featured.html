@@ -3,7 +3,7 @@
 <ul class="productGrid productGrid--custom grid gap-30" data-product-type="featured" data-list-name="Featured Products">
     <div class="row">
         {{#each products}}
-            <li class="product col l-{{../columns}} m-2 s-1">
+            <li class="product col l-{{../columns}}">
                     {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
             </li>
         {{/each}}

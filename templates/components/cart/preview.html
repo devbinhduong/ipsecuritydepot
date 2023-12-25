@@ -24,7 +24,7 @@
                         {{brand.name}}
                     </div>
                     <h4 class="productView-title">
-                        <a href="{{url}}" {{#if theme_settings.halo_add_to_cart_popup '===' 'mini'}} style="-webkit-box-orient: vertical;" {{/if}}>{{name}}</a>
+                        <a href="{{url}}" {{#if ../theme_settings.halo_add_to_cart_popup '===' 'mini'}} style="-webkit-box-orient: vertical;" {{/if}}>{{name}}</a>
                     </h4>
                     <div class="productView-price">
                         {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
@@ -79,7 +79,7 @@
                     {{lang 'cart.added_to_cart.view_or_edit_cart'}}
                 </a>
             {{else if theme_settings.halo_add_to_cart_popup '===' 'mini'}}
-                <a href="{{urls.cart}}" class="button button--transparent">
+                <a href="{{urls.cart}}" class="button button--secondary">
                     {{lang 'cart.preview.view_cart'}}
                 </a>
             {{/if}}

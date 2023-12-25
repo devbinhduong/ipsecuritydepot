@@ -162,6 +162,12 @@
     border-radius: 50%;
     width: 60px;
     height: 60px;
+
+    @include max-tablet {
+        width: 48px;
+        height: 48px;
+    }
+
     a {
         display: flex;
         justify-content: center;
@@ -213,29 +219,6 @@
     }
 }
 
-@keyframes slide-in-left {
-    0% {
-        transform: translateX(0);
-        opacity: 0;
-    }
-    
-    100% {
-        transform: translateX(-20px);
-        opacity: 1;
-    }
-}
-
-@keyframes slide-in-right {
-    0% {
-        transform: translateX(0);
-        opacity: 0;
-    }
-    
-    100% {
-        transform: translateX(20px);
-        opacity: 1;
-    }
-}
 
 /* Slick */
 .slick-arrow {
@@ -255,17 +238,16 @@
     padding: 0;
     margin: 0;
 
+    @include max-tablet {
+        width: 40px;
+        height: 40px;
+    }
+
     &.slick-prev {
         left: 15px;
 
         @media (min-width: 1025px) {
             left: -15px;
-        }
-
-        &:hover {
-            &::before {
-                animation: slide-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-            }
         }
     }
 
@@ -275,16 +257,151 @@
         @media (min-width: 1025px) {
             right: -15px;
         }
-
-        &:hover {
-            &::before {
-                animation: slide-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-            }
-        }
     }
 
     &.slick-disabled {
         opacity: 0.3;
         pointer-events: none;
+    }
+}
+
+
+// Quick Shop
+// -----------------------------------------------------------------------------
+
+.quickShop {
+    .productView-options .form-field>.form-label {
+        font-weight: $fontWeight-medium;
+    }
+}
+
+.halo-quickShop {
+    display: block;
+    font-size: 0;
+    letter-spacing: 0;
+    padding: 0 2.25rem;
+
+    .halo-productView-left,
+    .halo-productView-right {
+        width: 100%;
+        display: block;
+        margin-bottom: 0;
+    }
+
+    .halo-productView-left {
+        display: none;
+    }
+
+    .productView-image-wrapper {
+        img[role="presentation"] {
+            display: none !important;
+        }
+    }
+
+    .productView-details {
+        width: 100%;
+    }
+
+    .productView-product {
+        margin-top: 5px;
+    }
+
+    .productView-brand {
+        margin-bottom: 0;
+    }
+
+    .productView-title {
+        font-size: $fontSize-root;
+        line-height: 1.625;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        text-overflow: ellipsis;
+        margin-bottom: 0;
+    }
+
+    .productView-topInfo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 5px 0 0 0;
+    }
+
+    .productView-rating {
+        width: auto;
+    }
+
+    .productView-ratingCount {
+        font-size: $fontSize-root - 2px;
+        font-weight: $fontWeight-normal;
+        color: $color-textSecondary;
+        line-height: 1;
+        margin: 0 0 0 7px;
+    }
+
+    .productView-price {
+        margin-top: 8px;
+        margin-bottom: 0;
+
+        .price-section {
+            font-size: $fontSize-root + 2px;
+            font-weight: $fontWeight-normal;
+        }
+    }
+
+    @media (min-width: 551px) {
+
+        .halo-productView-left,
+        .halo-productView-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .halo-productView-left {
+            width: 100px;
+        }
+
+        .halo-productView-right {
+            width: calc(100% - 100px);
+            padding: 0 0 0 30px;
+        }
+
+        .productView-image-wrapper {
+            display: block;
+        }
+    }
+}
+
+.halo-quickShop-action {
+    #add-to-cart-wrapper {
+        .form-field--increments {
+            margin-bottom: 20px;
+            margin-top: 12px;
+            > .form-label {
+                display: none;
+            }
+
+            .form-increment {
+                display: flex;
+                justify-content: space-between;
+                padding: 2px;
+                border-radius: 4px;
+                
+                .form-input--incrementTotal {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        #form-action-addToCart {
+            width: 100%;
+            height: 44px;
+            padding: 12px 20px;
+
+            &:hover {
+                background-color: #000000;
+                color: #ffffff;
+            }
+        }
     }
 }

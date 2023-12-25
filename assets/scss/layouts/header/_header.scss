@@ -319,6 +319,17 @@
                 }
             }
         }
+        
+
+        @include smax-xs {
+            flex-direction: column;
+
+            .header-top__item  {
+                width: 100%;
+                flex: 0 0 100%;
+                text-align: center !important;
+            }
+        }
     }
 }
 
