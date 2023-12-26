@@ -454,7 +454,7 @@
             .recentlyPost__list {
                 border-radius: 8px;
                 background: #FFF;
-                padding: 10px 10px 30px;
+                padding: 5px 10px 30px;
 
                 .recentlyPost__item {
                     .image-with-overlay {
@@ -468,7 +468,7 @@
                     }
 
                     .item-content {
-                        padding: 20px;
+                        padding: 30px 20px;
 
                         @include max-mobile {
                             padding: 20px 0;
@@ -505,6 +505,7 @@
 
                         .button {
                             width: 100%;
+                            text-transform: capitalize;
                         }
                     }
                 }
@@ -543,7 +544,7 @@
     }
     &.home-recently-posts {
         @include min-tablet {
-            margin-bottom: 74px;
+            margin-bottom: 89px;
         }
     }
 }
