@@ -49,6 +49,7 @@ export default function(context) {
             productCardQtyChange();
             authPopup();
             authSidebar();
+            productTabsMobile();
         })
 
         /* Scroll Event */
@@ -71,6 +72,7 @@ export default function(context) {
             changeMenuItems();
             menuMobile();
             footer_mobile();
+            productTabsMobile();
             handleDropdownMenu();
         }));
     }
@@ -440,4 +442,34 @@ export default function(context) {
         });
     }
     priceRangeDemo();
+
+    // Product Tabs Mobile
+    // -----------------------------------------------------------------------------
+    function productTabsMobile() {
+        const $btnTabMobile = $('.tab-titleMobile');
+
+        $btnTabMobile.on('click', (e) => {
+            e.preventDefault();
+            const $target = $(e.currentTarget);
+            const idTab = $target.attr('href');
+            const thisTop = $('.productView-description').offset().top - 20;
+
+            if ($target.hasClass('is-active')) {
+                $target.removeClass('is-active');
+                $(idTab).removeClass('is-active').find('.tabContent').slideUp();
+            }
+            else {
+                const $tabActiveMobile = $('.productView-description .tabs-contents .tab-content.is-active');
+
+                $btnTabMobile.removeClass('is-active');
+                $target.addClass('is-active');
+                $tabActiveMobile.removeClass('is-active').find('.tabContent').slideUp();
+                $(idTab).addClass('is-active').find('.tabContent').slideDown();
+
+                $('body,html').animate({
+                    scrollTop: thisTop
+                }, 1000);
+            }
+        });
+    }
 } 

@@ -1337,12 +1337,6 @@
       },
       {
         "type": "checkbox",
-        "label": "Show Product Description Tabs",
-        "force_reload": true,
-        "id": "show_product_details_tabs"
-      },
-      {
-        "type": "checkbox",
         "label": "Product Custom Fields In Tabs",
         "force_reload": true,
         "id": "show_custom_fields_tabs"
