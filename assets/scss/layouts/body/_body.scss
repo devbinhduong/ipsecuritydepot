@@ -48,6 +48,18 @@ body {
         }
     }
 
+    &.page-type-product {
+        .body {
+            padding-bottom: 30px;
+            padding-top: 40px;
+
+            @include smin-m {
+                padding-top: 39px;
+                padding-bottom: 50px;
+            }
+        }
+    }
+
     .page-content--textCenter {
         .page-heading {
             text-align: center;

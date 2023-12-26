@@ -28,13 +28,19 @@ ol.breadcrumbs {
 
     .breadcrumb-label {
         cursor: pointer;
-        color: #000;
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
         line-height: 20px;
         text-transform: uppercase;
         text-decoration: none;
+        color: #909090;
+    }
+
+    &:first-child {
+        .breadcrumb-label {
+            color: #000000;
+        }
     }
 
     &.is-active {

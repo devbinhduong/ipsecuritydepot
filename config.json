@@ -91,9 +91,9 @@
     "logo_fontSize": 28,
     "brand_size": "190x250",
     "gallery_size": "300x300",
-    "productgallery_size": "500x659",
-    "product_size": "500x659",
-    "productview_thumb_size": "50x50",
+    "productgallery_size": "520x520",
+    "product_size": "520x520",
+    "productview_thumb_size": "105x105",
     "productthumb_size": "100x100",
     "thumb_size": "100x100",
     "zoom_size": "1280x1280",
@@ -540,7 +540,7 @@
         "halo_quick_shop": true,
         "card-title-color": "#000000",
         "card-title-color-hover": "#ED1C24",
-        "productgallery_size": "390x270",
+        "productgallery_size_card": "390x270",
         "halo_add_to_cart_popup": "mini",
         "card-figcaption-button-background": "#ffffff",
         "card-figcaption-button-color": "#000000",
@@ -554,7 +554,12 @@
         "show_category_banner": false,
         "categorypage_products_per_page": 6,
         "halo-search-sidebar": true,
-        "halo-brand-sidebar": true
+        "halo-brand-sidebar": true,
+        "productgallery_size": "520x520",
+        "product_size": "520x520",
+        "productview_thumb_size": "105x105",
+        "custom_show_wish": false,
+        "custom_show_productShare": false
       }
     }
   ]
