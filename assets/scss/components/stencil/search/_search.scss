@@ -167,3 +167,16 @@
 .search-nav {
     position: relative;
 }
+
+
+/* Custom Search page */
+.page-type-search {
+    .search-nav {
+        margin-bottom: 25px;
+    }
+    
+    #product-listing-container,
+    #faceted-search-container {
+        padding-top: 0;
+    }
+}

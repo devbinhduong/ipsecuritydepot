@@ -64,7 +64,11 @@
     .productGrid {
         .product { // 1
             @include breakpoint("small") {
-                width: grid-calc(4, $total-columns);
+                width: grid-calc(6, $total-columns);
+            }
+
+            @include smax-xs {
+                width: grid-calc(12, $total-columns);
             }
         }
     }

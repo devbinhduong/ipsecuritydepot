@@ -699,6 +699,10 @@
 .halo-bottomHeader {
     @include min-tablet {
         padding-top: 6px;
-        padding-bottom: 17px;
+        padding-bottom: 11px;
+        
+        .page-type-defautl & {
+            padding-bottom: 17px;
+        }
     }
 }

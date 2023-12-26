@@ -27,14 +27,30 @@ brand:
 <h1 class="page-heading">{{brand.name}}</h1>
 {{{region name="brand_below_header"}}}
 <div class="page">
-    <aside class="page-sidebar" id="faceted-search-container">
-        {{> components/brand/sidebar}}
-    </aside>
+    {{#if theme_settings.halo-brand-sidebar}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            <div class="page-sidebar-close">
+                <a href="#" class="close">
+                    <span class="aria-description--hidden">Close</span>
+                    <span aria-hidden="true">×</span
+                </a>
+            </div>
+            {{> components/brand/sidebar}}
+        </aside>
+    {{/if}}
 
     <div class="page-content" id="product-listing-container">
         {{#if brand.search_error }}
             <p>{{lang 'search.errorMessage'}}</p>
         {{else}}
+            {{#if theme_settings.halo-brand-sidebar}}
+                <div class="page-sidebar-mobile-wrapper hide-on-desktop">
+                    <div class="page-sidebar-mobile">
+                        <span class="text">{{lang 'common.sidebar'}}</span>
+                        <svg class="icon" aria-hidden="true"><use xlink:href="#icon-sidebar"></use></svg>
+                    </div>
+                </div>
+            {{/if}}
             {{#if brand.products}}
                 {{> components/brand/product-listing}}
             {{else}}

@@ -40,3 +40,10 @@
         height: $input-small-height - remCalc($input-border-width * 2);
     }
 }
+
+
+.actionBar[data-sort-by] {
+    .form-field {
+        display: inline-block;
+    }
+}

@@ -177,6 +177,7 @@
         "private": "Private",
         "view_all": "View All",
         "all": "All",
+        "sidebar": "Sidebar",
         "paginator": {
             "page_of": "Page {current} of {total}"
         },

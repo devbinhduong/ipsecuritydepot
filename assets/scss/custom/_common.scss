@@ -405,3 +405,9 @@
         }
     }
 }
+
+.page-sidebar {
+    &.is-open {
+        z-index: 105;
+    }
+}

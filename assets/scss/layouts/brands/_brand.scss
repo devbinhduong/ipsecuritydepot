@@ -16,3 +16,10 @@
         max-width: get-width(stencilString("brand_size"));
     }
 }
+
+.page-type-brand {
+    #faceted-search-container,
+    #product-listing-container {
+        padding-top: 0;
+    }
+}

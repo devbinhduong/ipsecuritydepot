@@ -1,5 +1,5 @@
 {
-  "name": "Cornerstone 18122023",
+  "name": "Cornerstone 26122023",
   "version": "6.12.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -549,7 +549,12 @@
         "card-figcaption-button-backgroundHover":"#000000",
         "dropdown--quickSearch-backgroundColor": "#ffffff",
         "homepage_featured_products_count": 6,
-        "navPages-subMenu-separatorColor": "#ebebeb"
+        "navPages-subMenu-separatorColor": "#ebebeb",
+        "halo-category-sidebar": true,
+        "show_category_banner": false,
+        "categorypage_products_per_page": 6,
+        "halo-search-sidebar": true,
+        "halo-brand-sidebar": true
       }
     }
   ]

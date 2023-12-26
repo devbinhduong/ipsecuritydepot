@@ -18,7 +18,7 @@ body {
         }
     }
 
-    &:not(.page-type-default):not(.page-type-product) {
+    &:not(.page-type-default):not(.page-type-product):not(.page-type-category) {
         .page-heading {
             font-size: $fontSize-root + 10;
             margin-bottom: 25px;
@@ -27,9 +27,23 @@ body {
 
         .body {
             padding-bottom: 30px;
+            padding-top: 30px;
             
             @include smin-m {
+                padding-top: 70px;
                 padding-bottom: 100px;
+            }
+        }
+    }
+
+    &.page-type-category {
+        .body {
+            padding-bottom: 30px;
+            padding-top: 40px;
+
+            @include smin-m {
+                padding-top: 0;
+                padding-bottom: 50px;
             }
         }
     }
@@ -203,6 +217,10 @@ body {
         +.page-content {
             padding-left: 30px;
             width: calc(100% - 255px);
+
+            @include min-tablet {
+                max-width: 986px;
+            }
         }
 
         &.u-hiddenVisually {
@@ -222,7 +240,7 @@ body {
         .page-listing & {
             position: sticky;
             top: 80px;
-            padding-top: 17px;
+            padding-top: 23px;
             padding-bottom: 42px;
         }
     }
