@@ -677,8 +677,10 @@
                     #quickSearch {
                         max-width: 410px;
 
-                        .form-input {
-                            width: 410px;
+                        .form-field {
+                            > .form-input {
+                                width: 410px;
+                            }
                         }
                     }
                 }
