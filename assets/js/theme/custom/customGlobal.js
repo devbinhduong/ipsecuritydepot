@@ -4,6 +4,8 @@ import { load } from 'webfontloader';
 import event from '../global/jquery-migrate/event';
 import { forEach } from 'lodash';
 import haloMegaMenuEditor from './haloMegaMenuEditor';
+import haloAskAnExpertPopup from './haloAskAnExpertPopup';
+
 
 export default function(context) {
     const $context = context,
@@ -21,6 +23,19 @@ export default function(context) {
             setTimeout(()=> {
                 handleDropdownMenu();
             }, 1000)
+            clickHaloBackground();
+            menuMobile();
+            searchMobileClick();
+            searchFormMobile();
+            sidebarMobile();
+            footer_mobile();
+            toggle_footer();
+            productCardQtyChange();
+            authPopup();
+            authSidebar();
+            productTabsMobile();
+            haloAskAnExpertPopup($context);
+
         }
     }
 
@@ -39,17 +54,6 @@ export default function(context) {
 
             /* Animate Scroll */
             scrollAnimation(tScroll);
-            clickHaloBackground();
-            menuMobile();
-            searchMobileClick();
-            searchFormMobile();
-            sidebarMobile();
-            footer_mobile();
-            toggle_footer();
-            productCardQtyChange();
-            authPopup();
-            authSidebar();
-            productTabsMobile();
         })
 
         /* Scroll Event */

@@ -727,6 +727,7 @@
         "file_option_set": "Currently: <a href=\"{url}\" target=\"_blank\">{name}</a>",
         "new": "NEW ARRIVALS",
         "warranty": "Warranty Information",
+        "ask_an_expert": "Ask an Experts",
         "reviews": {
             "hide": "Hide Reviews",
             "new": "Write a Review",
