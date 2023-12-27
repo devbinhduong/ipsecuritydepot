@@ -146,10 +146,87 @@
 
         .tab-content {
             padding-top: 0;
+            padding-bottom: 0;
 
             p {
                 line-height: 32px;
                 font-size: 16px;
+            }
+
+            &#tab-reviews {
+                #product-reviews {
+                    margin-bottom: 0;
+
+                    .toggle-title {
+                        color: #000;
+                        font-size: 40px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 24px;
+                        margin-top: 24px;
+                        margin-bottom: 20px;
+                    }
+
+                    .productReviews__total {
+                        p {
+                            color: #909090;
+                            font-family: 'Inter', sans-serif;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            display: flex;
+                        }
+                        .icon {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 8px;
+                        }
+                    }
+
+                    #productReviews-content {
+                        .productReviews-list {
+                            display: flex;
+                            flex-direction: column;
+
+                            .productReview {
+                                width: 100%;
+
+                                .productReview__name {
+                                    color: #000;
+                                    font-family: 'Jost', sans-serif;
+                                    font-size: 24px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal;
+                                    margin-bottom: 8px;
+                                }
+                                
+                                .productReview__bottom {
+                                    margin-bottom: 25px;
+                                    
+                                    .productReview__date {
+                                        color: #909090;
+                                        font-family: 'Jost', sans-serif;
+                                        font-size: 16px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+                                        margin-right: 25px;
+                                    }
+                                }
+                                
+                                .productReview-body {
+                                    color: #000;
+                                    font-size: 16px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 30.5px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -224,6 +301,20 @@
                     display: none;
                     padding: 30px 0;
                 }
+            }
+        }
+    }
+}
+
+.page-product {
+    display: flex;
+    flex-direction: column;
+
+    .product-view-bottom {
+        .section-productRelated {
+            padding-top: 60px;
+            .productRelatedv__heading {
+                margin-bottom: 50px;
             }
         }
     }

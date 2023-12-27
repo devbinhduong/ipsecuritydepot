@@ -23,18 +23,6 @@ export default function(context) {
             setTimeout(()=> {
                 handleDropdownMenu();
             }, 1000)
-            clickHaloBackground();
-            menuMobile();
-            searchMobileClick();
-            searchFormMobile();
-            sidebarMobile();
-            footer_mobile();
-            toggle_footer();
-            productCardQtyChange();
-            authPopup();
-            authSidebar();
-            productTabsMobile();
-            haloAskAnExpertPopup($context);
 
         }
     }
@@ -54,6 +42,18 @@ export default function(context) {
 
             /* Animate Scroll */
             scrollAnimation(tScroll);
+            clickHaloBackground();
+            menuMobile();
+            searchMobileClick();
+            searchFormMobile();
+            sidebarMobile();
+            footer_mobile();
+            toggle_footer();
+            productCardQtyChange();
+            authPopup();
+            authSidebar();
+            productTabsMobile();
+            haloAskAnExpertPopup($context);
         })
 
         /* Scroll Event */
@@ -76,7 +76,6 @@ export default function(context) {
             changeMenuItems();
             menuMobile();
             footer_mobile();
-            productTabsMobile();
             handleDropdownMenu();
         }));
     }

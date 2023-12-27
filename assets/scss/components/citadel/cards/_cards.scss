@@ -379,7 +379,7 @@
         .halo-add-to-cart {
             margin-top: 0;
             @include smin-xl {
-                .page-type-default & {
+                body:not(.page-type-category) & {
                     margin-right: -20px;
                 }
             }
@@ -389,7 +389,7 @@
             }
         }
 
-        body:not(.page-type-default) & {
+        body.page-type-category & {
             justify-content: flex-start !important;
 
             .halo-add-to-cart {

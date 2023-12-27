@@ -1,23 +1,28 @@
 {{#if reviews.total}}
 <section class="toggle productReviews" id="product-reviews" data-product-reviews>
-    <h4 class="toggle-title">
-        {{lang 'products.reviews.header' total=reviews.total}}
-        {{#if theme_settings.show_product_reviews}}
-            <a class="toggleLink is-open" data-collapsible href="#productReviews-content">
-                <span class="toggleLink-text toggleLink-text--on">
-                    {{lang 'products.reviews.hide'}}
-                </span>
-                <span class="toggleLink-text toggleLink-text--off">
-                    {{lang 'products.reviews.show'}}
-                </span>
-            </a>
-        {{/if}}
-    </h4>
+    <h4 class="toggle-title">Customer reviews</h4>
+    <div class="productReviews__total">
+        <p>
+            <span class="icon icon--rating-start">
+                <svg><use xlink:href="#icon-rating-start"></use></svg>
+            </span>
+            {{rating}}, ({{reviews.total}} Reviews)
+        </p>
+    </div>
     <div class="toggle-content is-open" id="productReviews-content" aria-hidden="false">
         <ul class="productReviews-list" id="productReviews-list">
             {{#each reviews.list}}
             <li class="productReview">
-                <article>
+                <p class="productReview__name">{{name}}</p>
+                <p class="productReview__bottom">
+                    <span class="productReview__date">{{date}}</span>
+                    <span class="productReview-rating rating--small">
+                        {{> components/products/ratings rating=rating}}
+                        <span class="productReview-ratingNumber">{{ rating }}</span>
+                    </span>
+                </p>
+                <p class="productReview-body">{{{ sanitize text }}}</p>
+                <!-- <article>
                     <header>
                         <span class="productReview-rating rating--small">
                             {{> components/products/ratings rating=rating}}
@@ -35,7 +40,7 @@
                         {{/if}}
                     </header>
                     <p class="productReview-body">{{{ sanitize text }}}</p>
-                </article>
+                </article> -->
             </li>
             {{/each}}
         </ul>

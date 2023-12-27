@@ -69,7 +69,7 @@
                 <a class="tab-titleMobile productView-reviewTabLink" href="#tab-reviews"><span>{{lang 'products.reviews.header_2' total=product.reviews.total}}</span></a>
             {{/all}}
             <div class="tabContent">
-                {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+                {{> components/products/reviews reviews=product.reviews product=product urls=urls rating=product.rating}}
             </div>
         </div>
     {{/all}}

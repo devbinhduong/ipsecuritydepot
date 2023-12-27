@@ -11,8 +11,6 @@ export default function (context) {
         });
     });
 
-    console.log("Test");
-
     $(document).on('click', '.ask-an-expert-link', event => {
         event.preventDefault();
 

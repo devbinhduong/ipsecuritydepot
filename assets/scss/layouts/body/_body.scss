@@ -36,18 +36,6 @@ body {
         }
     }
 
-    &.page-type-category {
-        .body {
-            padding-bottom: 30px;
-            padding-top: 40px;
-
-            @include smin-m {
-                padding-top: 0;
-                padding-bottom: 50px;
-            }
-        }
-    }
-
     &.page-type-product {
         .body {
             padding-bottom: 30px;
@@ -55,7 +43,7 @@ body {
 
             @include smin-m {
                 padding-top: 39px;
-                padding-bottom: 50px;
+                padding-bottom: 60px;
             }
         }
     }
