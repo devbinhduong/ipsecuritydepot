@@ -132,9 +132,12 @@
             }
 
             &.is-active {
-                background-color: #000000;
                 .tab-title {
+                    background-color: #000000;
                     color: #ffffff;
+                    span {
+                        color: #ffffff;
+                    }
                 }
             }
         }

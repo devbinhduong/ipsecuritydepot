@@ -1,27 +1,27 @@
 <ul class="tabs" data-tab>
     {{#if product.description}}
         <li class="tab is-active">
-            <a class="tab-title" href="#tab-description"><span>{{lang 'products.description'}}</span></a>
+            <a class="tab-title button button--secondary no-border" href="#tab-description"><span>{{lang 'products.description'}}</span></a>
         </li>
     {{/if}}
     {{#if theme_settings.show_custom_tabs}}
         <li class="tab tab-custom">
-            <a class="tab-title" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
+            <a class="tab-title button button--secondary no-border" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
         </li>
     {{/if}}
     {{#all product.warranty theme_settings.show_warranty_tabs}}
         <li class="tab {{#unless product.description}}is-active{{/unless}}">
-            <a class="tab-title" href="#tab-warranty"><span>{{lang 'products.warranty'}}</span></a>
+            <a class="tab-title button button--secondary no-border" href="#tab-warranty"><span>{{lang 'products.warranty'}}</span></a>
         </li>
     {{/all}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
         <li class="tab">
-            <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}"><span>{{sanitize theme_settings.pdp-custom-fields-tab-label}}</span></a>
+            <a class="tab-title button button--secondary no-border" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}"><span>{{sanitize theme_settings.pdp-custom-fields-tab-label}}</span></a>
         </li>
     {{/all}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
         <li class="tab">
-            <a class="tab-title productView-reviewTabLink" href="#tab-reviews"><span>{{lang 'products.reviews.header_2' total=product.reviews.total}}</span></a>
+            <a class="tab-title button button--secondary no-border productView-reviewTabLink" href="#tab-reviews"><span>{{lang 'products.reviews.header_2' total=product.reviews.total}}</span></a>
         </li>
     {{/all}}
     {{#if theme_settings.show_shipping_tabs}}
