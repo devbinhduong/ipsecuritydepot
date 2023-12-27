@@ -4,6 +4,11 @@
             <a class="tab-title" href="#tab-description"><span>{{lang 'products.description'}}</span></a>
         </li>
     {{/if}}
+    {{#if theme_settings.show_custom_tabs}}
+        <li class="tab tab-custom">
+            <a class="tab-title" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
+        </li>
+    {{/if}}
     {{#all product.warranty theme_settings.show_warranty_tabs}}
         <li class="tab {{#unless product.description}}is-active{{/unless}}">
             <a class="tab-title" href="#tab-warranty"><span>{{lang 'products.warranty'}}</span></a>
@@ -24,11 +29,6 @@
             <a class="tab-title" href="#tab-shipping" data-tab-load="{{theme_settings.show_shipping_tab_link}}" data-tab-check="true"><span>{{lang 'products.shipping_returns'}}</span></a>
         </li>
     {{/if}}
-    {{#if theme_settings.show_custom_tabs}}
-        <li class="tab">
-            <a class="tab-title" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
-        </li>
-    {{/if}}
 </ul>
 <div class="tabs-contents">
     {{#if product.description}}
@@ -36,6 +36,16 @@
             <a class="tab-titleMobile is-active" href="#tab-description"><span>{{lang 'products.description'}}</span></a>
             <div class="tabContent">
                 {{{product.description}}}
+                <!-- Custom Ask An Expert -->
+                {{> components/custom/products/halo-product-ask-an-expert}}
+            </div>
+        </div>
+    {{/if}}
+    {{#if theme_settings.show_custom_tabs}}
+        <div class="tab-content" id="tab-custom">
+            <a class="tab-titleMobile" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
+            <div class="tabContent">
+                <img class="icon-loading" src="{{cdn 'img/loading.svg'}}" alt="Icon Loading">
             </div>
         </div>
     {{/if}}
@@ -76,14 +86,6 @@
     {{#if theme_settings.show_shipping_tabs}}
         <div class="tab-content" id="tab-shipping">
             <a class="tab-titleMobile" href="#tab-shipping" data-tab-load="{{theme_settings.show_shipping_tab_link}}" data-tab-check="true"><span>{{lang 'products.shipping_returns'}}</span></a>
-            <div class="tabContent">
-                <img class="icon-loading" src="{{cdn 'img/loading.svg'}}" alt="Icon Loading">
-            </div>
-        </div>
-    {{/if}}
-    {{#if theme_settings.show_custom_tabs}}
-        <div class="tab-content" id="tab-custom">
-            <a class="tab-titleMobile" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
             <div class="tabContent">
                 <img class="icon-loading" src="{{cdn 'img/loading.svg'}}" alt="Icon Loading">
             </div>

@@ -38,6 +38,8 @@ export default class Product extends PageManager {
 
         this.bulkPricingHandler();
 
+        this.customProductTabs();
+
         const $reviewForm = classifyForm('.writeReview-form');
 
         if ($reviewForm.length === 0) return;
@@ -80,6 +82,15 @@ export default class Product extends PageManager {
     bulkPricingHandler() {
         if (this.url.indexOf('#bulk_pricing') !== -1) {
             this.$bulkPricingLink.trigger('click');
+        }
+    }
+
+    /* Custom Tabs */
+    customProductTabs() {
+        $('.productView-description .custom-product-tab').appendTo('.productView-description #tab-custom .tabContent');
+        $('#tab-custom .tabContent .icon-loading').hide();
+        if($(".productView-description #tab-custom .tabContent").text().trim()==""){
+            $(".productView-description .tab.tab-custom").hide();
         }
     }
 }

@@ -716,9 +716,13 @@
             vertical-align: top;
             text-align: left;
         }
-
+        .productView-brand {
+            text-transform: uppercase;
+        }
+        
         .productView-title {
             margin-bottom: 7px;
+            margin-top: 0;
 
             >a {
                 overflow: hidden;

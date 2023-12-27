@@ -143,6 +143,7 @@
     .tabs-contents {
         padding-top: 30px;
         width: 100%;
+        margin-bottom: 0;
 
         .tab-content {
             padding-top: 0;
@@ -151,6 +152,11 @@
             p {
                 line-height: 32px;
                 font-size: 16px;
+
+                @include max-mobile {
+                    font-size: 14px;
+                    line-height: 28px;
+                }
             }
 
             &#tab-reviews {
@@ -165,6 +171,10 @@
                         line-height: 24px;
                         margin-top: 24px;
                         margin-bottom: 20px;
+
+                        @include max-tablet {
+                            font-size: 24px;
+                        }
                     }
 
                     .productReviews__total {
@@ -176,6 +186,10 @@
                             font-weight: 400;
                             line-height: normal;
                             display: flex;
+
+                            @include max-tablet {
+                                font-size: 16px;
+                            }
                         }
                         .icon {
                             width: 20px;
@@ -192,6 +206,10 @@
                             .productReview {
                                 width: 100%;
 
+                                & + .productReview {
+                                    margin-top: 16px;
+                                }
+
                                 .productReview__name {
                                     color: #000;
                                     font-family: 'Jost', sans-serif;
@@ -200,10 +218,15 @@
                                     font-weight: 400;
                                     line-height: normal;
                                     margin-bottom: 8px;
+
+                                    @include max-tablet {
+                                        font-size: 20px;
+                                    }
                                 }
                                 
                                 .productReview__bottom {
-                                    margin-bottom: 25px;
+                                    margin-bottom: 20px;
+                                    line-height: 100%;
                                     
                                     .productReview__date {
                                         color: #909090;
@@ -213,6 +236,10 @@
                                         font-weight: 400;
                                         line-height: normal;
                                         margin-right: 25px;
+
+                                        @include max-tablet {
+                                            font-size: 14px;
+                                        }
                                     }
                                 }
                                 
@@ -222,6 +249,11 @@
                                     font-style: normal;
                                     font-weight: 500;
                                     line-height: 30.5px;
+
+                                    @include max-tablet {
+                                        font-size: 14px;
+                                        line-height: 28px;
+                                    }
                                 }
                             }
                         }
@@ -279,8 +311,9 @@
     }
 
     @media(max-width: 767px) {
-        padding-top: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        padding: 20px;
 
         .tabs {
             display: none;
