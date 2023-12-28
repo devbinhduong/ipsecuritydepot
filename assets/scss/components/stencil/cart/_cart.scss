@@ -687,3 +687,44 @@ $card-preview-zoom-bottom-offset:       6rem;
         margin-top: 15px;
     }
 }
+
+/* Custom Start */
+.cart-item-quantity {
+    .form-increment {
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        background: #f3f3f3;
+        padding: 2px;
+        width: 175px;
+
+        .cart-item-qty-input {
+            flex: 1;
+            background-color: transparent;
+        }
+
+        .button {
+            height: 42px;
+            width: 53px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: none;
+
+            >.icon {
+                svg {
+                    fill: #000000;
+                    stroke: #000000;
+                }
+            }
+
+            &:hover {
+                >.icon {
+                    svg {
+                        fill: #ffffff;
+                        stroke: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}

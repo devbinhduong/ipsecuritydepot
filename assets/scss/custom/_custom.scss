@@ -104,8 +104,16 @@
 
 /* Webpages */
 .page-type-page {
+    h1 {
+        font-size: 32px;
+    }
+    
     .body {
         padding-top: 0 !important;
+
+        a {
+            text-decoration: none;
+        }
 
         .themevale_breadcrumb {
             padding-top: 25px;
@@ -124,6 +132,95 @@
             @include max-tablet {
                 margin-bottom: 0 !important;
             }
+        }
+    }
+}
+
+/* Site Maps Page */
+.page-type-sitemap {
+    .body {
+        padding-top: 50px !important;
+
+        @include max-tablet {
+            padding-top: 30px !important;
+        }
+    }
+    .contentSitemap {
+        margin: 0;
+        display: block;
+        ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        > li {
+            border-radius: 0px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            padding: 0 20px 0 0;
+            > ul{
+                padding: 0px;
+                padding-top: 0px;
+            }          
+            > ul > li{
+                > a {
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: stencilColor('color-textHeading');
+                }
+                > ul {
+                    padding: 0px 30px;
+                    padding-top: 0px;
+                    > li{                    
+                        > a {
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                        > ul {
+                            padding: 0px 30px;
+                            padding-top: 0px;
+                            > li{                    
+                                > a {
+                                    font-size: 12px;
+                                    font-weight: 400;
+                                    color: stencilColor('color-textBase');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:last-child {
+                li a {
+                    font-size: 12px;
+                    font-weight: 400;
+                    letter-spacing: 0;
+                    color: stencilColor('color-textBase');
+                }
+            }
+        }
+        h3 {
+            margin-top: 0;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-family: $fontFamily-headings;
+            color: stencilColor('color-textHeading');
+            border-bottom: 1px solid #ececec;
+        }
+        a {
+            padding: 6px 0;
+            font-size: 12px;
+            font-weight: 400;
+            display: inline-block;
+            vertical-align: top;
+            text-transform: capitalize;
         }
     }
 }

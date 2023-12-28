@@ -45,9 +45,14 @@
                 </h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
-                        <li>
-                            <a class="hover-link hover-link--footer" href="{{url}}">{{name}}</a>
-                        </li>
+                        {{#if (toLowerCase name) '==' 'return policy'}}
+                        {{else if (toLowerCase name) '==' 'privacy policy'}}
+                        {{else if (toLowerCase name) '==' 'terms and conditions'}}
+                        {{else}}
+                            <li>
+                                <a class="hover-link hover-link--footer" href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/if}}
                     {{/each}}
                     <li>
                         <a class="hover-link hover-link--footer" href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
