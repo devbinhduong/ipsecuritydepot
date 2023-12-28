@@ -3,11 +3,20 @@
 // =============================================================================
 
 #facetedSearch{
-
     @media (min-width: 1025px){
         padding: 0;
         padding-top: 31px;
-        padding-right: 52px;
+        padding-right: 30px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 100%;
+            bottom: 0;
+            width: 2000%;
+            background-color: #ffffff;
+        }
     }
 }
 
@@ -50,6 +59,7 @@
         background-color: #ffffff;
         box-shadow: 0px 101.611px 67.741px 0px rgba(0, 0, 0, 0.06);
         padding: 62px 0 40px;
+        height: 100%;
     }
     .accordion-nav-clear-holder {
         .accordion-navigation {

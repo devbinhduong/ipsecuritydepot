@@ -13,12 +13,7 @@
 // -----------------------------------------------------------------------------
 
 ol.breadcrumbs {
-    display: none;
-    font-size: 0;
-    overflow: visible;
-    @include breakpoint("small") {
-        display: block; // 1
-    }
+    display: block; // 1
 }
 
 .breadcrumb {

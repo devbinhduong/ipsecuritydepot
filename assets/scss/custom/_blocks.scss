@@ -158,10 +158,10 @@
 /* Home Solution Banners */
 .section-home-solution {
     &.custom-section {
-        margin-bottom: 90px;
+        padding-bottom: 90px;
 
         @include max-tablet {
-            margin-bottom: 30px;
+            padding-bottom: 30px;
         }
 
         .homeSolution {
@@ -436,8 +436,15 @@
 
 /* Recently Posts */
 .home-recently-posts {
-    .recentlyPost__heading {
+    padding-top: 120px;
+    background-image: linear-gradient(#ffffff, #f8f8f8);
 
+    @include max-tablet {
+        padding-top: 60px;
+    }
+
+    @include max-mobile {
+        padding-top: 30px;
     }
 
     .recentlyPost__content {
@@ -450,11 +457,11 @@
             padding-left: 15px;
             padding-right: 15px;
 
-
             .recentlyPost__list {
                 border-radius: 8px;
                 background: #FFF;
-                padding: 5px 10px 30px;
+                padding: 5px 10px 0;
+                box-shadow: 0px 10px 16px 0px rgba(0, 0, 0, 0.06);
 
                 .recentlyPost__item {
                     .image-with-overlay {
@@ -516,8 +523,10 @@
 
 .custom-section {
     &.home-new-product-block {
+        background-image: linear-gradient(#ffffff, #f8f8f8);
+
         @include min-tablet {
-            margin-bottom: 79px;
+            padding-bottom: 79px;
         }
 
         @include smax-xxs {
@@ -538,14 +547,15 @@
         }
     }
     &.home-feature-product-block {
+        background-image: linear-gradient(#ffffff, #f8f8f8);
         @include min-tablet {
-            margin-bottom: 35px;
+            padding-bottom: 35px;
         }
     }
     &.home-recently-posts {
         @include min-tablet {
-            margin-bottom: 89px;
-        }
+            padding-bottom: 89px;
+        }   
     }
 }
 .section-banner-text {

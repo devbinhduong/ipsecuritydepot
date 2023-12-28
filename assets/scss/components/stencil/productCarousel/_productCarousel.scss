@@ -26,9 +26,6 @@
 .productCarousel-slide { // 1
     @include grid-column(6);
     padding: 0 15px;
-    &.slick-active {
-        box-shadow: 0px 120px 80px 0px rgba(0, 0, 0, 0.06);
-    }
 
     @include breakpoint("small") {
         width: grid-calc(4, $total-columns);
@@ -66,7 +63,7 @@
         }
 
         &.slick-prev {
-            left: calc(100% - 125px);
+            left: calc(100% - 145px);
 
             @include max-tablet {
                 left: calc(100% - 105px);

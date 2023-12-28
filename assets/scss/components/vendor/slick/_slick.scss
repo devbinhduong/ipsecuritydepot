@@ -111,17 +111,16 @@
 .slick-dots {
     // 2
     margin: 0;
-    bottom: -40px;
 
     li {
-        @include square(32px);
+        @include square(20px);
         margin: 0;
         padding: remCalc(5px);
 
         // scss-lint:disable SelectorDepth, NestingDepth
         button,
         button::before {
-            @include square(15px);
+            @include square(12px);
             border-radius: 50%;
         }
 
@@ -307,3 +306,8 @@ div.slick-slider {
         color: $slick-play-pause-button-color-hover;
     }
 }
+
+
+.carousel-tooltip {
+    display: none;
+  }

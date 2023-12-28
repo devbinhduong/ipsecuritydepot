@@ -125,14 +125,14 @@
 }
 
 .custom-section {
-    margin-bottom: 120px;
+    padding-bottom: 120px;
 
     @include max-tablet {
-        margin-bottom: 60px;
+        padding-bottom: 60px;
     }
 
     @include max-mobile {
-        margin-bottom: 30px;
+        padding-bottom: 30px;
     }
 }
 .custom-heading {
