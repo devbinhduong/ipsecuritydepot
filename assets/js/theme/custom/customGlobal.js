@@ -401,12 +401,27 @@ export default function(context) {
 
     /* Handle when dropdown menu overflow the viewport */
     function handleDropdownMenu() {
+        /* Handle For Level 2 Dropdown */
+        const dropdownListLv2 = document.querySelectorAll(".navPages-item.has-dropdown:not(.hasMegamenu) > .navPage-subMenu-horizontal");
+
+        for (let dropdown2 of dropdownListLv2) {
+            if(dropdown2) {
+                const dropdownOffset = dropdown2.getBoundingClientRect();
+
+                const isDropdownOverflow = dropdownOffset.right > window.screen.width;
+                if (isDropdownOverflow) {
+                    console.log("overflow");
+                    dropdown2.style.left = '-100%';
+                }
+            }
+        }
+
         /* Handle For Level 3 Dropdown */
         const dropdownList = document.querySelectorAll(".navPages-item.has-dropdown:not(.hasMegamenu) .navPage-subMenu-item-child .navPage-subMenu-horizontal");
         for (let dropdown of dropdownList) {
             if(dropdown) {
                 const dropdownOffset = dropdown.getBoundingClientRect();
-                const isDropdownOverflow = dropdownOffset.right > window.innerWidth;
+                const isDropdownOverflow = dropdownOffset.right > window.screen.width;
                 if (isDropdownOverflow) {
                     dropdown.style.marginLeft = '-100%';
                 }

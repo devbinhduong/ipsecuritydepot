@@ -314,6 +314,12 @@
 
         &.footer-item-phone {
             margin-top: 24px;
+
+            .icon {
+                margin-right: 5px;
+                position: relative;
+                top: 3px;
+            }
         }
 
         @media (max-width: 1024px) {

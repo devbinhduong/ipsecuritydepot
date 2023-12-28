@@ -63,11 +63,17 @@
         background: #ed1c24;
         display: block;
         position: absolute;
-        bottom: -3px;
+        bottom: 4px;
         left: 0;
         width: 0;
         height: 2px;
         transition: all 0.3s ease-in-out;
+    }
+
+    &--menu {
+        &::before {
+            bottom: 10px;
+        }
     }
 
     &:hover {

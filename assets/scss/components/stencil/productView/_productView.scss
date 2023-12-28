@@ -559,13 +559,6 @@
                         margin-bottom: 16px;
                     }
                 }
-
-                .guaranteed__list {
-                    list-style: none;
-                    display: flex;
-                    align-items: center;
-                    margin: 0;
-                }
             }
         }
 
@@ -621,6 +614,11 @@
                             border-radius: 0;
                         }
                     }
+                }
+            }
+            div[data-product-option-change] {
+                > .form-field {
+                    text-align: left;
                 }
             }
         }

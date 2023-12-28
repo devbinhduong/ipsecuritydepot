@@ -183,13 +183,13 @@
 
 .hide-on {
     &-tablet {
-        @media (max-width: 1023px) {
+        @media (max-width: 1024px) {
             display: none !important;
         }
     }
 
     &-desktop {
-        @media (min-width: 1024px) {
+        @media (min-width: 1025px) {
             display: none !important;
         }
     }

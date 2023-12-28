@@ -349,6 +349,23 @@
                 margin-bottom: 50px;
             }
         }
+
+        @include smax-xs {
+            .productCarousel {
+                .slick-arrow {
+                    top: 40%;
+                    transform: translateY(-50%);
+
+                    &.slick-prev {
+                        left: 0;
+                    }
+
+                    &.slick-next {
+                        right: 0;
+                    }
+                }
+            }
+        }
     }
 }
 

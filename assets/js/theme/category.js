@@ -33,14 +33,17 @@ export default class Category extends CatalogPage {
         let resultText = document.querySelector(".category-result-filter");
         const originalText = resultText.innerText;
         let filterArray = [];
+        const facetedSearchRefineFilters = document.querySelector(".facetedSearch-refineFilters");
 
         if (filterList.length > 0) {
             for(let filterItem of filterList) {
                 filterArray.push(filterItem.innerText);
             }
             resultText.innerText = filterArray.toString();
+            facetedSearchRefineFilters.style.display = "block";
         } else {
             resultText.innerText = originalText;
+            facetedSearchRefineFilters.style.display = "none";
         }
 
     }

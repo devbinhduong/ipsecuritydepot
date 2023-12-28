@@ -208,7 +208,7 @@
     position: absolute;
     z-index: zIndex("high");
 
-    @include breakpoint("medium") {
+    @include smin-m {
         display: none;
     }
 
@@ -305,6 +305,10 @@
                 }
 
                 .icon  {
+                    margin-right: 5px;
+                    position: relative;
+                    top: 2px;
+                    
                     svg {
                         fill: stencilColor("header_top_text_color");
                     }
