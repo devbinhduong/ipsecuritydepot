@@ -27,6 +27,25 @@ export default class Category extends CatalogPage {
         $('a.navList-action').on('click', () => this.setLiveRegionAttributes($('span.price-filter-message'), 'status', 'assertive'));
     }
 
+    /* Custom Start */
+    renderFilterText() {
+        let filterList = document.querySelectorAll("#facetedSearch .facetLabel");
+        let resultText = document.querySelector(".category-result-filter");
+        const originalText = resultText.innerText;
+        let filterArray = [];
+
+        if (filterList.length > 0) {
+            for(let filterItem of filterList) {
+                filterArray.push(filterItem.innerText);
+            }
+            resultText.innerText = filterArray.toString();
+        } else {
+            resultText.innerText = originalText;
+        }
+
+    }
+    /* Custom End */
+
     onReady() {
         this.arrangeFocusOnSortBy();
 
@@ -46,6 +65,8 @@ export default class Category extends CatalogPage {
         $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
 
         this.ariaNotifyNoProducts();
+
+        this.renderFilterText();
     }
 
     ariaNotifyNoProducts() {
@@ -85,6 +106,10 @@ export default class Category extends CatalogPage {
         this.facetedSearch = new FacetedSearch(requestOptions, (content) => {
             $productListingContainer.html(content.productListing);
             $facetedSearchContainer.html(content.sidebar);
+
+            /* Custom Start */
+            this.renderFilterText();
+            /* Custom End */
 
             $('body').triggerHandler('compareReset');
 

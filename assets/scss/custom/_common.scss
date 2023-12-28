@@ -411,3 +411,21 @@
         z-index: 105;
     }
 }
+.page-sidebar {
+    .page-sidebar-close {
+        .close {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+        }
+        .icon--close {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

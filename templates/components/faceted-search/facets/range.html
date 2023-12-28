@@ -8,23 +8,6 @@
                 <input type="hidden" name="sort" value="{{this.sort}}">
             {{/if}}
             <fieldset class="form-fieldset">
-                <!-- Start Custom Range Price -->
-                <div class="custom-filter-rangePrice">
-                    <div class="range-slide">
-                        <div class="slide">
-                        <div class="line" id="line" style="left: 0%; right: 0%;"></div>
-                        <span class="thumb" id="thumbMin" style="left: 0%;"></span>
-                        <span class="thumb" id="thumbMax" style="left: 100%;"></span>
-                        </div>
-                        <input id="rangeMin" type="range" max="100" min="10" step="5" value="0">
-                        <input id="rangeMax" type="range" max="100" min="10" step="5" value="100">
-                    </div>
-                    <div class="display">
-                        <span id="min">10</span>
-                        <span id="max">100</span>
-                    </div>
-                </div>
-                <!-- End custom range price -->
                 <div class="form-minMaxRow">
                     <div class="form-field">
                         <input
@@ -50,8 +33,8 @@
                         />
                     </div>
 
-                    <div class="form-field" style="display: none;">
-                        <button class="button button--small" type="submit">
+                    <div class="form-field">
+                        <button class="button button--tertiary button--small" type="submit">
                             {{lang 'search.faceted.range.update'}}
                         </button>
                     </div>
