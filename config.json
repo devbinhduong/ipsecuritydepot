@@ -1,5 +1,5 @@
 {
-  "name": "Cornerstone Done Custom No Test",
+  "name": "Cornerstone Done Custom No Test 29122023",
   "version": "6.12.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -473,11 +473,11 @@
         "carousel-arrow-color": "#000000",
         "carousel-arrow-color--hover": "#ffffff",
         "carousel-arrow-bgColor": "#ffffff",
-        "brand_image_1": "brand-image-1.jpg",
-        "brand_image_2": "brand-image-2.jpg",
-        "brand_image_3": "brand-image-3.jpg",
-        "brand_image_4": "brand-image-4.jpg",
-        "brand_image_5": "brand-image-5.jpg",
+        "brand_image_1": "brand-section-image-1.png",
+        "brand_image_2": "brand-section-image-2.png",
+        "brand_image_3": "brand-section-image-3.png",
+        "brand_image_4": "brand-section-image-4.png",
+        "brand_image_5": "brand-section-image-5.png",
         "brand_link_1": "#",
         "brand_link_2": "#",
         "brand_link_3": "#",

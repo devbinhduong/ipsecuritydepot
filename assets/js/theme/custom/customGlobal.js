@@ -108,11 +108,11 @@ export default function(context) {
         const showDesktop = wrap.data('slick-show-desktop') ? wrap.data('slick-show-desktop') : 5,
             showTablet = wrap.data('slick-show-tablet') ? wrap.data('slick-show-tablet') : 3,
             showMobile = wrap.data('slick-show-mobile') ? wrap.data('slick-show-mobile') : 2,
-            showDotbars = wrap.data('dots-bar');
+            showDotbars = wrap.data('dots-bar')? wrap.data('dots-bar') : true;
 
         wrap.slick({
-            dots: showDotbars,
-            arrows: true,
+            dots: true,
+            arrows: false,
             infinite: false,
             mobileFirst: true,
             slidesToShow: 1,
@@ -122,7 +122,8 @@ export default function(context) {
                 {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: showDesktop
+                        slidesToShow: showDesktop,
+                        dots: false
                     }
                 },
                 {
@@ -134,7 +135,9 @@ export default function(context) {
                 {
                     breakpoint: 400,
                     settings: {
-                        slidesToShow: showMobile
+                        slidesToShow: showMobile,
+                        dots: true,
+                        arrows: false
                     }
                 }
             ]

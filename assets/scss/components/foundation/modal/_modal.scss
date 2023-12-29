@@ -14,6 +14,7 @@
     left: 50%;
     top: 50% !important;
     transform: translate(-50%, -50%);
+    border-radius: 10px;
 
     &.modal--standard{
         width: 100%;
@@ -196,7 +197,28 @@
         &.modal--previewMini{
             width: 400px;
             right: 35px;
+            // right: -100%;
             transform: translateY(-50%);
+            transition: all 1s linear;
+            animation: previewCartShow 2s;
+
+            top: 0 !important;
+            left: auto;
+
+            &.open {
+                // right: 35px;
+                top: 220px !important;
+            }
+
+            @keyframes previewCartShow {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
 
             .modal-header{
                 padding-left: 30px;

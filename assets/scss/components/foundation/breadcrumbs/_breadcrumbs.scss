@@ -19,7 +19,6 @@ ol.breadcrumbs {
 .breadcrumb {
     display: inline-block;
     float: none;
-    margin-right: 0.25rem;
 
     .breadcrumb-label {
         cursor: pointer;
@@ -47,6 +46,8 @@ ol.breadcrumbs {
     // needs to override common bigcommerce styles for accessibility improvements
     &:not(:first-child)::before {
         content: "";
+        position: relative;
+        top: -1px;
         width: 10px;
         height: 10px;
         background-color: #ED1C24;

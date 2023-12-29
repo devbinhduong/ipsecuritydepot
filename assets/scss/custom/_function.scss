@@ -45,7 +45,7 @@
     overflow-y: visible;
     .navPages-action {
         margin: 0;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 400;
         letter-spacing: 0.02rem;
         padding: 10px 0;
@@ -778,10 +778,12 @@
         .navPages-item {
             border-bottom: none;
             > .navPages-action {
-                font-size: 12px;
-                font-weight: 400;
-                letter-spacing: 0;
-                text-transform: capitalize;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .05em;
+                text-transform: uppercase;
+                line-height: 44px;
+
                 > .text {
                     padding: 0;
                     line-height: 44px;
@@ -789,6 +791,12 @@
                         display: inline-block;
                         vertical-align: middle;
                     }
+                }
+            }
+
+            .socialLinks-item {
+                svg {
+                    fill: #000000;
                 }
             }
         }

@@ -101,7 +101,7 @@ export default class Product extends PageManager {
         let priceOrigin = document.querySelector(".productView-price .price--non-sale")?.innerText,
             priceSale = document.querySelector(".productView-price .price--withoutTax")?.innerText;
 
-        if (priceSale || priceOrigin) return;
+        if (!priceSale || !priceOrigin) return;
 
         let originValue = parseFloat(priceOrigin.replace('$', ''));
         let saleValue = parseFloat(priceSale.replace('$', ''));
@@ -109,6 +109,9 @@ export default class Product extends PageManager {
         let percent = Math.floor((saleValue / originValue) * 100);
 
         let percentText = document.querySelector(".product-sale-price-percent");
-        percentText.innerText = percent + "% OFF";
+
+        if(!Number.isNaN(percent)) {
+            percentText.innerText = percent + "% OFF";
+        }
     }
 }

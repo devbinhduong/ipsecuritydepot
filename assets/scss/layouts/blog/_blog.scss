@@ -24,7 +24,7 @@
 }
 
 .blog-title {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.5;
     margin: 0 0 7px 0;
     font-weight: 600;
@@ -60,6 +60,9 @@
     h1, h2, h3, h4, h5, h6 {
         font-weight: 500;
         color: stencilColor('color-textHeading');
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0 0 7px 0;
     }
     h5, h6 {
         text-transform: capitalize;
@@ -266,6 +269,14 @@
         width: auto;
         height: 44px;
         padding: 12px 40px;
+        line-height: 1.5;
+    }
+
+    .tags {
+        .icon {
+            position: relative;
+            top: -2px;
+        }
     }
 }
 

@@ -177,6 +177,7 @@
                 transform: translate(-50%,-50%);
                 background-color: rgba(255,255,255,.88);
                 width: 90%;
+                border-radius: 10px;
             }
             .heroCarousel-content {
                 padding: 20px;
@@ -285,6 +286,7 @@
     transform: translateY(-50%);
     white-space: normal;
     margin: 0;
+    max-width: 620px;
 
     @include smax-xs {
         margin: 0 auto;
@@ -299,12 +301,9 @@
         padding: 0 30px 8px;
     }
 
-    @include smin-m {
-        max-width: 580px;
-    }
-
     @media (min-width: 1440px) {
-        left: 45px;
+        // left: 45px;
+        left: calc(((100% - 1440px) / 2) + 48px);
     }
 }
 
@@ -312,7 +311,7 @@
     display: inline-block;
     vertical-align: top;
     width: 100%;
-    font-size: $fontSize-hero - 32px;
+    font-size: $fontSize-hero - 38px;
     font-weight: $fontWeight-bold;
     color: $carousel-title-mb-color;
     letter-spacing: 0;

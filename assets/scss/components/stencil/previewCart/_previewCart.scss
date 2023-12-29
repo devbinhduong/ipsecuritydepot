@@ -5,90 +5,6 @@
 // 1. Override server-generated inline-css
 //
 // -----------------------------------------------------------------------------
-.halo-free-shipping-message {
-    padding: 0 20px 23px 20px;
-
-    .modal--previewMini & {
-        padding: 0 0 25px 0;
-        margin-top: -10px;
-    }
-
-    .progress-shipping {
-        width: 100%;
-        height: 14px;
-        margin: 0 0 10px 0;
-        background-color: #ededed;
-
-        .progress-meter {
-            position: relative;
-            display: block;
-            height: 100%;
-            text-align: center;
-            font-size: $fontSize-root - 2px;
-            font-weight: $fontWeight-normal;
-            line-height: 1;
-            color: #ffffff;
-            -webkit-animation: 2s linear 0s infinite progress-bar-stripes;
-            animation: 2s linear 0s infinite progress-bar-stripes;
-            background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-            background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
-            background-size: 40px 40px;
-            transition: 0.9s linear;
-            transition-property: width, background-color;
-        }
-
-        &.progress-shipping-50 {
-            .progress-meter {
-                background-color: #ce2b1e;
-            }
-        }
-
-        &.progress-shipping-90 {
-            .progress-meter {
-                background-color: #ffcb47;
-            }
-        }
-
-        &.progress-shipping-100 {
-            .progress-meter {
-                background-color: #69c69c;
-            }
-        }
-
-    }
-
-    .shipping-message {
-        font-size: $fontSize-root - 2px;
-        font-weight: $fontWeight-normal;
-        color: $color-textSecondary;
-        line-height: 20px;
-        margin: 0;
-
-        b {
-            font-weight: $fontWeight-normal;
-        }
-    }
-
-    .shipping-message-100 {
-        text-align: center;
-        padding: 7px 0;
-        margin: 0;
-        border-radius: 3px;
-        color: $header-font-color;
-        font-weight: $fontWeight-bold;
-        background: #fafafa;
-
-        span {
-            font-size: $fontSize-root;
-        }
-    }
-
-    @media (min-width: 1025px) {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-}
-
 .halo-cart {
     position: relative;
 
@@ -116,14 +32,21 @@
         &:before {
             content: " ";
             position: absolute;
-            border-left: solid transparent 10px;
-            border-right: solid transparent 10px;
-            border-bottom: solid #fff 10px;
+            // border-left: solid transparent 10px;
+            // border-right: solid transparent 10px;
+            // border-bottom: solid #fff 10px;
             top: -10px;
             left: auto;
-            right: 16px;
-            height: 0;
+            right: 22px;
             z-index: 6;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            transform: rotate(135deg);
+            border-bottom: 1px solid #e5e5e5;
+            border-left: 1px solid #e5e5e5;
+            box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.01);
+
         }
     }
 }
@@ -138,8 +61,8 @@
 
                 .loadingOverlay {
                     &:before {
-                        width: 100px;
-                        height: 100px;
+                        width: 40px;
+                        height: 40px;
                     }
                 }
             }
@@ -725,10 +648,6 @@
             margin-top: 0;
 
             >a {
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                text-overflow: ellipsis;
                 text-decoration: none;
             }
         }

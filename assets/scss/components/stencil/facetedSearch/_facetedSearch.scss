@@ -152,10 +152,15 @@
                     &--checkbox {
                         padding-left: 28px;
                         &::before {
+                            margin-top: -10px;
                             border-radius: 6px;                            
                             border-radius: 6px;
                             border: 1px solid #AFAFAF;
                             background-color: #F3F6F9;
+                        }
+
+                        &::after {
+                            margin-top: -9px;
                         }
                     }
                 }

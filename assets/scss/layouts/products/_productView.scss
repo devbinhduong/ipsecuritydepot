@@ -399,8 +399,6 @@
 
                 .productView-title {
                     margin-top: 0;
-                    -webkit-line-clamp: 1;
-                    text-overflow: ellipsis;
                     margin-bottom: 0;
                 }
             }
@@ -437,6 +435,18 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+
+                        > .icon {
+                            position: relative;
+                            top: -2px;
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 5px;
+
+                            > svg {
+                                fill: transparent;
+                            }
+                        }
                     }
                 }
             }

@@ -37,9 +37,11 @@ export default class Category extends CatalogPage {
 
         if (filterList.length > 0) {
             for(let filterItem of filterList) {
-                filterArray.push(filterItem.innerText);
+                filterArray.push((filterItem.innerText).trim());
             }
-            resultText.innerText = filterArray.toString();
+
+            let formattedString = filterArray.toString().replace(/,(?=[A-Z])/g, ', ');
+            resultText.innerText = formattedString;
             facetedSearchRefineFilters.style.display = "block";
         } else {
             resultText.innerText = originalText;
