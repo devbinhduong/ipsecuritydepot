@@ -654,3 +654,22 @@
         }
     }
 }
+
+.price-section.non-sale-price--withoutTax .price {
+    color: #909090;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    text-transform: uppercase;
+}
+
+.product-sale-price-percent {
+    color: #027C84;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-left: 20px;
+}

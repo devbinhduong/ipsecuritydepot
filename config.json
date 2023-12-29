@@ -1,5 +1,5 @@
 {
-  "name": "Cornerstone 26122023",
+  "name": "Cornerstone Done Custom No Test",
   "version": "6.12.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -509,7 +509,7 @@
         "solution_banner_image_3":"solution-banner-3.png",
         "solution_banner_image_4":"solution-banner-4.png",
         "solution_banner_text_1":"Outdoor IP Cameras",
-        "solution_banner_text_2":"Indoor IP Cameras,",
+        "solution_banner_text_2":"Indoor IP Cameras",
         "solution_banner_text_3":"Network Video Recorders",
         "solution_banner_text_4":"IP Camera Software & Licenses",
         "solution_banner_link_1":"#",
@@ -568,7 +568,8 @@
         "show_product_reviews": true,
         "show_custom_tabs": true,
         "contactUs_map": true,
-        "blog_size": "930x600"
+        "blog_size": "930x600",
+        "non_sale_price_without_tax": "true"
       }
     }
   ]

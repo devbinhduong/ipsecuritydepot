@@ -40,6 +40,8 @@ export default class Product extends PageManager {
 
         this.customProductTabs();
 
+        this.calculateSalePercent();
+
         const $reviewForm = classifyForm('.writeReview-form');
 
         if ($reviewForm.length === 0) return;
@@ -92,5 +94,21 @@ export default class Product extends PageManager {
         if($(".productView-description #tab-custom .tabContent").text().trim()==""){
             $(".productView-description .tab.tab-custom").hide();
         }
+    }
+
+    /* Caculate Sale Price Percent */
+    calculateSalePercent() {
+        let priceOrigin = document.querySelector(".productView-price .price--non-sale")?.innerText,
+            priceSale = document.querySelector(".productView-price .price--withoutTax")?.innerText;
+
+        if (priceSale || priceOrigin) return;
+
+        let originValue = parseFloat(priceOrigin.replace('$', ''));
+        let saleValue = parseFloat(priceSale.replace('$', ''));
+
+        let percent = Math.floor((saleValue / originValue) * 100);
+
+        let percentText = document.querySelector(".product-sale-price-percent");
+        percentText.innerText = percent + "% OFF";
     }
 }

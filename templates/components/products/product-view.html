@@ -119,13 +119,6 @@
                 <div class="productView-rating">
                     {{#if settings.show_product_rating}}
                         {{> components/products/ratings rating=product.rating}}
-                        {{#if product.num_reviews '>' 0}}
-                            <a href="{{product.url}}{{#if is_ajax}}#product-reviews{{/if}}" id="productReview_link">
-                                {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
-                            </a>
-                        {{else}}
-                            <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
-                        {{/if}}
                     {{/if}}
                     {{#if settings.show_product_reviews}}
                         <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
@@ -139,6 +132,7 @@
                             {{> components/products/modals/writeReview}}
                         {{/unless}}
                     {{/if}}
+                    <span class="product-sale-price-percent"></span>
                 </div>
                 {{#if product.brand}}
                     <h2 class="productView-brand">

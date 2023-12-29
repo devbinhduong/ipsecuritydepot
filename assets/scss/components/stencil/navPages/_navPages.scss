@@ -424,3 +424,37 @@
     }
 }
 
+
+
+/* Update Header Hover */
+@include smin-m {
+    #menu .cateArea > ul > li > .navPage-subMenu-action {
+        width: fit-content;
+    }
+    
+    #menu .navPage-subMegaMenu .navPage-subMenu-item-child .navPage-subMenu-item-child .navPages-action {
+        width: fit-content;
+    }
+
+    #menu {
+        // .navPages-item {
+        //     &.has-dropdown:not(.hasMegamenu) {
+        //         background-color: red;
+
+        //         .navPage-subMenu-list {
+        //             .navPage-subMenu-item-child {
+        //                 position: relative;
+        //                 > a {
+        //                     display: inline-flex;
+        //                     justify-content: flex-start;
+        //                     width: fit-content;
+
+        //                     .navPages-action-moreIcon {
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     } 
+        // }
+    }
+}
