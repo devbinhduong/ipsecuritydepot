@@ -569,7 +569,8 @@
         "show_custom_tabs": true,
         "contactUs_map": true,
         "blog_size": "930x600",
-        "non_sale_price_without_tax": "true"
+        "non_sale_price_without_tax": "true",
+        "halo_headerSticky": "true"
       }
     }
   ]

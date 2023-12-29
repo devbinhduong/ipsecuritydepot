@@ -269,6 +269,32 @@
     }
 }
 
+@keyframes halo-fadeInDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0.01;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.js .halo-fadeInLoad.is-sticky {
+    opacity: 0;
+
+    @for $i from 0 through 100 {
+        &[data-halo-animate="#{$i}"] {
+            animation-delay: .1s + $i*0.1 !important;
+        }
+    }
+}
+
+.js .halo-fadeInLoad.is-sticky {
+    animation: halo-fadeIn .4s cubic-bezier(0, 0, .3, 1) forwards;
+}
 
 /* Slick */
 .slick-arrow {

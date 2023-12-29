@@ -50,6 +50,19 @@
         overflow: visible;
         position: relative;
     }
+
+    &.is-sticky {
+        position: fixed;
+        top: 0;
+        z-index: 99;
+        width: 100%;
+        padding: 0;
+        animation-duration: 0.25s;
+
+        .header__top {
+            display: none;
+        }
+    }
 }
 
 .header-logo {

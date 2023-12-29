@@ -10,6 +10,10 @@ import haloAskAnExpertPopup from './haloAskAnExpertPopup';
 export default function(context) {
     const $context = context,
     theme_settings = context.themeSettings;
+
+    var $header = $('header.header'),
+        height_header = $header.outerHeight(),
+        height_top = height_header + $('.header__top').outerHeight(); 
     
     var scroll_position = $(window).scrollTop();
 
@@ -57,13 +61,14 @@ export default function(context) {
         })
 
         /* Scroll Event */
-        $(window).on("scroll", debounce((e) => {
+        $(window).on('scroll', (e) => {
             const $target = $(e.currentTarget);
             const tScroll = $target.scrollTop();
 
             loadFunction();
             scrollAnimation(tScroll);
-        }, 200))
+            haloStickyHeader(tScroll);
+        });
 
         /* Mouse Over Touch Start */
         $(document).on('keydown mousemove touchstart', (e) => {
@@ -489,5 +494,29 @@ export default function(context) {
                 }, 1000);
             }
         });
+    }
+
+    /* Header Sticky */
+    function haloStickyHeader(tScroll) {
+        if (theme_settings.halo_headerSticky) {
+
+            if (tScroll > height_top && tScroll < scroll_position) {
+                if (!$('.header-height').length) {
+                    $header.before('<div class="header-height" style="height: '+height_header+'px"></div>');
+                }
+                $header.addClass('is-sticky');
+                $header.css('animation-name','halo-fadeInDown');
+            } else {
+                if($('.halo-search-main').length) {
+                    $('.halo-search-sticky #quickSearch').appendTo('.halo-search-main');
+                }
+                $header.removeClass('is-sticky');
+                $('.header-height').remove();
+                
+                $header.css('animation-name','');
+            }
+
+            scroll_position = tScroll;
+        }
     }
 } 
