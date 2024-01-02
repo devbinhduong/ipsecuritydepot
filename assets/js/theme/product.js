@@ -40,7 +40,7 @@ export default class Product extends PageManager {
 
         this.customProductTabs();
 
-        this.calculateSalePercent();
+        // this.calculateSalePercent();
 
         const $reviewForm = classifyForm('.writeReview-form');
 
@@ -97,21 +97,21 @@ export default class Product extends PageManager {
     }
 
     /* Caculate Sale Price Percent */
-    calculateSalePercent() {
-        let priceOrigin = document.querySelector(".productView-price .price--non-sale")?.innerText,
-            priceSale = document.querySelector(".productView-price .price--withoutTax")?.innerText;
+    // calculateSalePercent() {
+    //     let priceOrigin = document.querySelector(".productView-price .price--non-sale")?.innerText,
+    //         priceSale = document.querySelector(".productView-price .price--withoutTax")?.innerText;
 
-        if (!priceSale || !priceOrigin) return;
+    //     if (!priceSale || !priceOrigin) return;
 
-        let originValue = parseFloat(priceOrigin.replace('$', ''));
-        let saleValue = parseFloat(priceSale.replace('$', ''));
+    //     let originValue = parseFloat(priceOrigin.replace('$', ''));
+    //     let saleValue = parseFloat(priceSale.replace('$', ''));
 
-        let percent = Math.floor((saleValue / originValue) * 100);
+    //     let percent = Math.floor((saleValue / originValue) * 100);
 
-        let percentText = document.querySelector(".product-sale-price-percent");
+    //     let percentText = document.querySelector(".product-sale-price-percent");
 
-        if(!Number.isNaN(percent)) {
-            percentText.innerText = percent + "% OFF";
-        }
-    }
+    //     if(!Number.isNaN(percent)) {
+    //         percentText.innerText = percent + "% OFF";
+    //     }
+    // }
 }

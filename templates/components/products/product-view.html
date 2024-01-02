@@ -132,7 +132,7 @@
                             {{> components/products/modals/writeReview}}
                         {{/unless}}
                     {{/if}}
-                    <span class="product-sale-price-percent"></span>
+                    <!-- <span class="product-sale-price-percent"></span> -->
                 </div>
                 {{#if product.brand}}
                     <h2 class="productView-brand">
@@ -271,13 +271,13 @@
                         <span class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</span>
                     </div>
                 {{/if}}
-                {{#if product.gift_wrapping_available}}
+                {{#and (if product.gift_wrapping_available) (if theme_settings.show_product_giftWrapping)}}
                     <div class="productView-info-item">
                         <span class="productView-info-name">{{lang 'products.gift_wrapping'}}</span>
                         <span class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</span>
                     </div>
-                {{/if}}
-                {{#if product.shipping}}
+                {{/and}}
+                {{#and (if product.shipping) (if theme_settings.show_product_shipping)}}
                     {{#if product.shipping.calculated}}
                         <div class="productView-info-item">
                             <span class="productView-info-name">{{lang 'products.shipping'}}</span>
@@ -296,7 +296,7 @@
                             </div>
                         {{/if}}
                     {{/if}}
-                {{/if}}
+                {{/and}}
                 {{#if settings.bulk_discount_enabled}}
                     <div class="productView-info-bulkPricing">
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}

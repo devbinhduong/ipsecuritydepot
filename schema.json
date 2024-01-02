@@ -686,10 +686,40 @@
         "content": "Social Links"
       },
       {
+        "type": "checkbox",
+        "label": "Show Social Media Link",
+        "id": "show_social-links"
+      },
+      {
         "type": "text",
         "label": "Snapchat Link",
         "id": "social_icon_snapchat_link",
         "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Footer Logo Image"
+      },
+      {
+        "type": "imageDimension",
+        "label": "Logo Image Size",
+        "id": "footer_logo_size",
+        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "150x50",
+            "label": "Optimized For Theme"
+          },
+          {
+            "value": "original",
+            "label": "Original As Uploaded"
+          },
+          {
+            "value": "custom",
+            "label": "Specify Dimensions"
+          }
+        ]
       }
     ]
   },
@@ -1078,6 +1108,11 @@
         "content": "Section Home Testimonial"
       },
       {
+        "type": "checkbox",
+        "label": "Show Home Testimonial",
+        "id": "show_testimonial_section"
+      },
+      {
         "type": "text",
         "label": "Testimonial Avatar 1",
         "id": "testimonial_avata_1"
@@ -1342,6 +1377,40 @@
   {
     "name": "Products",
     "settings": [
+      {
+        "type": "heading",
+        "content": "Ask An Expert"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Ask An Expert",
+        "id": "halo_ask_an_expert"
+      },
+      {
+        "type": "text",
+        "label": "Ask An Expert Webpage Link",
+        "id": "halo_ask_an_expert_pagelink"
+      },
+      {
+        "type": "input",
+        "label": "Ask An Expert Title",
+        "id": "halo_ask_an_expert_title"
+      },
+      {
+        "type": "input",
+        "label": "Ask An Expert Text 1",
+        "id": "halo_ask_an_expert_desc1"
+      },
+      {
+        "type": "input",
+        "label": "Ask An Expert Text 2",
+        "id": "halo_ask_an_expert_desc2"
+      },
+      {
+        "type": "input",
+        "label": "Ask An Expert Text 3",
+        "id": "halo_ask_an_expert_desc3"
+      },
       {
         "type": "heading",
         "content": "Product Sale Badges"

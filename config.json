@@ -1,5 +1,5 @@
 {
-  "name": "Cornerstone Done Custom Added Settings",
+  "name": "Cornerstone Done Custom Done Settings",
   "version": "6.12.0",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -451,7 +451,7 @@
         "footer-heading-fontColor": "#ED1C24",
         "footer-backgroundColor": "#000000",
         "footer-text-color": "#ffffff",
-        "show_social-links": true,
+        "show_social-links": false,
         "footer-text-colorHover": "#ed1c24",
         "social_icon_snapchat_link": "#",
         "themevale_BackTop": true,
@@ -483,7 +483,7 @@
         "brand_link_3": "#",
         "brand_link_4": "#",
         "brand_link_5": "#",
-        "homeCategories_heading":"Featured IP Surveillance Categories.",
+        "homeCategories_heading":"Shop Popular IP Surveillance Categories",
         "homeCategories-image_1": "category-image-1.png",
         "homeCategories-link_1": "#",
         "homeCategories-image_2": "category-image-2.png",
@@ -528,6 +528,7 @@
         "home_banner_text_action_2": "Shop Now",
         "home_banner_text_heading_2": "Presales Tech Support",
         "home_banner_text_desc_2": "Every purchase is backed by our legendary tech support. Need help? We're a call away.",
+        "show_testimonial_section": "false",
         "testimonial_avata_1": "testimonial-avata.png",
         "home_testimonial_text_1-1": "I know the products are vetted, of good quality, with unmatched support. I have shopped here for at least 20 years.",
         "home_testimonial_text_1-2": "",
@@ -582,7 +583,14 @@
         "contactUs_map": true,
         "blog_size": "930x600",
         "non_sale_price_without_tax": "true",
-        "halo_headerSticky": "true"
+        "halo_headerSticky": "true",
+        "show_specification_tab": true,
+        "show_description_tab": false,
+        "show_product_weight": false,
+        "show_product_shipping": false,
+        "show_product_giftWrapping": false,
+        "footer_logo_image": "footer-logo-image.png",
+        "footer_logo_size": "150x50"
       }
     }
   ]

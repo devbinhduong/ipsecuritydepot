@@ -1,9 +1,17 @@
 <ul class="tabs" data-tab>
-    {{#if product.description}}
+    {{#and (if product.description) (if theme_settings.show_description_tab)}}
         <li class="tab is-active">
             <a class="tab-title button button--secondary no-border" href="#tab-description"><span>{{lang 'products.description'}}</span></a>
         </li>
+    {{/and}}
+    
+    <!-- Specification Tab -->
+    {{#if theme_settings.show_specification_tab}}
+        <li class="tab{{#unless theme_settings.show_description_tab}} is-active{{/unless}}">
+            <a class="tab-title button button--secondary no-border" href="#tab-specification"><span>{{lang 'products.specifications'}}</span></a>
+        </li>
     {{/if}}
+
     {{#if theme_settings.show_custom_tabs}}
         <li class="tab tab-custom">
             <a class="tab-title button button--secondary no-border" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
@@ -32,15 +40,33 @@
 </ul>
 <div class="tabs-contents">
     {{#if product.description}}
-        <div class="tab-content is-active" id="tab-description">
+        <div class="tab-content is-active{{#unless theme_settings.show_description_tab}} hide-on-all{{/unless}}" id="tab-description">
             <a class="tab-titleMobile is-active" href="#tab-description"><span>{{lang 'products.description'}}</span></a>
             <div class="tabContent">
                 {{{product.description}}}
-                <!-- Custom Ask An Expert -->
-                {{> components/custom/products/halo-product-ask-an-expert}}
             </div>
         </div>
     {{/if}}
+
+    <!-- Specification Tab -->
+    {{#if theme_settings.show_specification_tab}}
+        <div class="tab-content{{#unless theme_settings.show_description_tab}} is-active{{/unless}}" id="tab-specification">
+            <a class="tab-titleMobile{{#unless theme_settings.show_description_tab}} is-active{{/unless}}" href="#tab-specification"><span>{{lang 'products.specifications'}}</span></a>
+            <div class="tabContent">
+                <dl class="productView-info">
+                    {{#each product.custom_fields}}
+                        {{#and (if name '!=' 'countdown' ) (if name '!=' 'custom label')}}
+                        {{#if name '!=' 'has-size-chart'}}
+                            <dt class="productView-info-name {{name}}">{{name}}:</dt>
+                            <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                        {{/if}}
+                        {{/and}}
+                    {{/each}}
+                </dl>
+            </div>
+        </div>
+    {{/if}}
+
     {{#if theme_settings.show_custom_tabs}}
         <div class="tab-content" id="tab-custom">
             <a class="tab-titleMobile" href="#tab-custom" data-tab-load="{{theme_settings.show_custom_tab_link}}" data-tab-check="true"><span>{{lang 'products.custom_tab'}}</span></a>
@@ -91,4 +117,7 @@
             </div>
         </div>
     {{/if}}
+
+    <!-- Custom Ask An Expert -->
+    {{> components/custom/products/halo-product-ask-an-expert}}
 </div>
