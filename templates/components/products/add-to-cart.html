@@ -5,7 +5,7 @@
                 <div class="form-increment" data-quantity-change>
                     <button class="button button--secondary button--icon" data-action="dec">
                         <span class="is-srOnly">{{lang 'products.quantity_decrease' name=product.title}}</span>
-                        <i class="icon" aria-hidden="true">
+                        <i class="icon">
                             <svg>
                                 <use href="#icon-qty-minus"/>
                             </svg>
@@ -18,12 +18,13 @@
                         value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
                         data-quantity-min="{{product.min_purchase_quantity}}"
                         data-quantity-max="{{product.max_purchase_quantity}}"
+                        aria-label="Quantity"
                         min="1"
                         pattern="[0-9]*"
                         aria-live="polite">
                     <button class="button button--secondary button--icon" data-action="inc">
                         <span class="is-srOnly">{{lang 'products.quantity_increase' name=product.title}}</span>
-                        <i class="icon" aria-hidden="true">
+                        <i class="icon">
                             <svg>
                                 <use href="#icon-qty-plus"/>
                             </svg>
