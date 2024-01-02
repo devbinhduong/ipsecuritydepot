@@ -108,15 +108,16 @@ export default function(context) {
         const showDesktop = wrap.data('slick-show-desktop') ? wrap.data('slick-show-desktop') : 5,
             showTablet = wrap.data('slick-show-tablet') ? wrap.data('slick-show-tablet') : 3,
             showMobile = wrap.data('slick-show-mobile') ? wrap.data('slick-show-mobile') : 2,
+            showArrowDesktop = wrap.data('show-arrow-desktop') ? wrap.data('show-arrow-desktop') : false,
             showDotbars = wrap.data('dots-bar')? wrap.data('dots-bar') : true;
 
         wrap.slick({
             dots: true,
-            arrows: false,
+            arrows: showArrowDesktop,
             infinite: false,
             mobileFirst: true,
             slidesToShow: 1,
-            slidesToScroll: 1,
+            slidesToScroll: 1,  
 
             responsive: [
                 {
