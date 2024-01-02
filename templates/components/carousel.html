@@ -1,4 +1,4 @@
-<section class="heroCarousel{{#if theme_settings.show_style_hl_multi_level}} special-style{{/if}}"
+<section class="heroCarousel"
     data-slick='{
     "fade": true,
     "arrows": false,
@@ -60,7 +60,21 @@
             </div>
             <div class="heroCarousel-content-wrapper {{position}}">
                 {{#if heading}}
-                    {{> components/carousel-content show_background=true}}
+                    {{#if @index '==' 0}}
+                        {{> components/carousel-content show_background=true subHeading=../theme_settings.carouel_bold_text_1}}
+                    {{/if}}
+                    {{#if @index '==' 1}}
+                        {{> components/carousel-content show_background=true subHeading=../theme_settings.carouel_bold_text_2}}
+                    {{/if}}
+                    {{#if @index '==' 2}}
+                        {{> components/carousel-content show_background=true subHeading=../theme_settings.carouel_bold_text_3}}
+                    {{/if}}
+                    {{#if @index '==' 3}}
+                        {{> components/carousel-content show_background=true subHeading=../theme_settings.carouel_bold_text_4}}
+                    {{/if}}
+                    {{#if @index '==' 4}}
+                        {{> components/carousel-content show_background=true subHeading=../theme_settings.carouel_bold_text_5}}
+                    {{/if}}
                 {{else}}
                     {{#if text}}
                         {{> components/carousel-content show_background=true}}

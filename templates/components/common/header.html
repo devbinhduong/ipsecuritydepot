@@ -14,17 +14,21 @@
     <!-- Header Top -->
     <div class="header__top">
         <div class="container">
-            <div class="header-top__list flex">
-                <div class="header-top__item">
-                    <a href="{{theme_settings.header_top_left_link}}" class="no-underline hover-link hover-link--headerTop">
-                        {{theme_settings.header_top_left_text}}
-                    </a>
-                </div>
-                <div class="header-top__item text-center text-right-tablet">
-                    <a href="{{theme_settings.header_top_center_link}}" class="no-underline hover-link hover-link--headerTop">
-                        {{theme_settings.header_top_center_text}}
-                    </a>
-                </div>
+            <div class="header-top__list flex-between">
+                {{#if theme_settings.header_top_left_text}}
+                    <div class="header-top__item">
+                        <a href="{{theme_settings.header_top_left_link}}" class="no-underline hover-link hover-link--headerTop">
+                            {{theme_settings.header_top_left_text}}
+                        </a>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.header_top_center_text}}
+                    <div class="header-top__item text-center text-right-tablet">
+                        <a href="{{theme_settings.header_top_center_link}}" class="no-underline hover-link hover-link--headerTop">
+                            {{theme_settings.header_top_center_text}}
+                        </a>
+                    </div>
+                {{/if}}
                 <div class="header-top__item text-right hide-on-tablet">
                     <a href="tel:+{{settings.phone_number}}" class="no-underline hover-link hover-link--headerTop">
                         <span class="icon icon--phone">

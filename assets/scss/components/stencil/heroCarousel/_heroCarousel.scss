@@ -77,8 +77,8 @@
     .slick-next {
         right: 15px;
 
-        @include smin-xxl {
-            right: 80px;
+        @include smin-m {
+            right: 80px !important;
         }
 
         &:before {
@@ -95,8 +95,8 @@
     .slick-prev {
         left: 15px;
 
-        @include smin-xxl {
-            left: 80px;
+        @include smin-m {
+            left: 80px !important;
         }
 
         &:before {

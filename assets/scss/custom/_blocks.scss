@@ -242,7 +242,7 @@
             left: 75px;
             transform: translateY(-50%);
             padding: 60px;
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 14px;
             max-width: 740px;
             width: 100%;
@@ -300,10 +300,6 @@
                 margin-top: 0;
                 margin-bottom: 10px;
 
-                @include smin-xl {
-                    max-width: 330px;
-                }
-                
                 @include max-tablet {
                     font-size: 28px;
                     line-height: 1.2;
@@ -317,11 +313,7 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: 30px; 
-                text-transform: capitalize;
                 margin-bottom: 30px;
-                @include smin-xl {
-                    max-width: 340px;
-                }
 
                 @include max-tablet {
                     line-height: 1.2;
@@ -342,6 +334,12 @@
                     width: 100%;
                 }
             }
+        }
+    }
+
+    &.section-banner-text--2 {
+        .bannerText__content {
+            max-width: 630px;
         }
     }
 }
@@ -461,8 +459,11 @@
 
 /* Recently Posts */
 .home-recently-posts {
-    padding-top: 120px;
     background-image: linear-gradient(#ffffff, #f8f8f8);
+    
+    &:not(.home-recently-posts--no-pt) {
+        padding-top: 120px;
+    }
 
     @include max-tablet {
         padding-top: 60px;
@@ -508,6 +509,11 @@
                 box-shadow: 0px 10px 16px 0px rgba(0, 0, 0, 0.06);
 
                 .recentlyPost__item {
+                    .item-image {
+                        border-radius: 8px;
+                        overflow: hidden;
+                    }
+
                     .image-with-overlay {
                         height: 270px;
                         display: block;
@@ -515,7 +521,6 @@
                         
                         img {
                             height: 100%;
-                            border-radius: 8px;
                         }
                     }
 

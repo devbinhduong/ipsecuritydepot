@@ -87,3 +87,7 @@
 
 @import "layouts/_layouts"; // 1
 @import "custom/custom-theme";
+
+/* Customer SCSS */
+@import "ipsd-blog-edits";
+@import "ipsd-homepage-edits";

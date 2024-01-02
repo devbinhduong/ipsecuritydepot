@@ -6,12 +6,9 @@
 //    please update .heroCarousel too.
 //
 // =============================================================================
-html,
 body {
     scroll-behavior: smooth;
-}
 
-body {
     &:not(.page-type-default) {
         .header {
             box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.05);

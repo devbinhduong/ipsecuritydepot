@@ -1,0 +1,61 @@
+/*
+Suggested CSS edits to the IP Security Depot Blog by Jonathan Abresch on 29 Dec 2023.
+If an existing declaration is not specifically overruled by one of my suggestions, do not change it.
+*/
+
+/* Under <div class="blog-post-header"> */
+
+.blog-post-header {
+  .blog-header {
+    .blog-title {
+      font-size: 1.4rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.01rem;
+    }
+    .blog-date {
+      margin: 0.25rem 0 0 0;
+      color: #909090;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* Under <div class="blog-post-figure"> */
+
+.blog-post-figure {
+  margin: 2.8rem auto;
+  width: 800px;
+}
+
+/* Under <div class="blog-post-body"> */
+
+.blog-post-body {
+  margin: 2.8rem auto 0;
+  width: 800px;
+  .blog-post {
+    line-height: 1.9rem;
+    p {
+      margin: 0 0 2.15rem;
+      font-size: 1.15rem;
+      a {
+        color: #0000FF;
+        font-weight: 500;
+      }
+    }
+    h2 {
+      margin: 2.15rem 0 0.65rem 0;
+      color: #000;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01rem;
+    }
+    h3 {
+      margin: 2.15rem 0 0.65rem 0;
+      color: #909090;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01rem;
+    }
+  }
+}
